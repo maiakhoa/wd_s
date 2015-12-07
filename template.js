@@ -62,7 +62,7 @@ exports.template = function (grunt, init, done) {
 		props.keywords = [];
 		props.version = '0.1.0';
 		props.devDependencies = {
-			'grunt': "latest",
+			"grunt": "latest",
 	 		'autoprefixer': 'latest',
 		    'css-mqpacker': 'latest',
 		    'glob': 'latest',
