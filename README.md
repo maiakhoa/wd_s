@@ -35,7 +35,10 @@ Basic knowledge of the command line and the following dependencies are required 
 
 # Theme Setup
 
-1) Clone this repo into ~/.grunt-init/ or %USERPROFILE%\.grunt-init\ for Windows users.
+1) Clone this repo into ~/.grunt-init/ or %USERPROFILE%\.grunt-init\ for Windows users. If cloning from a branch off of the master wd_s repo, use the following syntax:
+```bash
+$ git clone -b grunt-init --single-branch https://github.com/WebDevStudios/wd_s.git
+```
 
 2) To create a new project using a grunt-init template just run the following command in the root of your project directory:
 
