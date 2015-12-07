@@ -1,18 +1,11 @@
-## New and improved wd_s with scaffolding
-=============
-
-
-Roll up a new WordPress theme in no time by answering a few questions, using grunt-init.
-	
-Props to Bronson Quick for the original article: 
-https://bronsonquick.com.au/blog/2013/10/16/intro-into-grunt-wordpress-project-scaffolding/
+{%= prefix %}
+===
 
 [WebDevStudios](http://webdevstudios.com) fork of Automattic's [_s](https://github.com/Automattic/_s). Used as our new project theme boilerplate. Pull requests are welcome!
 
 # Features
 * Grunt
 * Sass
-* PostCSS
 * SassDocs
 * Bourbon
 * Neat
@@ -25,7 +18,7 @@ https://bronsonquick.com.au/blog/2013/10/16/intro-into-grunt-wordpress-project-s
 
 # Pre-Installation
 
-Basic knowledge of the command line and the following dependencies are required to use wd_s:
+Basic knowledge of the command line and the following dependencies are required to use {%= prefix %}:
 
 * [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
 * [Node](http://nodejs.org/)
@@ -35,26 +28,27 @@ Basic knowledge of the command line and the following dependencies are required 
 
 # Theme Setup
 
-1) Clone this repo into ~/.grunt-init/ or %USERPROFILE%\.grunt-init\ for Windows users.
+To get started, we'll download the files and then to do some finding and replacing:
 
-2) To create a new project using a grunt-init template just run the following command in the root of your project directory:
+1) [Download](https://github.com/WebDevStudios/wd_s/archive/master.zip) and extract the zip into your project's `/themes` directory
+
+2) Grunt-init
+
+To create a new project using a grunt-init template just run the following command in the root of your project directory:
+
+	$ grunt-init {template name}
+	
+Once you've setup the theme, you can start the [install](https://github.com/WebDevStudios/wd_s#installation).
+
+# Installation
+
+1) From the command line, navigate to the `/themes` directory of your project
 
 ```bash
-$ grunt-init {template name}
+cd /your-project/wordpress/wp-content/themes
 ```
 
-If you are using NVM or something other than a vanilla Node and Grunt setup, you can clone to any directory and pass the path where your template lives to grunt init using:
-
-```bash
-grunt-init /path/to/my-template
-```
-
-3) Answer the questions at the prompt (or hit enter to leave the defaults).
-
-![instructions] (http://briannaorg.github.io/images/wd_s.gif)
-
-
-4) Install dependencies
+2) Install dependencies
 
 ```bash
 npm install && bower install
@@ -89,4 +83,3 @@ cd /your-project/wordpress/wp-content/themes/your-theme
 `grunt sassdoc` - Re-generate the SassDocs
 
 `grunt` - Do all the above tasks at the same time
-
