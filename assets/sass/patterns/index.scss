@@ -1,0 +1,9 @@
+////////////////////////////////////////////////////////////
+// Import everything to generate your animate sass module //
+////////////////////////////////////////////////////////////
+//--------------------------------------------------------------
+// Patterns - import everything to generate your patterns sass
+//--------------------------------------------------------------
+
+@import	"_mobile-navigation";
+$use-mobile-navigation : false !default;
