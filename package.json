@@ -18,6 +18,7 @@
     "glob": "latest",
     "gulp": "latest",
     "gulp-concat": "latest",
+    "gulp-copy": "0.0.2",
     "gulp-cssnano": "latest",
     "gulp-imagemin": "latest",
     "gulp-postcss": "latest",
