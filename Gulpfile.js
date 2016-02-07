@@ -26,6 +26,8 @@ var paths = {
 	css: ['./*.css', '!*.min.css'],
 	icons: 'assets/images/svg-icons/*.svg',
 	images: ['assets/images/*', '!assets/images/*.svg'],
+	jekyll_src: ['pattern-library/*.{html,md}', 'pattern-library/_layouts/*.html', 'pattern-library/_posts/*'],
+	jekyll_theme_sass: 'pattern-library/_sass/**/*.scss',
 	php: './*.php',
 	sass: 'assets/sass/**/*.scss',
 	scripts: 'assets/js/concat/*.js',
