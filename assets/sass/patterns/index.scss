@@ -5,5 +5,5 @@
 // Patterns - import everything to generate your patterns sass
 //--------------------------------------------------------------
 
-@import	"_mobile-navigation";
 $use-mobile-navigation : false !default;
+@import	"_mobile-navigation";
