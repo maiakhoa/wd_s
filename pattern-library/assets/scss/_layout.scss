@@ -1,0 +1,195 @@
+// Pattern Library header
+.pl-site-header {
+    border-top: 5px solid $grey-color-dark;
+    border-bottom: 1px solid $grey-color-light;
+    min-height: 56px;
+
+    // Positioning context for the mobile navigation icon
+    position: relative;
+}
+
+.pl-site-title {
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 56px;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+    float: left;
+
+    &,
+    &:visited {
+        color: $grey-color-dark;
+    }
+	
+	img {
+		max-width: 120px;
+	}
+	
+	span {
+		@extend %screen-reader-text;
+	}
+}
+
+.pl-site-nav {
+    float: right;
+    line-height: 56px;
+
+    .pl-menu-icon {
+        display: none;
+    }
+
+    .pl-page-link {
+        color: $text-color;
+        line-height: $base-line-height;
+
+        // Gaps between nav items, but not on the last one
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+    }
+
+    @include media-query($on-palm) {
+        position: absolute;
+        top: 9px;
+        right: $spacing-unit / 2;
+        background-color: $background-color;
+        border: 1px solid $grey-color-light;
+        border-radius: 5px;
+        text-align: right;
+
+        .pl-menu-icon {
+            display: block;
+            float: right;
+            width: 36px;
+            height: 26px;
+            line-height: 0;
+            padding-top: 10px;
+            text-align: center;
+
+            > svg {
+                width: 18px;
+                height: 15px;
+
+                path {
+                    fill: $grey-color-dark;
+                }
+            }
+        }
+
+        .pl-trigger {
+            clear: both;
+            display: none;
+        }
+
+        &:hover .trigger {
+            display: block;
+            padding-bottom: 5px;
+        }
+
+        .pl-page-link {
+            display: block;
+            padding: 5px 10px;
+
+            &:not(:last-child) {
+                margin-right: 0;
+            }
+            margin-left: 20px;
+        }
+    }
+}
+
+
+// Pattern Library site footer
+.pl-site-footer {
+    border-top: 1px solid $grey-color-light;
+    padding: $spacing-unit 0;
+}
+
+
+// Pattern Library PAGE styling
+.pl-page-content {
+    padding: $spacing-unit 0;
+}
+
+.pl-page-heading {
+    font-size: 20px;
+}
+
+.pl-post-list {
+    margin-left: 0;
+    list-style: none;
+
+    > li {
+        margin-bottom: $spacing-unit;
+    }
+}
+
+.pl-post-meta {
+    font-size: $small-font-size;
+    color: $grey-color;
+}
+
+.pl-post-link {
+    display: block;
+    font-size: 24px;
+}
+
+
+// Pattern Library POST styling
+.pl-post-header {
+    margin-bottom: $spacing-unit;
+}
+
+.pl-post-title {
+    font-size: 42px;
+    letter-spacing: -1px;
+    line-height: 1;
+
+    @include media-query($on-laptop) {
+        font-size: 36px;
+    }
+}
+
+.pl-post-content {
+    margin-bottom: $spacing-unit;
+}
+
+
+// Pattern Libary category blocks
+.pl-category {
+	float: left;
+	margin-right: 2%;
+	width: 32%;
+	
+	@include media-query($on-palm) {
+		float: none;
+		margin-right: 0 !important;
+		width: 100%;
+	}
+	
+	&:nth-of-type(3n) {
+		margin-right: 0;
+	}
+	
+	h2 {
+		display: inline-block;
+		line-height: 1;
+		vertical-align: top;
+		
+		span {
+			background-color: $brand-color;
+			border-radius: 50%;
+			color: white;
+			display: inline-block;
+			font-size: rem(11);
+			font-weight: 400;
+			height: rem(22);
+			line-height: 1.2;
+			top: rem(-6);
+			padding: rem(4);
+			position: relative;
+			text-align: center;
+			width: rem(22);
+		}
+	}
+}
