@@ -5,5 +5,11 @@
 // Patterns - import everything to generate your patterns sass
 //--------------------------------------------------------------
 
-$use-mobile-navigation : false !default;
+$use-icon-bullet-points : true !default;
+@import	"_icon-bullet-points";
+
+$use-mobile-navigation : true !default;
 @import	"_mobile-navigation";
+
+$use-navigation-menu-with-submenus : true !default;
+@import	"_navigation-menu-with-submenus";
