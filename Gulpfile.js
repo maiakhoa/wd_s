@@ -34,6 +34,80 @@ var paths = {
 	sprites: 'assets/images/sprites/*.png'
 };
 
+var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
+var messages = {
+    jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
+};
+
+/**
+ * Build the Jekyll Site
+ */
+gulp.task('jekyll-build', function (done, code) {
+    browserSync.notify(messages.jekyllBuild);
+    return cp.spawn('jekyll', ['build'], {stdio: 'inherit'}).on('close', done);
+});
+
+/**
+ * Rebuild Jekyll & do page reload
+ */
+gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
+    browserSync.reload();
+});
+
+/**
+ * Wait for jekyll-build, then launch the Server
+ */
+gulp.task('jekyll-browser-sync', ['jekyllstyles', 'jekyll-build'], function() {
+    browserSync({
+        proxy: 'http://wd-s.dev',
+    });
+});
+
+/**
+ * Compile files from _scss into both _site/css (for live injecting) and site (for future jekyll builds)
+ */
+gulp.task('jekyllstyles', function () {
+    return gulp.src('pattern-library/assets/scss/style.scss')
+		
+		// Wrap tasks in a sourcemap.
+		.pipe(sourcemaps.init())
+
+			// Compile Sass using LibSass.
+			.pipe(sass({
+				//includePaths: neat, // Include Bourbon & Neat
+				outputStyle: 'expanded' // Options: nested, expanded, compact, compressed
+			}))
+
+			// Parse with PostCSS plugins.
+			.pipe(postcss([
+				autoprefixer({
+					browsers: ['last 2 version']
+				}),
+				mqpacker({
+					sort: true
+				}),
+			]))
+
+		// Create sourcemap.
+		.pipe(sourcemaps.write())
+		
+		.pipe(cssnano({
+			safe: true // Use safe optimizations
+		}))
+		
+		.pipe(gulp.dest('pattern-library/assets'))
+});
+
+/**
+ * Watch scss files for changes & recompile
+ * Watch html/md files, run jekyll & reload BrowserSync
+ */
+gulp.task('pl-watch', function () {
+	// Run tasks when files change.
+	gulp.watch(paths.jekyll_assets, ['jekyllstyles']);
+	gulp.watch(paths.jekyll_src, ['jekyll-rebuild']);
+});
+
 /**
  * Compile Sass and run stylesheet through PostCSS.
  *
@@ -229,6 +303,8 @@ gulp.task('clean:scripts', function() {
 /**
  * Create indivdual tasks.
  */
+gulp.task('jekyll-styles', ['jekyll-styles']);
+gulp.task('pattern-library', ['jekyll-browser-sync', 'pl-watch']);
 gulp.task('icons', ['clean:icons', 'svgmin', 'svgstore']);
 gulp.task('styles', ['clean:styles', 'postcss', 'cssnano']);
 gulp.task('scripts', ['clean:scripts', 'uglify']);
