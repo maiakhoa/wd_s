@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<div class="pl-home">
+
+{% assign patternCategories = site.patterns | group_by: "category" | sort: "name" %}
+
+{% for patternCategory in patternCategories %}
+{% assign patternsPerCategory = patternCategory.items | size %}
+<div class="pl-category">
+<h2>{{ patternCategory.name }} <span>{{ patternsPerCategory}}</span></h2>
+<ul>{% for item in patternCategory.items %}
+<li><a href="{{item.url | prepend: site.baseurl | prepend: site.url }}">{{item.title}}</a></li>
+{%endfor%}</ul>
+</div><!-- .pl-category -->
+{% endfor %}
+
+</div>

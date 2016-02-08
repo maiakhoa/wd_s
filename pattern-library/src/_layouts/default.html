@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	{% include head.html %}
+
+	<body>
+
+		{% include header.html %}
+
+		<div class="pl-page-content">
+			<div class="pl-wrapper">
+				{{ content }}
+			</div><!-- .pl-wrapper -->
+		</div><!-- .pl-page-content -->
+
+		{% include footer.html %}
+		
+		<script>
+			var button = document.getElementById('pl-toggle-code'); // Assumes element with id='button'
+
+			button.onclick = function() {
+			    var div = document.getElementById('pl-code-block');
+			    if (div.style.display == 'none') {
+			        div.style.display = 'block';
+					button.innerText = 'Hide';
+			    }
+			    else {
+			        div.style.display = 'none';
+					button.innerText = 'Show';
+			    }
+			};
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<article class="pl-pattern">
+
+	<header class="pl-post-header">
+		<h1 class="pl-post-title">{{ page.title }}</h1>
+		<p class="pl-post-meta"><time datetime="{{ page.date }}">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span>{{ page.author }}</span>{% endif %}</p>
+		{{% if page.description %}}<p>{{ page.description }}</p>{{% endif %}}
+	</header><!-- .pl-post-header -->
+
+	<div class="pl-post-content">
+		{{ content }}
+	</div><!-- .pl-post-content -->
+	
+	<a href="javascript:void(0)" id="pl-toggle-code">Show</a>
+	
+	<div id="pl-code-block" class="pl-post-code" style="display:none;">
+		{% highlight html linenos %}
+		{{ content }}
+		{% endhighlight %}
+	</div><!-- .pl-post-content -->
+
+</article><!-- .pl-pattern -->
