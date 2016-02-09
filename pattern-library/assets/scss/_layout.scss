@@ -158,6 +158,7 @@
 // Pattern Libary category blocks
 .pl-category {
 	float: left;
+	margin-bottom: rem(26);
 	margin-right: 2%;
 	width: 32%;
 	
@@ -174,6 +175,7 @@
 	h2 {
 		display: inline-block;
 		line-height: 1;
+		margin-bottom: rem(8);
 		vertical-align: top;
 		
 		span {
