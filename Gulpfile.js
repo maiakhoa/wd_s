@@ -15,6 +15,7 @@ var postcss = require('gulp-postcss');
 var reload = browserSync.reload;
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
+var sassJson = require('gulp-sass-json');
 var sort = require('gulp-sort');
 var sourcemaps = require('gulp-sourcemaps');
 var spritesmith = require('gulp.spritesmith');
@@ -32,6 +33,7 @@ var paths = {
 	jekyll_assets: 'pattern-library/assets/scss/**/*.scss',
 	php: './*.php',
 	sass: 'assets/sass/**/*.scss',
+	sass_colors: 'assets/sass/utilities/variables/_colors.scss',
 	scripts: 'assets/js/concat/*.js',
 	sprites: 'assets/images/sprites/*.png'
 };
@@ -116,6 +118,13 @@ gulp.task('jekyll-watch', function () {
 	// Watch WP theme's Style and Scripts too
 	gulp.watch(paths.sass, ['styles']);
 	gulp.watch(paths.scripts, ['scripts']);
+});
+
+// create colors.json from theme's _colors.scss
+gulp.task('sass-json', function () {
+    return gulp.src(paths.sass_colors)
+        .pipe(sassJson())
+        .pipe(gulp.dest('pattern-library/src/_data'));
 });
 
 /**
@@ -279,6 +288,7 @@ gulp.task('watch', function() {
 	var files = [
 		paths.icons,
 		paths.sass,
+		paths.sass_colors,
 		paths.scripts,
 		paths.sprites
 	];
@@ -291,6 +301,7 @@ gulp.task('watch', function() {
 	// Run tasks when files change.
 	gulp.watch(paths.icons, ['icons']);
 	gulp.watch(paths.sass, ['styles']);
+	gulp.watch(paths.sass_colors, ['sass-json']);
 	gulp.watch(paths.scripts, ['scripts']);
 	gulp.watch(paths.sprites, ['sprites']);
 });
