@@ -64,19 +64,45 @@
 	</header><!-- .pl-page-header -->
 
 	<div class="pl-page-content">
-		<p>This is the base Jekyll theme 898 asdf. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at <a href="http://jekyllrb.com/">jekyllrb.com</a></p>
+		<p>This pattern library is build on <a href="http://jekyllrb.com/">Jekyll</a>.</p>
 
-<p>You can find the source code for the Jekyll new theme at:
-<a href="https://github.com/jglovier"><span class="pl-icon pl-icon--github"><svg viewbox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"></path></svg>
-</span><span class="pl-username">jglovier</span></a>
- /
-<a href="https://github.com/jglovier/jekyll-new">jekyll-new</a></p>
+<h2 id="adding-a-new-pattern">Adding a new pattern</h2>
 
-<p>You can find the source code for Jekyll at
-<a href="https://github.com/jekyll"><span class="pl-icon pl-icon--github"><svg viewbox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"></path></svg>
-</span><span class="pl-username">jekyll</span></a>
- /
-<a href="https://github.com/jekyll/jekyll">jekyll</a></p>
+<ul>
+  <li>Create a new file in pattern-library/src/_patterns/ , e.g. my-cool-pattern.html</li>
+  <li>Make sure you have the appropriate YAML front matter at the top, and your code underneath, e.g.:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">---</span>
+<span class="s">author</span><span class="pi">:</span> <span class="s">Huey Lewis</span>
+<span class="s">category</span><span class="pi">:</span> <span class="s">layout</span>
+<span class="s">date</span><span class="pi">:</span> <span class="s">2016-02-08 12:12:25 -0500</span>
+<span class="s">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">A</span><span class="nv"> </span><span class="s">responsive</span><span class="nv"> </span><span class="s">grid</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">Neat's</span><span class="nv"> </span><span class="s">&lt;code&gt;span-columns&lt;/code&gt;</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">media</span><span class="nv"> </span><span class="s">queries.</span><span class="nv"> </span><span class="s">View</span><span class="nv"> </span><span class="s">more</span><span class="nv"> </span><span class="s">Neat</span><span class="nv"> </span><span class="s">[examples](http://neat.bourbon.io/examples/).</span><span class="nv"> </span><span class="s">**Requires:**</span><span class="nv"> </span><span class="s">jQuery</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">[jQuery</span><span class="nv"> </span><span class="s">MatchHeight](https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js)"</span>
+<span class="s">layout</span><span class="pi">:</span> <span class="s">pattern</span>
+<span class="s">tags</span><span class="pi">:</span> <span class="s">grid</span>
+<span class="s">title</span><span class="pi">:</span>  <span class="s2">"</span><span class="s">Non-Flexbox</span><span class="nv"> </span><span class="s">Grid"</span>
+<span class="nn">---</span></code></pre></figure>
+
+<ul>
+  <li>Add your associated Sass partial to the theme’s assets/sass/patterns/_my-cool-pattern.scss. Be sure to wrap it in conditional so FEDs can turn the pattern on/off in the patterns/index.scss, e.g.</li>
+</ul>
+
+<p><code class="highlighter-rouge">_my-cool-pattern.scss</code></p>
+
+<figure class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="c1">// set $use-my-cool-pattern: true/false in patterns/index.scss
+</span><span class="k">@if</span> <span class="nv">$use-my-cool-pattern</span> <span class="o">==</span> <span class="bp">true</span> <span class="err">{</span>
+	<span class="c1">// your patterns sass here
+</span><span class="err">}</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">patterns/index.scss</code></p>
+
+<figure class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="c1">// set $use-my-cool-pattern: true/false in patterns/index.scss
+</span><span class="nv">$use-my-cool-pattern</span> <span class="p">:</span> <span class="bp">true</span> <span class="o">!</span><span class="nb">default</span><span class="err">;</span>
+<span class="k">@import</span>	<span class="s">"_my-cool-pattern";</span></code></pre></figure>
+
+<ul>
+  <li>Drop any Javascript files in theme’s assets/js/patterns/</li>
+</ul>
 
 	</div><!-- .pl-page-content -->
 
