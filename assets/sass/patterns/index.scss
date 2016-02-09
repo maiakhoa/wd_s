@@ -19,3 +19,6 @@ $use-navigation-menu-with-submenus : true !default;
 
 $use-non-flexbox-grid : true !default;
 @import	"_non-flexbox-grid";
+
+$use-pagination : true !default;
+@import	"_pagination";
