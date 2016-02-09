@@ -7,6 +7,7 @@ var cssnano = require('gulp-cssnano');
 var del = require('del');
 var gulp = require('gulp');
 var imagemin = require('gulp-imagemin');
+var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var mqpacker = require('css-mqpacker');
 var neat = require('node-neat').includePaths;
 var postcss = require('gulp-postcss');
@@ -34,7 +35,6 @@ var paths = {
 	sprites: 'assets/images/sprites/*.png'
 };
 
-var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
