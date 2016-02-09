@@ -5,6 +5,9 @@
 // Patterns - import everything to generate your patterns sass
 //--------------------------------------------------------------
 
+$use-flexbox-grid : true !default;
+@import	"_flexbox-grid";
+
 $use-icon-bullet-points : true !default;
 @import	"_icon-bullet-points";
 
