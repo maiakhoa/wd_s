@@ -1,0 +1,14 @@
+---
+layout: page
+title: Colors
+permalink: /colors/
+---
+
+<div class="pl-colors">
+	{% for color in site.data.colors %}
+		<div class="pl-color-swatch">
+			<div class="pl-color-swatch-tile" style="background-color:{{color[1]}}"></div>
+			<div class="pl-color-swatch-text" style="border-color:{{color[1]}};">{{ color[0] }} : {{ color[1] }}</div>
+		</div><!-- .pl-color-swatch -->
+	{% endfor %}
+</div><!-- .pl-colors -->
