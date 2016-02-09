@@ -2,12 +2,29 @@
  * Syntax highlighting styles
  */
 .highlight {
-    background: #fff;
+    background: lighten($grey-color, 46%);
     @extend %vertical-rhythm;
 
     .highlighter-rouge & {
       background: #eef;
     }
+	
+	pre {
+		font-size: rem(12);
+	    line-height: 1.5;
+	    margin: 0 0 rem(10);
+	    max-width: 100%;
+	    overflow: auto;
+	    padding: rem(4) rem(6) rem(0) rem(6);
+		
+		.lineno {
+			color: lighten($grey-color, 36%);
+		}
+	}
+	
+	table {
+		margin: 0;
+	}
 
     .c     { color: #998; font-style: italic } // Comment
     .err   { color: #a61717; background-color: #e3d2d2 } // Error
