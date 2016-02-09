@@ -193,3 +193,16 @@
 		}
 	}
 }
+
+#pl-toggle-code {
+	border-top: 1px dashed $grey-color-dark;
+	color: $grey-color;
+	display: block;
+	font-size: rem(14);
+	margin: 0 auto;
+	padding: rem(8) rem(10);
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: rem(80);
+}
