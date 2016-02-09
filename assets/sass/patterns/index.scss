@@ -16,3 +16,6 @@ $use-mobile-navigation : true !default;
 
 $use-navigation-menu-with-submenus : true !default;
 @import	"_navigation-menu-with-submenus";
+
+$use-non-flexbox-grid : true !default;
+@import	"_non-flexbox-grid";
