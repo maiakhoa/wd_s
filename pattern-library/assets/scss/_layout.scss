@@ -208,3 +208,41 @@
 	text-transform: uppercase;
 	width: rem(80);
 }
+
+.pl-colors {
+	
+	.pl-color-swatch {
+		display: block;
+		float: left;
+		margin-bottom: rem(26);
+		margin-right: 1%;
+		width: 19%;
+		
+		@include media-query($on-palm) {
+			float: none;
+			margin-right: 0 !important;
+			width: 100%;
+		}
+		
+		&:nth-of-type(5n) {
+			margin-right: 0;
+		}
+		
+		.pl-color-swatch-tile {
+			display: block;
+			height: rem(80);
+			width: 100%;
+		}
+		
+		.pl-color-swatch-text {
+			background-color: white;
+			border-style: solid;
+			border-width: 1px;
+			display: block;
+			height: rem(75);
+			padding: rem(8);
+			text-align: center;
+			width: 100%;
+		}
+	}
+}
