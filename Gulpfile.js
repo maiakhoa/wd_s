@@ -10,6 +10,7 @@ var imagemin = require('gulp-imagemin');
 var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var mqpacker = require('css-mqpacker');
 var neat = require('node-neat').includePaths;
+var notify = require('gulp-notify');
 var postcss = require('gulp-postcss');
 var reload = browserSync.reload;
 var rename = require('gulp-rename');
@@ -35,6 +36,7 @@ var paths = {
 	sprites: 'assets/images/sprites/*.png'
 };
 
+// Custom CLI messages
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
@@ -57,16 +59,16 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
 /**
  * Wait for jekyll-build, then launch the Server
  */
-gulp.task('jekyll-browser-sync', ['jekyllstyles', 'jekyll-build'], function() {
-    browserSync({
-        proxy: 'http://wd-s.dev',
+gulp.task('jekyll-browser-sync', ['jekyll-build'], function() {
+	browserSync({
+        server: 'pattern-library/dist'
     });
 });
 
 /**
  * Compile files from _scss into both _site/css (for live injecting) and site (for future jekyll builds)
  */
-gulp.task('jekyllstyles', function () {
+gulp.task('jekyll-styles', function () {
     return gulp.src('pattern-library/assets/scss/style.scss')
 		
 		// Wrap tasks in a sourcemap.
@@ -96,16 +98,24 @@ gulp.task('jekyllstyles', function () {
 		}))
 		
 		.pipe(gulp.dest('pattern-library/assets'))
+		.pipe(notify({ message: 'Jekyll assets compiled' }))
+		.pipe(browserSync.stream());
 });
 
 /**
  * Watch scss files for changes & recompile
  * Watch html/md files, run jekyll & reload BrowserSync
  */
-gulp.task('pl-watch', function () {
+gulp.task('jekyll-watch', function () {
 	// Run tasks when files change.
-	gulp.watch(paths.jekyll_assets, ['jekyllstyles']);
+	
+	// Watch Jekyll src/ styles and .html/.md files
+	gulp.watch(paths.jekyll_assets, ['jekyll-styles']);
 	gulp.watch(paths.jekyll_src, ['jekyll-rebuild']);
+	
+	// Watch WP theme's Style and Scripts too
+	gulp.watch(paths.sass, ['styles']);
+	gulp.watch(paths.scripts, ['scripts']);
 });
 
 /**
@@ -275,7 +285,7 @@ gulp.task('watch', function() {
 
 	// Kick off BrowserSync.
 	browserSync.init( files, {
-		proxy: "_s.dev",
+		proxy: "wd-s.dev",
 	});
 
 	// Run tasks when files change.
@@ -303,7 +313,7 @@ gulp.task('clean:scripts', function() {
 /**
  * Create indivdual tasks.
  */
-gulp.task('jekyll-styles', ['jekyll-styles']);
+gulp.task('jekyll', ['jekyll-browser-sync', 'jekyll-watch']);
 gulp.task('pattern-library', ['jekyll-browser-sync', 'pl-watch']);
 gulp.task('icons', ['clean:icons', 'svgmin', 'svgstore']);
 gulp.task('styles', ['clean:styles', 'postcss', 'cssnano']);
