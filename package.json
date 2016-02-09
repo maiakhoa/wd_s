@@ -21,6 +21,7 @@
     "gulp-copy": "0.0.2",
     "gulp-cssnano": "latest",
     "gulp-imagemin": "latest",
+	"gulp-notify": "^2.2.0",
     "gulp-postcss": "latest",
     "gulp-rename": "latest",
     "gulp-sass": "latest",
