@@ -99,3 +99,10 @@
 		padding: 0;
 	}
 }
+
+.pl-post-header {
+	
+	code {
+		background: lighten($grey-color, 40%);
+	}
+}
