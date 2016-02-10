@@ -51,10 +51,10 @@ var messages = {
  * Build the Jekyll Site
  */
 gulp.task('browserify', function () {
-    browserify('./assets/js/patterns-src.js')
+    browserify('./assets/js/patterns.js')
 		.bundle()
 		.on('error', function(e) {
-			gutile.log(e);
+			gutil.log(e);
 		})
 		.pipe(source('patterns-dist.js'))
 		.pipe(gulp.dest('./assets/js/dist'))
