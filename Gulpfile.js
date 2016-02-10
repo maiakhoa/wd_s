@@ -47,6 +47,10 @@ var messages = {
  * Build the Jekyll Site
  */
 gulp.task('jekyll-build', function (done, code) {
+/**
+ * Build the Jekyll Site
+ */
+gulp.task('jekyll-build', ['sass-json'], function (done, code) {
     browserSync.notify(messages.jekyllBuild);
     return cp.spawn('jekyll', ['build'], {stdio: 'inherit'}).on('close', done);
 });
@@ -62,8 +66,20 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
  * Wait for jekyll-build, then launch the Server
  */
 gulp.task('jekyll-browser-sync', ['jekyll-build'], function() {
-	browserSync({
-        server: 'pattern-library/dist'
+	// Files to watch.
+	var files = [
+		paths.icons,
+		paths.jekyll_assets,
+		paths.jekyll_src,
+		paths.sass,
+		paths.sass_colors,
+		paths.scripts,
+		paths.sprites
+	];
+	
+	browserSync.init( files,{
+		proxy: 'http://wd-s.dev',
+		startPath: 'wp-content/themes/wd_s/pattern-library/dist/index.html'
     });
 });
 
@@ -113,18 +129,20 @@ gulp.task('jekyll-watch', function () {
 	
 	// Watch Jekyll src/ styles and .html/.md files
 	gulp.watch(paths.jekyll_assets, ['jekyll-styles']);
-	gulp.watch(paths.jekyll_src, ['jekyll-rebuild']);
+	gulp.watch(paths.jekyll_src, ['jekyll-build']);
 	
 	// Watch WP theme's Style and Scripts too
 	gulp.watch(paths.sass, ['styles']);
+	gulp.watch(paths.sass_colors, ['sass-json', 'jekyll-rebuild']);
 	gulp.watch(paths.scripts, ['scripts']);
 });
 
 // create colors.json from theme's _colors.scss
 gulp.task('sass-json', function () {
-    return gulp.src(paths.sass_colors)
+    var stream = gulp.src(paths.sass_colors)
         .pipe(sassJson())
-        .pipe(gulp.dest('pattern-library/src/_data'));
+        .pipe(gulp.dest('pattern-library/src/_data'))
+		return stream;
 });
 
 /**
