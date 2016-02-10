@@ -35,6 +35,7 @@ var paths = {
 	jekyll_src: ['pattern-library/src/*.{html,md}', 'pattern-library/src/_layouts/*.html', 'pattern-library/src/_posts/*.{html,md}', 'pattern-library/src/_patterns/*.{html,md}'],
 	jekyll_assets: 'pattern-library/assets/scss/**/*.scss',
 	php: './*.php',
+	php: ['./*.php', './**/*.php'],
 	sass: 'assets/sass/**/*.scss',
 	sass_colors: 'assets/sass/utilities/variables/_colors.scss',
 	scripts: 'assets/js/concat/*.js',
@@ -297,7 +298,7 @@ gulp.task('i18n', function () {
 	return gulp.src(paths.php)
 	.pipe(sort())
 	.pipe(wpPot({
-		domain: '_s.dev',
+		domain: '_s',
 		destFile:'_s.pot',
 		package: '_s',
 		bugReport: 'http://example.com',
@@ -325,7 +326,7 @@ gulp.task('watch', function() {
 
 	// Kick off BrowserSync.
 	browserSync.init( files, {
-		proxy: "wd-s.dev",
+		proxy: "_s.dev",
 	});
 
 	// Run tasks when files change.

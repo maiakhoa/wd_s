@@ -1,5 +1,5 @@
 {
-  "name": "_s",
+  "name": "wd_s",
   "version": "1.0.0",
   "description": "A theme boilerplate for WebDevStudios.",
   "author": "WebDevStudios",
@@ -19,7 +19,6 @@
     "glob": "latest",
     "gulp": "latest",
     "gulp-concat": "latest",
-    "gulp-copy": "0.0.2",
     "gulp-cssnano": "latest",
     "gulp-imagemin": "latest",
     "gulp-notify": "^2.2.0",
@@ -52,4 +51,8 @@
   "devDependencies": {
     "browserify-shim": "^3.8.12"
   }, 
+  "license": "GPL-2.0+",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
 }
