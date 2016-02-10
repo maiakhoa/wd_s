@@ -40,5 +40,8 @@
     "require-dir": "latest",
     "vinyl-source-stream": "^1.1.0"
   },
-  "license": "GPL-2.0+"
+  "license": "GPL-2.0+",
+  "devDependencies": {
+    "browserify-shim": "^3.8.12"
+  },
 }
