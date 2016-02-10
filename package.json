@@ -13,7 +13,7 @@
   "dependencies": {
     "autoprefixer": "latest",
     "browser-sync": "latest",
-    "browserify": "^13.0.0",
+    "browserify": "latest",
 	"browserify-shim": "latest",
     "css-mqpacker": "latest",
     "del": "latest",
@@ -22,23 +22,23 @@
     "gulp-concat": "latest",
     "gulp-cssnano": "latest",
     "gulp-imagemin": "latest",
-    "gulp-notify": "^2.2.0",
+    "gulp-notify": "latest",
     "gulp-postcss": "latest",
     "gulp-rename": "latest",
     "gulp-sass": "latest",
-    "gulp-sass-json": "^1.0.0",
+    "gulp-sass-json": "latest",
     "gulp-sort": "latest",
     "gulp-sourcemaps": "latest",
     "gulp-svgmin": "latest",
     "gulp-svgstore": "latest",
     "gulp-uglify": "latest",
-    "gulp-util": "^3.0.7",
+    "gulp-util": "latest",
     "gulp-wp-pot": "latest",
     "gulp.spritesmith": "latest",
     "node-neat": "latest",
     "path": "latest",
     "require-dir": "latest",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "latest"
   },
   "browserify": {
     "transform": [
