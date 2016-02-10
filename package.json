@@ -14,6 +14,7 @@
     "autoprefixer": "latest",
     "browser-sync": "latest",
     "browserify": "^13.0.0",
+	"browserify-shim": "latest",
     "css-mqpacker": "latest",
     "del": "latest",
     "glob": "latest",
@@ -39,7 +40,6 @@
     "require-dir": "latest",
     "vinyl-source-stream": "^1.1.0"
   },
-  "license": "GPL-2.0+",
   "browserify": {
     "transform": [
       "browserify-shim"
@@ -48,9 +48,6 @@
   "browserify-shim": {
     "jquery": "global:jQuery"
   },
-  "devDependencies": {
-    "browserify-shim": "^3.8.12"
-  }, 
   "license": "GPL-2.0+",
   "devDependencies": {
     "gulp": "^3.9.0"
