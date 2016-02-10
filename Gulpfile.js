@@ -1,11 +1,13 @@
 // Require our dependencies
 var autoprefixer = require('autoprefixer');
+var browserify = require('browserify');
 var browserSync = require('browser-sync');
 var concat = require('gulp-concat');
 var cp = require('child_process');
 var cssnano = require('gulp-cssnano');
 var del = require('del');
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var imagemin = require('gulp-imagemin');
 var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var mqpacker = require('css-mqpacker');
@@ -17,6 +19,7 @@ var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var sassJson = require('gulp-sass-json');
 var sort = require('gulp-sort');
+var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
 var spritesmith = require('gulp.spritesmith');
 var svgmin = require('gulp-svgmin');
@@ -46,7 +49,16 @@ var messages = {
 /**
  * Build the Jekyll Site
  */
-gulp.task('jekyll-build', function (done, code) {
+gulp.task('browserify', function () {
+    browserify('./assets/js/patterns-src.js')
+		.bundle()
+		.on('error', function(e) {
+			gutile.log(e);
+		})
+		.pipe(source('patterns-dist.js'))
+		.pipe(gulp.dest('./assets/js/dist'))
+});
+
 /**
  * Build the Jekyll Site
  */
