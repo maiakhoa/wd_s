@@ -13,6 +13,7 @@
   "dependencies": {
     "autoprefixer": "latest",
     "browser-sync": "latest",
+    "browserify": "^13.0.0",
     "css-mqpacker": "latest",
     "del": "latest",
     "glob": "latest",
@@ -31,11 +32,13 @@
     "gulp-svgmin": "latest",
     "gulp-svgstore": "latest",
     "gulp-uglify": "latest",
+    "gulp-util": "^3.0.7",
     "gulp-wp-pot": "latest",
     "gulp.spritesmith": "latest",
     "node-neat": "latest",
     "path": "latest",
-    "require-dir": "latest"
+    "require-dir": "latest",
+    "vinyl-source-stream": "^1.1.0"
   },
   "license": "GPL-2.0+"
 }
