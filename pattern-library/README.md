@@ -4,6 +4,8 @@ The Pattern Library is a rapid-prototyping tool built with [Jekyll](https://jeky
 
 Yes, it is a static site inside of a WordPress theme :)
 
+* Please keep in mind that everything in the `/dist` is destroyed and overwritten on each build by everythign in the `/src`. 
+
 Requirements:
 
 * [Jekyll](https://jekyllrb.com/)
