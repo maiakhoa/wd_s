@@ -2,6 +2,7 @@
 var autoprefixer = require('autoprefixer');
 var browserify = require('browserify');
 var browserSync = require('browser-sync');
+var buffer = require('vinyl-buffer');
 var concat = require('gulp-concat');
 var cp = require('child_process');
 var cssnano = require('gulp-cssnano');
@@ -56,7 +57,7 @@ var messages = {
 gulp.task('browserify', function (done) {	
 	// create bundles, and enqueue as needed, maybe use
 	// patterns-about.js, patterns-home.js to enqueue each bundle:
-	// assets/js/patterns-home.bungle.js
+	// assets/js/patterns-home.bundle.js
 	glob('./assets/js/patterns-src/patterns-**.js', function(err, files) {
         if(err) done(err);
 
@@ -64,10 +65,14 @@ gulp.task('browserify', function (done) {
             return browserify({ entries: [entry] })
                 .bundle()
                 .pipe(source(entry))
-                .pipe(rename({
-                    dirname: 'assets/js',
-					extname: '.bundle.js'
+				.pipe(buffer()) // <----- convert from streaming to buffered vinyl file object
+				.pipe(sourcemaps.init())
+					.pipe(uglify()) // now gulp-uglify works 
+                	.pipe(rename({
+                    	dirname: 'assets/js',
+						extname: '.bundle.js'
                 }))
+				.pipe(sourcemaps.write())
                 .pipe(gulp.dest('./'));
             });
         es.merge(tasks).on('end', done);
