@@ -1,8 +1,9 @@
 /**
  * Match Height
  */
-window.WDS_Match_Height = {};
-( function( window, $, that ) {
+module.exports = ( function( window, $ ) {
+
+	var that = {};
 
 	// Constructor.
 	that.init = function() {
@@ -43,5 +44,7 @@ window.WDS_Match_Height = {};
 
 	// Engage!
 	$( that.init );
+	
+	return that;
 
-})( window, jQuery, window.WDS_Match_Height );
+})( window, require('jquery') );

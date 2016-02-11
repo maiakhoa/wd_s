@@ -1,9 +1,10 @@
 /**
  * Mobile Navigation Menu
  */
-window.MobileNavMenu = {};
-( function( window, $, that ) {
+module.exports = ( function( window, $ ) {
 
+	var that = {};
+	
     // Constructor
     that.init = function() {
         that.cache();
@@ -116,6 +117,7 @@ window.MobileNavMenu = {};
 
     // Engage
     $( that.init );
+	
+	return that;
 
-
-})( window, jQuery, window.MobileNavMenu );
+})( window, require('jquery') );
