@@ -50,16 +50,28 @@ var messages = {
 };
 
 /**
- * Build the Jekyll Site
+ * Browserify multiple bundles w/ Gulp globs
+ * http://fettblog.eu/gulp-browserify-multiple-bundles/
  */
-gulp.task('browserify', function () {
-    browserify('./assets/js/patterns.js')
-		.bundle()
-		.on('error', function(e) {
-			gutil.log(e);
-		})
-		.pipe(source('patterns-dist.js'))
-		.pipe(gulp.dest('./assets/js/dist'))
+gulp.task('browserify', function (done) {	
+	// create bundles, and enqueue as needed, maybe use
+	// patterns-about.js, patterns-home.js to enqueue each bundle:
+	// assets/js/patterns-home.bungle.js
+	glob('./assets/js/patterns-src/patterns-**.js', function(err, files) {
+        if(err) done(err);
+
+        var tasks = files.map(function(entry) {
+            return browserify({ entries: [entry] })
+                .bundle()
+                .pipe(source(entry))
+                .pipe(rename({
+                    dirname: 'assets/js',
+					extname: '.bundle.js'
+                }))
+                .pipe(gulp.dest('./'));
+            });
+        es.merge(tasks).on('end', done);
+    })
 });
 
 /**
