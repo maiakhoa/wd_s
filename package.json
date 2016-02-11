@@ -39,6 +39,7 @@
     "node-neat": "latest",
     "path": "latest",
     "require-dir": "latest",
+    "vinyl-buffer": "latest",
     "vinyl-source-stream": "latest"
   },
   "browserify": {
