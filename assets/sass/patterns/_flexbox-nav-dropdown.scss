@@ -5,7 +5,7 @@
 	}
 	
 	// <ul> Menu defaults
-	.menu.dropdown {
+	.menu.flex-menu {
 		@include list-reset;
 
 		display: flex;
@@ -20,7 +20,7 @@
 			&.focus > a {
 				background-color: $color-dove-gray;
 			}
-		}
+		} // .menu-item
 		
 		// <ul> Each sub-menu
 		ul {
@@ -59,7 +59,7 @@
 			a:hover,
 			a.focus {
 			}
-		}
+		} // <ul>
 
 		// Menu hyperlinks
 		a {
@@ -68,7 +68,7 @@
 			display: flex;		
 			padding: rem(12) rem(24);
 			text-decoration: none;
-		}
+		} // <a>
 
 		// Current items
 		.current_page_item a,
@@ -84,5 +84,6 @@
 			width: rem(200);
 			z-index: 999999;
 		}	
-	}
-}
+	} // .menu.flex-menu
+	
+} // end if check
