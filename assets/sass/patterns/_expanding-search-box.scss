@@ -1,0 +1,80 @@
+@if $use-expanding-search-box == true {
+
+	// Set some base styles on the search form
+	.expanding-search-form {
+		display: inline-block;
+		float: right;
+		position: relative;
+		width: 100%;
+		
+		// Set height for the search form elements
+		.search-field,
+		.search-submit {
+			height: rem(60);
+		} // .search-field, .search-submit
+
+		// Style the search text input
+		input[type="text"] {
+			@include position(absolute, null 0 null null);
+			@include transition (all 0.5s ease-in-out);
+			
+			background-color: rgba($color-alto, 0.3);
+			border: none;
+			border-bottom: 1px solid rgba($color-black,.7);
+			color: rgba($color-black, .7);
+			cursor: pointer;
+			font-size: rem(36);
+			font-weight: 300;
+			opacity: 0;
+			padding-right: rem(60);
+			width: 0;
+			z-index: 3;
+			
+			// When we focus on the text input, display it
+			&:focus {
+				cursor: text;
+				opacity: 1;
+				outline: none;
+				width: 100%;
+				z-index: 1;
+			} // input[type="text"]:focus
+			
+			// When hovering the text input, adjust the color of the search icon
+			&:hover {
+
+				~ .search-submit .fa-search {
+					color: lighten($color-black, 10%);
+				}
+			} // input[type="text"]:hover
+		}
+
+		// Style the submit button
+		.search-submit {
+			@include transition (all 0.2s ease-in-out);
+			
+			background-color: transparent;
+			border: none;
+			float: right;
+			position: relative;
+			width: auto;
+			z-index: 2;
+			
+			// Adjust the color of the search icon on hover
+			&:hover {
+				background-color: $color-alto;
+			} // .search-submit:hover
+		} // .search-submit
+
+		// Style our search icon
+		.icon-search {
+			@include transition (all 0.2s ease-in-out);
+			
+			background: url('assets/images/svg-icons/search.svg') no-repeat center center;
+			background-size: contain;
+			display: block;
+			height: rem(50);
+			width: rem(50);
+		} // .icon-search
+	} // .search-form
+	
+} // end if check
