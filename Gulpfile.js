@@ -412,7 +412,6 @@ gulp.task('i18n', ['clean:pot','wp-pot']);
 gulp.task('icons', ['clean:icons', 'svg']);
 gulp.task('jekyll', ['jekyll-browser-sync', 'jekyll-watch']);
 gulp.task('pattern-library', ['jekyll-browser-sync', 'pl-watch']);
-gulp.task('icons', ['clean:icons', 'svgmin', 'svgstore']);
 gulp.task('styles', ['clean:styles', 'postcss', 'cssnano']);
 gulp.task('scripts', ['clean:scripts', 'uglify']);
 gulp.task('sprites', ['imagemin', 'spritesmith']);
