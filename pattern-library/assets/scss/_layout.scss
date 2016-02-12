@@ -153,6 +153,7 @@
 .pl-post-content {
     @extend %clearfix;
 	margin-bottom: $spacing-unit;
+	position: relative;
 }
 
 
