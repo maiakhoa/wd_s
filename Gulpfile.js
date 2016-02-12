@@ -1,8 +1,10 @@
 // Require our dependencies
 var autoprefixer = require('autoprefixer');
+var bourbon = require('bourbon').includePaths;
 var browserify = require('browserify');
 var browserSync = require('browser-sync');
 var buffer = require('vinyl-buffer');
+var cheerio = require('gulp-cheerio');
 var concat = require('gulp-concat');
 var cp = require('child_process');
 var cssnano = require('gulp-cssnano');
@@ -14,8 +16,9 @@ var gutil = require('gulp-util');
 var imagemin = require('gulp-imagemin');
 var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var mqpacker = require('css-mqpacker');
-var neat = require('node-neat').includePaths;
+var neat = require('bourbon-neat').includePaths;
 var notify = require('gulp-notify');
+var plumber = require('gulp-plumber');
 var postcss = require('gulp-postcss');
 var reload = browserSync.reload;
 var rename = require('gulp-rename');
@@ -49,6 +52,24 @@ var paths = {
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
+
+/**
+ * Handle errors and alert the user.
+ */
+function handleErrors () {
+	var args = Array.prototype.slice.call(arguments);
+
+	notify.onError({
+		title: 'Task Failed [<%= error.message %>',
+		message: 'See console.',
+		sound: 'Sosumi' // See: https://github.com/mikaelbr/node-notifier#all-notification-options-with-their-defaults
+	}).apply(this, args);
+
+	gutil.beep(); // Beep 'sosumi' again
+
+	// Prevent the 'watch' task from stopping
+	this.emit('end');
+}
 
 /**
  * Browserify multiple bundles w/ Gulp globs
@@ -188,12 +209,16 @@ gulp.task('sass-json', function () {
 gulp.task('postcss', function() {
 	return gulp.src('assets/sass/*.scss', paths.css)
 
+	// Deal with errors.
+	.pipe(plumber({ errorHandler: handleErrors }))
+
 	// Wrap tasks in a sourcemap.
 	.pipe(sourcemaps.init())
 
 		// Compile Sass using LibSass.
 		.pipe(sass({
-			includePaths: neat, // Include Bourbon & Neat
+			includePaths: [].concat(bourbon, neat),
+			errLogToConsole: true,
 			outputStyle: 'expanded' // Options: nested, expanded, compact, compressed
 		}))
 
@@ -212,7 +237,7 @@ gulp.task('postcss', function() {
 
 	// Create style.css.
 	.pipe(gulp.dest('./'))
-	.pipe(browserSync.stream());
+	.pipe(browserSync.stream())
 });
 
 /**
@@ -222,6 +247,7 @@ gulp.task('postcss', function() {
  */
 gulp.task('cssnano', function() {
 	return gulp.src('style.css')
+	.pipe(plumber({ errorHandler: handleErrors }))
 	.pipe(cssnano({
 		safe: true // Use safe optimizations
 	}))
@@ -231,30 +257,24 @@ gulp.task('cssnano', function() {
 });
 
 /**
- * Minify SVG files.
+ * Minify, concatenate, and clean SVG icons.
  *
  * https://www.npmjs.com/package/gulp-svgmin
- */
-gulp.task('svgmin', function() {
-	return gulp.src(paths.icons)
-	.pipe(svgmin({ plugins: [
-		{ removeDoctype: true },
-		{ removeComments: true },
-		{ removeEmptyAttrs: true },
-		{ removeUselessStrokeAndFill: true }
-	]}))
-	.pipe(gulp.dest('assets/images/svg-icons/'));
-});
-
-/**
- * Concatenate icons in a single SVG sprite.
- *
  * https://www.npmjs.com/package/gulp-svgstore
+ * https://www.npmjs.com/package/gulp-cheerio
  */
-gulp.task('svgstore', function() {
+gulp.task('svg', function() {
 	return gulp.src(paths.icons)
-	.pipe(svgstore({
-		inlineSvg: true
+	.pipe(plumber({ errorHandler: handleErrors }))
+	.pipe(svgmin())
+	.pipe(rename({ prefix: 'icon-' }))
+	.pipe(svgstore({ inlineSvg: true }))
+	.pipe(cheerio({
+		run: function($, file) {
+			$('svg').attr('style', 'display:none');
+			$('[fill]').removeAttr('fill');
+		},
+		parserOptions: { xmlMode: true }
 	}))
 	.pipe(gulp.dest('assets/images/'))
 	.pipe(browserSync.stream());
@@ -267,8 +287,11 @@ gulp.task('svgstore', function() {
  */
 gulp.task('imagemin', function() {
 	return gulp.src(paths.images)
+	.pipe(plumber({ errorHandler: handleErrors }))
 	.pipe(imagemin({
-		optimizationLevel: 5
+		optimizationLevel: 5,
+		progressive: true,
+		interlaced: true
 	}))
 	.pipe(gulp.dest('assets/images'));
 });
@@ -280,6 +303,7 @@ gulp.task('imagemin', function() {
  */
 gulp.task('spritesmith', function() {
 	return gulp.src(paths.sprites)
+	.pipe(plumber({ errorHandler: handleErrors }))
 	.pipe(spritesmith({
 		imgName:   'sprites.png',
 		cssName:   '../../assets/sass/base/_sprites.scss',
@@ -298,31 +322,33 @@ gulp.task('spritesmith', function() {
  */
 gulp.task('uglify', function() {
 	return gulp.src(paths.scripts)
+	.pipe(plumber({ errorHandler: handleErrors }))
 	.pipe(sourcemaps.init())
 		.pipe(uglify({
 			mangle: false
 		}))
-		.pipe(concat('project.js'))
+	.pipe(concat('project.js'))
 	.pipe(sourcemaps.write())
 	.pipe(gulp.dest('assets/js'))
 	.pipe(browserSync.stream());
 });
 
 /**
- * Make POT file for i18n.
+ * Scan the theme and create a POT file.
  *
  * https://www.npmjs.com/package/gulp-wp-pot
  */
-gulp.task('i18n', function () {
+gulp.task('wp-pot', function () {
 	return gulp.src(paths.php)
+	.pipe(plumber({ errorHandler: handleErrors }))
 	.pipe(sort())
 	.pipe(wpPot({
 		domain: '_s',
 		destFile:'_s.pot',
 		package: '_s',
-		bugReport: 'http://example.com',
-		lastTranslator: 'John Doe <mail@example.com>',
-		team: 'Team Team <mail@example.com>'
+		bugReport: 'http://_s.com',
+		lastTranslator: 'John Doe <mail@_s.com>',
+		team: 'Team <mail@_s.com>'
 	}))
 	.pipe(gulp.dest('languages/'));
 });
@@ -345,7 +371,11 @@ gulp.task('watch', function() {
 
 	// Kick off BrowserSync.
 	browserSync.init( files, {
+		open: false,
 		proxy: "_s.dev",
+		watchOptions: {
+			debounceDelay: 1000
+		}
 	});
 
 	// Run tasks when files change.
@@ -371,9 +401,15 @@ gulp.task('clean:scripts', function() {
 	return del(['assets/js/project.js']);
 });
 
+gulp.task('clean:pot', function() {
+	return del(['languages/_s.pot']);
+});
+
 /**
  * Create indivdual tasks.
  */
+gulp.task('i18n', ['clean:pot','wp-pot']);
+gulp.task('icons', ['clean:icons', 'svg']);
 gulp.task('jekyll', ['jekyll-browser-sync', 'jekyll-watch']);
 gulp.task('pattern-library', ['jekyll-browser-sync', 'pl-watch']);
 gulp.task('icons', ['clean:icons', 'svgmin', 'svgstore']);

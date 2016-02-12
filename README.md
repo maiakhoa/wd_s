@@ -4,16 +4,17 @@ wd_s
 [WebDevStudios](http://webdevstudios.com) fork of Automattic's [_s](https://github.com/Automattic/_s). Used as our new project theme boilerplate. Pull requests are welcome!
 
 # Features
-* Grunt
+* Gulp
 * Sass
 * PostCSS
-* SassDocs
 * [Bourbon](http://bourbon.io/)
 * [Neat](http://neat.bourbon.io/)
+* BrowserSync
+* [Animate.scss](assets/sass/utilities/animate/README.md)
 * Bower
 * Live reload
 * WDS Simple Page Builder support
-* [SVG support](images/svg-icons/README.md)
+* [SVG support](assets/images/svg-icons/README.md)
 * Image sprite support
 * Script linting and CSS minifcation
 
@@ -23,9 +24,6 @@ Basic knowledge of the command line and the following dependencies are required 
 
 * [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
 * [Node](http://nodejs.org/)
-* [Grunt CLI](https://www.npmjs.com/package/grunt-cli) - `npm install -g grunt-cli`
-* [Bower](http://bower.io/) - `npm install -g bower`
-* [Sass](http://sass-lang.com/install) - `gem install sass`
 
 # Theme Setup
 

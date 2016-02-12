@@ -1,47 +1,5 @@
 {
-  "name": "wd_s",
-  "version": "1.0.0",
-  "description": "A theme boilerplate for WebDevStudios.",
   "author": "WebDevStudios",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/WebDevStudios/wd_s"
-  },
-  "bugs": {
-    "url": "https://github.com/WebDevStudios/wd_s/issues/"
-  },
-  "dependencies": {
-    "autoprefixer": "latest",
-    "browser-sync": "latest",
-    "browserify": "latest",
-    "browserify-shim": "latest",
-    "css-mqpacker": "latest",
-    "del": "latest",
-    "event-stream": "latest",
-    "glob": "latest",
-    "gulp": "latest",
-    "gulp-concat": "latest",
-    "gulp-cssnano": "latest",
-    "gulp-imagemin": "latest",
-    "gulp-notify": "latest",
-    "gulp-postcss": "latest",
-    "gulp-rename": "latest",
-    "gulp-sass": "latest",
-    "gulp-sass-json": "latest",
-    "gulp-sort": "latest",
-    "gulp-sourcemaps": "latest",
-    "gulp-svgmin": "latest",
-    "gulp-svgstore": "latest",
-    "gulp-uglify": "latest",
-    "gulp-util": "latest",
-    "gulp-wp-pot": "latest",
-    "gulp.spritesmith": "latest",
-    "node-neat": "latest",
-    "path": "latest",
-    "require-dir": "latest",
-    "vinyl-buffer": "latest",
-    "vinyl-source-stream": "latest"
-  },
   "browserify": {
     "transform": [
       "browserify-shim"
@@ -50,8 +8,61 @@
   "browserify-shim": {
     "jquery": "global:jQuery"
   },
-  "license": "GPL-2.0+",
-  "devDependencies": {
-    "gulp": "^3.9.0"
-  }
+  "bugs": {
+	"url": "https://github.com/WebDevStudios/wd_s/issues/"
+  },
+  "dependencies": {
+    "autoprefixer": "^6.3.1",
+    "bourbon": "^4.2.6",
+    "bourbon-neat": "^1.7.2",
+    "browser-sync": "^2.11.1",
+	"browserify": "latest",
+    "browserify-shim": "latest",
+    "css-mqpacker": "^4.0.0",
+    "del": "^2.2.0",
+	"event-stream": "latest",
+    "glob": "^6.0.4",
+    "gulp": "^3.9.1",
+    "gulp-cheerio": "^0.6.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+	"gulp-sass-json": "latest",
+    "gulp-sort": "^1.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-svgmin": "^1.2.1",
+    "gulp-svgstore": "^5.0.5",
+    "gulp-uglify": "^1.5.2",
+    "gulp-util": "^3.0.7",
+    "gulp-wp-pot": "^1.1.1",
+    "gulp.spritesmith": "^6.2.0",
+    "node-neat": "^1.7.2",
+    "path": "^0.12.7",
+    "require-dir": "^0.3.0",
+    "vinyl": "^1.1.1",
+	"vinyl-buffer": "latest",
+    "vinyl-source-stream": "latest"
+  },
+  "description": "A theme boilerplate for WebDevStudios.",
+  "devDependencies": {},
+  "homepage": "https://github.com/WebDevStudios/wd_s#readme",
+  "keywords": [
+    "theme"
+  ],
+  "license": "GPL-3.0",
+  "main": "Gulpfile.js",
+  "name": "wd_s",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebDevStudios/wd_s.git"
+  },
+  "scripts": {
+    "test": "echo \"No test specified\""
+  },
+  "version": "1.0.0",
 }
