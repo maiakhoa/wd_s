@@ -1,0 +1,115 @@
+@if $use-expanding-search-box-modal == true {
+
+	// Set some base styles on the search form
+	.expanding-search-form-modal {
+		display: inline-block; 
+		float: right;
+		position: relative;
+		width: 100%;
+		
+		// Set height for the search form elements
+		.search-field {
+			height: rem(60);
+		} // .search-field
+
+		.search-submit {
+			@include size(rem(120));
+		} // .search-submit
+
+		// Style the search text input
+		input[type="text"] {
+			@include position(absolute, null 0 null null);
+			@include size(rem(400) auto);
+			@include transition (all 0.5s ease-in-out);
+			
+			background-color: rgba($color-alto, 0.4);
+			border: none;
+			box-sizing: border-box;
+			color: $color-dove-gray;
+			font-size: rem(36);
+			font-weight: 300;
+			padding: 0 rem(126) 0 rem(20);
+			
+			// When we focus on the text input, display it
+			&:focus {
+				@include size(100% rem(120));
+				
+				background-color: rgba($color-alto, 0.55);
+				font-size: rem(72);
+				outline: none;
+				z-index: 2;
+				
+				~ .search-submit {
+					opacity: 1;
+				}
+			} // input[type="text"]:focus
+		} // input[type="text"]
+
+		// Style the submit button
+		.search-submit {
+			@include transition (all 0.2s ease-in-out);
+			
+			background-color: transparent;
+			border: none;
+			float: right;
+			opacity: 0;
+			position: relative;
+			z-index: 3;
+		} // .search-submit
+
+		// Style our search icon
+		.icon-search {
+			@include transition (all 0.2s ease-in-out);
+			
+			background: url('assets/images/svg-icons/search.svg') no-repeat center center;
+			background-size: contain;
+			display: block;
+			height: rem(50);
+			width: rem(50);
+		} // .icon-search
+
+		// Style the modal overlay
+		.modal-overlay {
+			@include position(fixed, 0 null null 0);
+			@include transition (all 0.2s ease-in-out);
+			
+			background-color: $color-white;
+			height: 100vh;
+			opacity: 0;
+			width: 100%;
+			z-index: -1;
+		} // .modal-overlay
+
+		// Bump the opacity of the modal when the search input is focused
+		.search-field:focus {
+			
+			~ .modal-overlay {
+				opacity: 0.85;
+				z-index: 1;
+			}
+		} // .search-field:focus
+
+		// Style the modal close button
+		.close-modal {
+			@include position(absolute, rem(15) rem(25) null null);
+			@include transition (all 0.2s ease-in-out);
+			
+			color: $color-silver;
+			cursor: pointer;
+			display: block;
+		} // .close-modal
+		
+		// Style our search icon
+		.icon-close {
+			@include transition (all 0.2s ease-in-out);
+			
+			background: url('assets/images/svg-icons/close.svg') no-repeat center center;
+			background-size: contain;
+			display: block;
+			height: rem(40);
+			width: rem(40);
+		} // .icon-close
+		
+	} // .expanding-search-form-modal
+	
+} // end if check

@@ -6,8 +6,12 @@
 //--------------------------------------------------------------
 
 // Expanding Search Box (CSS only)
-$use-expanding-search-box-css-only : true !default;
-@import	"_expanding-search-box-css-only";
+$use-expanding-search-box : true !default;
+@import	"_expanding-search-box";
+
+// Expanding Search Box Modal (CSS only)
+$use-expanding-search-box-modal : true !default;
+@import	"_expanding-search-box-modal";
 
 $use-featured-device-hero : true !default;
 @import	"_featured-device-hero";

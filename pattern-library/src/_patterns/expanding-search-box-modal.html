@@ -1,0 +1,15 @@
+---
+author: unknown
+category: forms / fields / inputs
+date: 2016-02-12 15:25:25 -0500
+description: "An search box/form that expands into a faux modal powered purely by CSS."
+layout: pattern
+tags: search, search form, search box, font awesome, modal
+title:  "Expanding Search Box Faux Modal (CSS only)"
+---
+<form method="get" class="search-form expanding-search-form-modal" action="#">
+	<label for="search-field"><span class="screen-reader-text">To search this site, enter a search term</span></label>
+	<input class="search-field" id="search-field" type="text" name="s" value="" aria-required="false" autocomplete="off" placeholder="Search&hellip;" />
+	<div class="modal-overlay"><a href="javascript:void(0)" class="close-modal"><span class="screen-reader-text">Close</span><i class="icon icon-close"></i></a></div>
+	<button class="search-submit"><span class="screen-reader-text">Search</span><i class="icon icon-search"></i></button>
+</form>
