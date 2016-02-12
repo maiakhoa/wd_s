@@ -1,0 +1,61 @@
+@if $use-pagination == true {
+
+	// Local variables
+	$pagination-font-color: $color-black;
+	$pagination-background-color: $color-alto;
+	$pagination-action-color: darken($pagination-font-color, 10);
+	$pagination-border-radius: rem(3);
+	$pagination-padding: rem(20);
+
+	.pagination {
+		text-align: center;
+
+	 	ul {
+			display: inline;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+
+			li {
+				display: inline;
+				list-style: none;
+			} // <li>
+
+			ul li {
+				display: none;
+				
+				@include media($tablet-portrait) {
+					display: inline;
+				}
+
+				&:nth-child(1),
+				&:nth-child(2),
+				&:nth-child(3) {
+					display: inline;
+				}
+			} // ul ul li
+
+			li a {
+				@include transition (all 0.2s ease-in-out);
+
+				background: $pagination-background-color;
+				border-radius: $pagination-border-radius;
+				color: $pagination-font-color;
+				outline: none;
+				padding: ($pagination-padding / 4) ($gutter / 2);
+				text-decoration: none;
+
+				&:hover,
+				&:focus {
+					background: $pagination-action-color;
+					color: $pagination-background-color;
+				}
+
+				&:active {
+					background: $pagination-background-color;
+				}
+			} // <li><a>
+		} // <ul>
+	} // .pagination
+	
+} // end if check
