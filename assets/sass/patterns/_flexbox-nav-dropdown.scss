@@ -5,7 +5,7 @@
 	}
 	
 	// <ul> Menu defaults
-	.menu {
+	.menu.dropdown {
 		@include list-reset;
 
 		display: flex;
@@ -23,7 +23,7 @@
 		}
 		
 		// <ul> Each sub-menu
-		.sub-menu {
+		ul {
 			@include list-reset;
 			
 			display: flex;
@@ -33,6 +33,7 @@
 			// Hide by default
 			left: rem(9999);
 			position: absolute;
+			top: rem(50);
 
 			// <li> Sub-menu items
 			.menu-item {
