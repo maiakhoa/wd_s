@@ -31,6 +31,15 @@
 	@return ($pxval / $base) * 1rem;
 }
 
+// Clearfixing
+%clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
 // Hide text meant only for screen readers
 %screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
