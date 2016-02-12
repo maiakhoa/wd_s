@@ -5,6 +5,10 @@
 // Patterns - import everything to generate your patterns sass
 //--------------------------------------------------------------
 
+// Expanding Search Box (CSS only)
+$use-expanding-search-box-css-only : true !default;
+@import	"_expanding-search-box-css-only";
+
 $use-featured-device-hero : true !default;
 @import	"_featured-device-hero";
 
