@@ -199,10 +199,11 @@
 
 #pl-toggle-code {
 	border-top: 1px dashed $grey-color-dark;
+	clear: both;
 	color: $grey-color;
 	display: block;
 	font-size: rem(14);
-	margin: 0 auto;
+	margin: rem(18) auto;
 	padding: rem(8) rem(10);
 	text-align: center;
 	text-decoration: none;
