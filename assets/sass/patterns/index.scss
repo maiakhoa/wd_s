@@ -5,3 +5,5 @@
 // Patterns - import everything to generate your patterns sass
 //--------------------------------------------------------------
 
+$use-flexbox-nav-dropdown : true !default;
+@import	"_flexbox-nav-dropdown";

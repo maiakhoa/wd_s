@@ -1,0 +1,87 @@
+@if $use-flexbox-nav-dropdown == true {
+
+	.main-navigation {
+		background-color: $color-black;
+	}
+	
+	// <ul> Menu defaults
+	.menu {
+		@include list-reset;
+
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		
+		// <li> Each menu item
+		.menu-item {
+			position: relative;
+			
+			&:hover > a,
+			&.focus > a {
+				background-color: $color-dove-gray;
+			}
+		}
+		
+		// <ul> Each sub-menu
+		.sub-menu {
+			@include list-reset;
+			
+			display: flex;
+			flex-direction: column;
+			flex-basis: content;
+
+			// Hide by default
+			left: rem(9999);
+			position: absolute;
+
+			// <li> Sub-menu items
+			.menu-item {
+
+				// Display sub sub-menu
+				&:hover > ul,
+				&.focus > ul {
+					left: 100%;
+				}
+			}
+
+			// Sub-menu links
+			a {
+			}
+
+			// Menu items on hover.
+			:hover > a,
+			.focus > a {
+				background-color: $color-black;
+				color: $color-white;
+			}
+
+			a:hover,
+			a.focus {
+			}
+		}
+
+		// Menu hyperlinks
+		a {
+			align-items: flex-start;
+			color: $color-white;
+			display: flex;		
+			padding: rem(12) rem(24);
+			text-decoration: none;
+		}
+
+		// Current items
+		.current_page_item a,
+		.current-menu-item a {
+			background-color: $color-white;
+		}
+		
+		// Display sub-menu on hover
+		li:hover > ul,
+		li.focus > ul {
+			background: $color-dove-gray;
+			left: auto;
+			width: rem(200);
+			z-index: 999999;
+		}	
+	}
+}
