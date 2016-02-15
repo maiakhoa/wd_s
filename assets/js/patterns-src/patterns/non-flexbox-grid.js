@@ -4,6 +4,7 @@
 module.exports = ( function( window, $ ) {
 
 	var that = {};
+	var matchHeight = require( './vendor/jquery.matchHeight.js' );
 
 	// Constructor.
 	that.init = function() {
