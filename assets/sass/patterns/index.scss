@@ -16,6 +16,10 @@ $use-expanding-search-box-modal : true !default;
 $use-featured-device-hero : true !default;
 @import	"_featured-device-hero";
 
+// Flexbox Grid
+$use-flexbox-grid : true !default;
+@import	"_flexbox-grid";
+
 // Flexbox Navigation with Dropdown
 $use-flexbox-nav-dropdown : true !default;
 @import	"_flexbox-nav-dropdown";

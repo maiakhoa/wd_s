@@ -1,0 +1,47 @@
+@if $use-flexbox-grid == true {
+
+	// Grid container.
+	.grid-area {
+		@include clearfix;
+		
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		
+		a,
+		a:visited {
+			color: $color-black;
+		}
+		
+		a:focus,
+		a:hover {
+			
+			.grid-item-title {
+				color: $color-blue;
+			}
+		}
+
+		// Each grid item.
+		.grid-item {
+			@include margin(rem(4));
+			@include padding(rem(32) rem(32) rem(48) rem(32));
+			
+			flex: 2 2 rem(240);
+			text-decoration: none;
+
+			.grid-item-title {
+				@include transition (color 0.5s ease-in-out); // transition only what you need
+				@include margin(null null rem(8) null);
+			}
+
+			.grid-item-copy {
+				margin: auto;
+			}
+
+			&.full-width {
+				@include flex(1 1 rem(640));
+			}
+		} // .grid-area .grid-item
+	} // .grid-area
+	
+} // end if check
