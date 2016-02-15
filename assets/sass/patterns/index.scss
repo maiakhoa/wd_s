@@ -20,6 +20,10 @@ $use-featured-device-hero : true !default;
 $use-flexbox-nav-dropdown : true !default;
 @import	"_flexbox-nav-dropdown";
 
+// Navigation w/ Sub-menus
+$use-nav-with-submenus : true !default;
+@import	"_nav-with-submenus";
+
 // Pagination
 $use-pagination : true !default;
 @import	"_pagination";
