@@ -1,7 +1,7 @@
 @if $use-flexbox-grid == true {
 
 	// Grid container.
-	.grid-area {
+	.grid-area.flexbox-grid {
 		@include clearfix;
 		
 		display: flex;
@@ -26,6 +26,7 @@
 			@include margin(rem(4));
 			@include padding(rem(32) rem(32) rem(48) rem(32));
 			
+			background-color: $color-gallery;
 			flex: 2 2 rem(240);
 			text-decoration: none;
 
