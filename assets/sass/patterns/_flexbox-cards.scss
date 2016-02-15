@@ -1,0 +1,80 @@
+@if $use-flexbox-cards == true {
+
+	// Local variables
+	$card-border-radius: 3px;
+	$card-border: 1px solid $color-alto;
+	$card-background: $color-gallery;
+	$card-margin: rem(16);
+	$card-padding: rem(24);
+
+	// Cards container
+	.cards {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	} // .cards
+
+	// Each card
+	.card {
+		@include transition (all 0.2s ease-in-out);
+
+		background-color: $card-background;
+		border-radius: $card-border-radius;
+		border: $card-border;
+		cursor: pointer;
+		flex: 1 1 rem(240);
+		margin: 0 $card-margin $card-padding $card-margin;
+		position: relative;
+
+		.card-image {
+			background-color: $color-blue;
+			height: rem(150);
+			max-height: rem(150);
+			overflow: hidden;
+
+			img {
+				@include transition (opacity 0.2s ease-in-out);
+
+				border-top-left-radius: $card-border-radius;
+				border-top-right-radius: $card-border-radius;
+				opacity: 1;
+			}
+		} // .card .card-image
+
+		.card-header {
+			@include transition (all 0.2s ease-in-out);
+			
+			background-color: $card-background;
+			border-bottom: $card-border;
+			border-radius: $card-border-radius $card-border-radius 0 0;
+			font-weight: 700;
+			padding: ($card-padding / 3) ($card-padding / 2);
+		} // .card .card-header
+
+		.card-copy {
+			padding: ($card-padding / 2) ($card-padding / 2);
+
+			p {
+				margin: 0 0 ($card-padding / 2);
+			}
+		} // .card .card-copy
+
+		&:focus,
+		&:hover {
+			cursor: pointer;
+
+			img {
+				opacity: 0.7;
+			}
+		} // .card:focus, .card:hover
+
+		&:active {
+			background-color: $card-background;
+
+			.card-header {
+				background-color: $card-background;
+			}
+		} // .card:active
+	} // .card
+	
+} // end if check

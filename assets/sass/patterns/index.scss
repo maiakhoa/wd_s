@@ -13,8 +13,13 @@ $use-expanding-search-box : true !default;
 $use-expanding-search-box-modal : true !default;
 @import	"_expanding-search-box-modal";
 
+// Featured Device hero
 $use-featured-device-hero : true !default;
 @import	"_featured-device-hero";
+
+// Flexbox Cards
+$use-flexbox-cards : true !default;
+@import	"_flexbox-cards";
 
 // Flexbox Grid
 $use-flexbox-grid : true !default;
