@@ -28,6 +28,10 @@ $use-flexbox-nav-dropdown : true !default;
 $use-nav-with-submenus : true !default;
 @import	"_nav-with-submenus";
 
+// Non-flexbox grid
+$use-non-flexbox-grid : true !default;
+@import	"_non-flexbox-grid";
+
 // Pagination
 $use-pagination : true !default;
 @import	"_pagination";

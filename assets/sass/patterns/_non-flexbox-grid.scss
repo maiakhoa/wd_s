@@ -1,0 +1,55 @@
+@if $use-non-flexbox-grid == true {
+
+	// Grid container.
+	.grid-area.non-flexbox-grid {
+		@include clearfix;
+		@include outer-container;
+
+		// Each grid item.
+		.grid-item {
+			@include transition (all 0.2s ease-in-out);
+
+			background: $color-gallery;
+			border-bottom: 5px solid $color-gray;
+			cursor: pointer;
+			float: left;
+			outline: none;
+			overflow: hidden;
+			margin-bottom: rem(32);
+			padding: rem(16);
+
+			// Show two cards per row.
+			@include media($phone-landscape) {
+				@include span-columns(6);
+				@include omega(2n);
+			}
+			
+			// Show four cards per row.
+			@include media($tablet-landscape) {
+				@include omega-reset(2n);
+				@include span-columns(3);
+				@include omega(4n);
+			}
+			
+			a:focus,
+			a:hover {
+				
+				.grid-item-title {
+					color: $color-blue;
+				}
+			}
+
+			.grid-item-title {
+				@include transition (color 0.5s ease-in-out); // transition only what you need
+				
+				color: $color-black;
+				margin-bottom: rem(7);
+			} // .grid-item-title
+
+			.grid-item-copy {
+				color: $color-black;
+			} // .grid-item-copy
+		} // .grid-item
+	} // .grid-area.non-flexbox-grid
+	
+} // end if check
