@@ -1,0 +1,49 @@
+@if $use-parallax-simple == true {
+
+	// Parallax section styles
+	.parallax {
+	    background-attachment: fixed;
+	    background-position: 50% 50%;
+	    background-repeat: no-repeat;
+	    background-size: cover;
+	    height: rem(600);
+		margin-bottom: rem(20);
+		
+		// Content containers
+		.container {
+			color: $color-black;
+			padding: rem(40);
+			height: 100%;
+		} // .parallax .container
+		
+		h1 {
+			@include vertical-align(middle);
+			
+			color: rgba($color-white, 0.8);
+			font-size: rem(48);
+			font-weight: 700;
+			text-align: center;
+			text-transform: uppercase;
+			text-shadow: 0 0 rem(10) rgba($color-black, 0.2);
+		} // .parallax h1
+		
+		h2 {
+			font-size: rem(30);
+			margin-bottom: 0;
+		} // .parallax h2
+	} // .parallax
+
+	// Set our background images
+	.parallax-1 {
+	    background-image: url('http://lorempixel.com/1200/480/abstract');
+	}
+
+	.parallax-2 {
+	    background-image: url('http://lorempixel.com/1300/480/abstract');
+	}
+
+	.parallax-3 {
+	    background-image: url('http://lorempixel.com/1400/480/abstract');
+	}
+	
+} // end if check

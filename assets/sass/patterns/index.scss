@@ -5,6 +5,10 @@
 // Patterns - import everything to generate your patterns sass
 //--------------------------------------------------------------
 
+// Parallax (CSS only)
+$use-parallax-simple : true !default;
+@import	"_parallax-simple";
+
 // Expanding Search Box (CSS only)
 $use-expanding-search-box : true !default;
 @import	"_expanding-search-box";
