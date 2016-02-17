@@ -1,0 +1,110 @@
+@if $use-hover-tile-animation == true {
+
+	// Style the parent container
+	.hover-tile-outer {
+		background: url(http://lorempixel.com/700/300/nature) 50% 50% no-repeat $color-gray;
+		background-size: cover;
+		height: rem(300);
+		overflow: hidden;
+	} // .hover-tile-outer
+
+	// Set a height for all hover tiles
+	.hover-tile {
+		height: inherit;
+	}
+
+	// Add a background color for our hidden, "off-canvas" content
+	.hover-tile-hidden {
+		background-color: rgba($color-blue, .2);
+		color: $color-white;
+	} // .hover-tile-hidden
+
+	// Style the tile container
+	.hover-tile-container {
+		height: 100%;
+		
+		// Do something when the tile is hovered
+		&:hover {
+			
+			// This works for basic slides - from top or left
+			.hover-tile {
+				@include transform(translate(0, 0));
+			}// .hover-tile-animation:hover .hover-tile
+			
+			// We need an extra div for animations from the bottom, so let's adjust our hover
+			.from-bottom & {
+				
+				.hover-tile {
+					@include transform(translate(0, -100%));
+				}
+			} // .hover-tile-animation:hover .from-bottom
+			
+			// We need an extra div for animations from the right, so let's adjust our hover		
+			.from-right & {
+				
+				.hover-tile-visible {
+					@include transform(translate(-100%, 0));
+				}
+				
+				.hover-tile-hidden {
+					@include transform(translate(0, -100%));
+				}
+			} // .hover-tile-animation:hover .from-right
+		} // .hover-tile-container:hover
+		
+	} // .hover-tile-container 
+
+	// Global styles for our hidden and visible tiles
+	.hover-tile-hidden,
+	.hover-tile-visible {
+		@include transition(all, 0.2s ease-in-out);
+
+		overflow: hidden;
+		padding: rem(15);
+	}
+
+	// Position our "from the top" content
+	.from-top {
+		
+		.hover-tile {
+			@include transform(translate(0, -100%));
+		}
+	} // .from-top
+
+	// Position our "from the left" content
+	.from-left {
+		
+		.hover-tile {
+			@include transform(translate(-100%, 0));
+		}
+	} // .from-left
+
+	// Position our "from the right" content
+	.from-right {
+		
+		// This is the empty div first in place in the container. On hover, this moves out of the way to make room for our hidden content
+		.hover-tile-visible {
+			@include transform(translate(0, 0));
+		}
+		
+		// Our "off-canvas" hidden content
+		.hover-tile-hidden {
+			@include transform(translate(100%, -100%));
+		}
+	} // .from-right
+
+	// Position our "from the bottom" content
+	.from-bottom {
+		
+		.hover-tile {
+			@include transform(translate(0, 100%));
+		}
+	} // .from-bottom
+
+	// Styles just for the prettiness of the pen, not required for the actual piece
+	.hover-tile-section {
+		@include span-columns(6 of 12);
+		@include omega(2n);
+	}
+	
+} // end if check
