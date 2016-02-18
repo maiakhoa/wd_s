@@ -8,7 +8,7 @@ Yes, it is a static site inside of a WordPress theme :)
 
 Requirements:
 
-* [Jekyll](https://jekyllrb.com/)
+* [Jekyll](https://jekyllrb.com/) - I recommend using [rbenv](https://github.com/rbenv/rbenv#installation) to manage Ruby, but up to you.
 * [Gulp](http://gulpjs.com/)
 
 Some features:
