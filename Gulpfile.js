@@ -1,9 +1,7 @@
 // Require our dependencies
 var autoprefixer = require('autoprefixer');
 var bourbon = require('bourbon').includePaths;
-var browserify = require('browserify');
 var browserSync = require('browser-sync');
-var buffer = require('vinyl-buffer');
 var cheerio = require('gulp-cheerio');
 var concat = require('gulp-concat');
 var cp = require('child_process');
@@ -25,7 +23,6 @@ var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var sassJson = require('gulp-sass-json');
 var sort = require('gulp-sort');
-var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
 var spritesmith = require('gulp.spritesmith');
 var svgmin = require('gulp-svgmin');
@@ -70,35 +67,6 @@ function handleErrors () {
 	// Prevent the 'watch' task from stopping
 	this.emit('end');
 }
-
-/**
- * Browserify multiple bundles w/ Gulp globs
- * http://fettblog.eu/gulp-browserify-multiple-bundles/
- */
-gulp.task('browserify', function (done) {	
-	// create bundles, and enqueue as needed, maybe use
-	// patterns-about.js, patterns-home.js to enqueue each bundle:
-	// assets/js/patterns-home.bundle.js
-	glob('./assets/js/patterns-src/patterns-**.js', function(err, files) {
-        if(err) done(err);
-
-        var tasks = files.map(function(entry) {
-            return browserify({ entries: [entry] })
-                .bundle()
-                .pipe(source(entry))
-				.pipe(buffer()) // <----- convert from streaming to buffered vinyl file object
-				.pipe(sourcemaps.init())
-					.pipe(uglify()) // now gulp-uglify works 
-                	.pipe(rename({
-                    	dirname: 'assets/js',
-						extname: '.bundle.js'
-                }))
-				.pipe(sourcemaps.write())
-                .pipe(gulp.dest('./'));
-            });
-        es.merge(tasks).on('end', done);
-    })
-});
 
 /**
  * Build the Jekyll Site

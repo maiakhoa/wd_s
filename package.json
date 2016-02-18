@@ -1,13 +1,5 @@
 {
   "author": "WebDevStudios",
-  "browserify": {
-    "transform": [
-      "browserify-shim"
-    ]
-  },
-  "browserify-shim": {
-    "jquery": "global:jQuery"
-  },
   "bugs": {
     "url": "https://github.com/WebDevStudios/wd_s/issues/"
   },
@@ -16,8 +8,6 @@
     "bourbon": "^4.2.6",
     "bourbon-neat": "^1.7.2",
     "browser-sync": "^2.11.1",
-    "browserify": "latest",
-    "browserify-shim": "latest",
     "css-mqpacker": "^4.0.0",
     "del": "^2.2.0",
     "event-stream": "latest",
@@ -42,8 +32,6 @@
     "gulp-wp-pot": "^1.1.1",
     "gulp.spritesmith": "^6.2.0",
     "node-neat": "^1.7.2",
-    "vinyl-buffer": "latest",
-    "vinyl-source-stream": "latest"
   },
   "description": "A theme boilerplate for WebDevStudios.",
   "devDependencies": {
