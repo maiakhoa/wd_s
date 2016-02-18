@@ -1,0 +1,92 @@
+---
+author: Corey Collins
+category: navigation
+date: 2016-02-17 14:17:25 -0500
+description: "A mobile-app inspired mobile navigation solution."
+layout: pattern
+tags: mobile, navigation, responsive, mobile navigation
+title:  "Mobile Navigation"
+---
+<!-- enqueue jQuery in the theme -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js" type="text/javascript"></script>
+
+<!-- Begin pattern's js -->
+<script src="{{ site.url }}{{ site.wp_theme_dir }}/assets/js/patterns/mobile-navigation.js" type="text/javascript"></script>
+
+<nav id="mobile-menu" class="mobile-nav-menu">
+	<button class="close-mobile-menu"><span class="screen-reader-text">Close menu</span></button>
+
+	<div>
+		<ul id="primary-menu" class="menu dropdown mobile-nav">
+
+			<li>
+				<a href="#">Home</a>
+			</li>
+
+			<li class="menu-item-has-children">
+				<a href="#">Sample Page</a>
+				<ul class="sub-menu">
+					<li>
+						<a href="#">Page Image Alignment</a>
+					</li>
+					<li>
+						<a href="#">Clearing Floats</a>
+					</li>
+				</ul>
+			</li>
+
+			<li class="menu-item-has-children">
+				<a href="#">Page B</a>
+				<ul class="sub-menu">
+					<li class="menu-item-has-children">
+						<a href="#"><span>Level 2b</span></a>
+						<ul class="sub-menu">
+							<li class="menu-item-1713">
+								<a href="#"><span>Level 2a</span></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				<a href="#"><span><i class="link4-icon"></i>Page A</span></a>
+			</li>
+
+			<li class="menu-item-has-children">
+				<a href="#"><span>Blog</span></a>
+				<ul class="sub-menu">
+					<li class="menu-item-has-children">
+						<a href="#"><span>Page Markup And Formatting</span></a>
+						<ul class="sub-menu">
+							<li>
+								<a href="#"><span>Clearing Floats</span></a>
+							</li>
+						</ul>
+					</li>
+
+					<li class="menu-item-has-children">
+						<a href="#"><span>Page Image Alignment</span></a>
+						<ul class="sub-menu">
+							<li>
+								<a href="#"><span>Level 3b</span></a>
+							</li>
+
+							<li>
+								<a href="#"><span>Level 3a</span></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				<a href="#"><span>Front Page</span></a>
+			</li>
+
+			<li>
+				<a href="#"><span>About The Tests</span></a>
+			</li>
+		</ul>
+	</div>
+</nav>
