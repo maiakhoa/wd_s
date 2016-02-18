@@ -9,6 +9,10 @@ Yes, it is a static site inside of a WordPress theme :)
 Requirements:
 
 * [Jekyll](https://jekyllrb.com/) - I recommend using [rbenv](https://github.com/rbenv/rbenv#installation) to manage Ruby, but up to you.
+    * Here is what I mostly did:
+	    * Check if RVM is already installed (as rbenv and RVM are incompatible): `which rvm`, if you get back something then you have RVM installed and could even use it to manage your Ruby, otherwise you should uninstall it.
+		* If you don't have RVM installed, and have Homebrew then `brew update` and `brew install rbenv`
+		* Now install Jekyll: `gem install jekyll`
 * [Gulp](http://gulpjs.com/)
 
 Some features:
