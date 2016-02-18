@@ -37,6 +37,7 @@ var paths = {
 	images: ['assets/images/*', '!assets/images/*.svg'],
 	jekyll_src: ['pattern-library/src/*.{html,md}', 'pattern-library/src/_layouts/*.html', 'pattern-library/src/_posts/*.{html,md}', 'pattern-library/src/_patterns/*.{html,md}'],
 	jekyll_assets: 'pattern-library/assets/scss/**/*.scss',
+	pattern_scripts: 'assets/js/patterns/*.js',
 	php: './*.php',
 	php: ['./*.php', './**/*.php'],
 	sass: 'assets/sass/**/*.scss',
