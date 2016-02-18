@@ -286,7 +286,7 @@ gulp.task('spritesmith', function() {
  * https://www.npmjs.com/package/gulp-uglify
  * https://www.npmjs.com/package/gulp-concat
  */
-gulp.task('uglify', function() {
+gulp.task('uglify', ['clean:scripts'], function() {
 	return gulp.src(paths.scripts)
 	.pipe(plumber({ errorHandler: handleErrors }))
 	.pipe(sourcemaps.init())
@@ -378,6 +378,6 @@ gulp.task('i18n', ['clean:pot','wp-pot']);
 gulp.task('icons', ['clean:icons', 'svg']);
 gulp.task('jekyll', ['jekyll-watch']);
 gulp.task('styles', ['clean:styles', 'postcss', 'cssnano']);
-gulp.task('scripts', ['clean:scripts', 'uglify']);
+gulp.task('scripts', ['uglify']);
 gulp.task('sprites', ['imagemin', 'spritesmith']);
 gulp.task('default', ['i18n','icons', 'styles', 'scripts', 'sprites']);
