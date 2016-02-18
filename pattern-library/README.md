@@ -23,7 +23,7 @@ Some features:
 3. Run `gulp jekyll` - site will build to `pattern-library/dist/` and watch for changes on `pattern-library/src/` (.md, .html), as well as any Sass changes to WP theme `/assets/sass/`.
 
 ## Adding a Pattern
-Please read instructions here: [How-to](src/how-to.md), which is also inside of Pattern Library static site, once generated.
+The following instructions are also on the: [How-to](src/how-to.md) page, which is also inside of Pattern Library static site, once generated.
 
 1. Usually it is just easiest to Copy/Paste (or right-click Duplicate) an existing file, and rename it. Then just modify the YAML Front-matter at the top of the pattern's `your-new-pattern.html` file, which is essentially the page's meta info.
 2. __Sass/CSS:__ Add any Sass partials you want to the `/assets/sass/patterns/` and don't forget to wrap it in a `if` conditional in the `/assets/sass/patterns/index.scss` file and `@import` your new partial.
