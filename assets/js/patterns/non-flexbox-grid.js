@@ -1,10 +1,8 @@
 /**
  * Match Height
  */
-module.exports = ( function( window, $ ) {
-
-	var that = {};
-	var matchHeight = require( './vendor/jquery.matchHeight.js' );
+window.WDS_Match_Height = {};
+( function( window, $, that ) {
 
 	// Constructor.
 	that.init = function() {
@@ -26,6 +24,7 @@ module.exports = ( function( window, $ ) {
 	// Combine all events.
 	that.bindEvents = function() {
 		that.$c.window.on( 'load', that.matchGridItems );
+		that.$c.window.on( 'resize', that.matchGridItems );
 	};
 
 	// Do we meet the requirements?
@@ -45,7 +44,5 @@ module.exports = ( function( window, $ ) {
 
 	// Engage!
 	$( that.init );
-	
-	return that;
 
-})( window, require('jquery') );
+})( window, jQuery, window.WDS_Match_Height );
