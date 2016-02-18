@@ -1,11 +1,11 @@
 @if $use-nav-with-submenus == true {
 
-	.menu {
+	.menu.nav-with-submenus {
 		background-color: $color-black;
 		display: table;
 		width: 100%;
 		
-		li {
+		> li {
 			display: table-cell;
 			text-align: center;
 			
@@ -16,7 +16,7 @@
 					background-color: $color-blue;
 				}
 			}
-		} // .menu <li>
+		} // .menu.nav-with-submenus > li
 		
 		a {
 			@include transition (color 0.2s, background-color 0.2s ease-in-out);
@@ -30,67 +30,65 @@
 				color: darken($color-white, 10%);
 				text-decoration: none;
 			}
-		} // .menu <a>
-	} // .menu
-
-	// Parent menus
-	.menu-item-has-children {
-		position: relative;
+		} // .menu.nav-with-submenus <a>
 		
-		&:hover {
+		// Parent menus
+		.menu-item-has-children {
+			position: relative;
 			
-			> .sub-menu {
-				display: block;
-			} // .menu-item-has-children:hover > .sub-menu
-		} // .menu-item-has-children:hover
-		
-		a {
-			
-			&:after {
-				@include triangle(14px, $color-white, down);
+			&:hover {
 				
-				content: '';
-				height: rem(12);
-				margin: rem(-2) 0 0 rem(6);
-				position: absolute;
-				top: 50%;
-			} // .menu-item-has-children a:after
-		} // .menu-item-has-children <a>
-	} // .menu-item-has-children
-
-	// Hidden submenus
-	.sub-menu {
-		display: none;
-		position: absolute;
-		width: 100%;
-		
-		.active & {
-			display: block;
-		} // .active .sub-menu
-		
-		li {
-			display: block;
-			width: 100%;
-		} // .sub-menu <li>
-		
-		.sub-menu {
-			display: none;
-			left: 100%;
-			top: 0;
-		} // .sub-menu .sub-menu
-		
-		.active {
+				> .sub-menu {
+					display: block;
+				} // .menu-item-has-children:hover > .sub-menu
+			} // .menu-item-has-children:hover
 			
-			> .sub-menu {
-				display: block;
-			}
-		} // .sub-menu .active
-	} // .sub-menu
-
-	// Display sub-submenus to the left for the last item in the navigation row
-	.menu {
+			a {
+				
+				&:after {
+					@include triangle(14px, $color-white, down);
+					
+					content: '';
+					height: rem(12);
+					margin: rem(-2) 0 0 rem(6);
+					position: absolute;
+					top: 50%;
+				} // menu.nav-with-submenus .menu-item-has-children a:after
+			} // menu.nav-with-submenus .menu-item-has-children <a>
+		} // menu.nav-with-submenus .menu-item-has-children
 		
-		li:last-child {
+		// Hidden submenus
+		.sub-menu {
+			background-color: $color-black;
+			display: none;
+			position: absolute;
+			width: 100%;
+			
+			.active & {
+				display: block;
+			} // .active .sub-menu
+			
+			li {
+				display: block;
+				width: 100%;
+			} // .sub-menu <li>
+			
+			.sub-menu {
+				display: none;
+				left: 100%;
+				top: 0;
+			} // .sub-menu .sub-menu
+			
+			.active {
+				
+				> .sub-menu {
+					display: block;
+				}
+			} // menu.nav-with-submenus .sub-menu .active
+		} // menu.nav-with-submenus .sub-menu
+		
+		// Display sub-submenus to the left for the last item in the navigation row
+		> li:last-child {
 			
 			&.menu-item-has-children {
 				
@@ -98,8 +96,9 @@
 					left: auto;
 					right: 100%;
 				}
-			} // .menu.menu-item-has-children
-		} // .menu li:last-child
-	} // .menu
+			} // .menu.nav-with-submenus > li:last-child.menu-item-has-children
+		} // .menu.nav-with-submenus > li:last-child
+		
+	} // .menu.nav-with-submenus
 	
 } // end if check
