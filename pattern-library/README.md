@@ -25,7 +25,7 @@ Some features:
 ## Adding a Pattern
 The following instructions are also on the: [How-to](src/how-to.md) page, which is also inside of Pattern Library static site, once generated.
 
-1. Usually it is just easiest to Copy/Paste (or right-click Duplicate) an existing file, and rename it. Then just modify the YAML Front-matter at the top of the pattern's `your-new-pattern.html` file, which is essentially the page's meta info.
+1. Usually it is just easiest to Copy/Paste (or right-click Duplicate) an existing file in `/pattern-library/src/_patterns/`, and rename it. Then just modify the YAML Front-matter at the top of the pattern's `your-new-pattern.html` file, which is essentially the page's meta info.
 2. __Sass/CSS:__ Add any Sass partials you want to the `/assets/sass/patterns/` and don't forget to wrap it in a `if` conditional in the `/assets/sass/patterns/index.scss` file and `@import` your new partial.
 3. __Javascript:__ Add any Javascript you wish to the /assets/js/patterns/ and then include in your pattern's file, e.g `your-new-pattern.html`:
 `<script src="{{ site.url }}{{ site.wp_theme_dir }}/assets/js/patterns/your-new-pattern.js" type="text/javascript"></script>`
