@@ -5,9 +5,9 @@
 // Patterns - import everything to generate your patterns sass
 //--------------------------------------------------------------
 
-// Parallax (CSS only)
-$use-parallax-simple : true !default;
-@import	"_parallax-simple";
+// Accordion - Simple
+$use-accordion-single : true !default;
+@import	"_accordion-single";
 
 // Expanding Search Box (CSS only)
 $use-expanding-search-box : true !default;
@@ -52,3 +52,7 @@ $use-non-flexbox-grid : true !default;
 // Pagination
 $use-pagination : true !default;
 @import	"_pagination";
+
+// Parallax (CSS only)
+$use-parallax-simple : true !default;
+@import	"_parallax-simple";
