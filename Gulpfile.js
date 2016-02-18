@@ -87,21 +87,35 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
 /**
  * Wait for jekyll-build, then launch the Server
  */
-gulp.task('jekyll-browser-sync', ['jekyll-build'], function() {
+gulp.task('jekyll-watch', ['jekyll-build'], function() {
 	// Files to watch.
 	var files = [
 		paths.icons,
 		paths.jekyll_assets,
 		paths.jekyll_src,
+		paths.pattern_scripts,
 		paths.sass,
 		paths.sass_colors,
 		paths.scripts,
 		paths.sprites
 	];
 	
+	// Run tasks when files change.
+	// Watch Jekyll src/ styles and .html/.md files
+	gulp.watch(paths.jekyll_assets, ['jekyll-styles']);
+	gulp.watch(paths.jekyll_src, ['jekyll-build']);
+	
+	// Watch WP theme's Style and Scripts too
+	gulp.watch(paths.sass, ['styles']);
+	gulp.watch(paths.sass_colors, ['sass-json', 'jekyll-rebuild']);
+	gulp.watch(paths.scripts, ['pattern_scripts', 'scripts']);
+	
 	browserSync.init( files,{
 		proxy: 'http://wd-s.dev',
-		startPath: 'wp-content/themes/wd_s/pattern-library/dist/index.html'
+		startPath: 'wp-content/themes/wd_s/pattern-library/dist/index.html',
+		watchOptions: {
+			debounceDelay: 1000
+		}
     });
 });
 
@@ -140,23 +154,6 @@ gulp.task('jekyll-styles', function () {
 		.pipe(gulp.dest('pattern-library/assets'))
 		.pipe(notify({ message: 'Jekyll assets compiled' }))
 		.pipe(browserSync.stream());
-});
-
-/**
- * Watch scss files for changes & recompile
- * Watch html/md files, run jekyll & reload BrowserSync
- */
-gulp.task('jekyll-watch', function () {
-	// Run tasks when files change.
-	
-	// Watch Jekyll src/ styles and .html/.md files
-	gulp.watch(paths.jekyll_assets, ['jekyll-styles']);
-	gulp.watch(paths.jekyll_src, ['jekyll-build']);
-	
-	// Watch WP theme's Style and Scripts too
-	gulp.watch(paths.sass, ['styles']);
-	gulp.watch(paths.sass_colors, ['sass-json', 'jekyll-rebuild']);
-	gulp.watch(paths.scripts, ['scripts']);
 });
 
 // create colors.json from theme's _colors.scss
@@ -379,7 +376,7 @@ gulp.task('clean:pot', function() {
  */
 gulp.task('i18n', ['clean:pot','wp-pot']);
 gulp.task('icons', ['clean:icons', 'svg']);
-gulp.task('jekyll', ['jekyll-browser-sync', 'jekyll-watch']);
+gulp.task('jekyll', ['jekyll-watch']);
 gulp.task('styles', ['clean:styles', 'postcss', 'cssnano']);
 gulp.task('scripts', ['clean:scripts', 'uglify']);
 gulp.task('sprites', ['imagemin', 'spritesmith']);
