@@ -41,6 +41,10 @@ $use-flexbox-grid : true !default;
 $use-flexbox-nav-dropdown : true !default;
 @import	"_flexbox-nav-dropdown";
 
+// Flexbox Navigation with Dropdown
+$use-form-generic : true !default;
+@import	"_form-generic";
+
 // Hover tile animation
 $use-hover-tile-animation : true !default;
 @import	"_hover-tile-animation";

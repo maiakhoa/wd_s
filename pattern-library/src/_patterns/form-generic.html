@@ -1,0 +1,66 @@
+---
+author: Damon Cook
+category: forms / fields / inputs
+date: 2016-02-19 10:12:25 -0500
+description: "A simple HTML form."
+layout: pattern
+tags: form
+title:  "Form (generic)"
+---
+<form id="generic-form-form" class="generic-form">
+	<div>Items marked with <span class="required">asterisk (*)</span> are required</div>
+	
+	<p class="generic-form-name col">
+		<label for="name">Name:</label>
+		<input id="name" type="text" class="name" placeholder="Name" aria-label="name" />
+	</p>
+
+	<p class="generic-form-email col">  
+		<label for="email">Email:</label>
+		<input id="email" type="text" class="email" placeholder="Email" aria-label="email" />
+	</p>
+	
+	<p class="generic-form-tel col">  
+		<label for="tel">Phone:</label>
+		<input id="tel" type="tel" class="tel" placeholder="Phone" aria-label="phone" />
+	</p>
+	
+	<p class="generic-form-number col">  
+		<label for="number">Number:</label>
+		<input id="number" type="number" class="number" placeholder="Number" aria-label="number" />
+	</p>
+
+	<p class="generic-form-comment">
+		<label for="comment">Comment:</label>
+		<textarea id="comment" class="text-comment" placeholder="Comment" aria-label="comment"></textarea>
+	</p>
+	
+	<fieldset class="inline-inputs col">
+		<legend>Please check all that apply.</legend>
+		
+		<input type="checkbox" id="a-checkbox" value="A">
+		<label for="a-checkbox">Nam egestas</label>
+		
+		<input type="checkbox" id="b-checkbox" value="B">
+		<label for="b-checkbox">Varius mattis</label>
+		
+		<input type="checkbox" id="c-checkbox" value="C">
+		<label for="c-checkbox">Lorem ipsum</label>
+		
+		<input type="checkbox" id="d-checkbox" value="D">
+		<label for="d-checkbox">Etiam ac egestas</label>
+		
+		<input type="checkbox" id="e-checkbox" value="E">
+		<label for="e-checkbox">Etiam</label>
+	</fieldset>
+	
+	<fieldset class="inline-inputs col">
+		<legend>Options</legend>
+		<input type="radio" id="option-a" value="checked" checked="">
+		<label for="option-a">Option A</label>
+		<input type="radio" id="option-b" value="unchecked">
+		<label for="option-b">Option B</label>
+	</fieldset>
+
+	 <input type="submit" value="send"/>
+</form>

@@ -1,0 +1,45 @@
+@if $use-form-generic == true {
+	
+	.generic-form {
+		
+		.col {
+			float: left;
+			margin-right: 4%;
+			width: 48%;
+			
+			&:nth-of-type(2n) {
+				margin-right: 0;
+			}
+			
+			input {
+				width: 100%;
+			}
+		}
+		
+		fieldset {
+			margin: 0;
+		}
+		
+		.inline-inputs {
+			
+			input {
+				display: inline-block;
+				width: auto;
+			}
+			
+			label {
+				margin-right: 2%;
+			}
+		}
+		
+		.required {
+			color: #ff0000;
+		}
+		
+		button,
+		input[type="submit"] {
+			clear: both;
+			display: block;
+		}
+	}
+} // end if check
