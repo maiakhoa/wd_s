@@ -25,10 +25,6 @@ $use-expanding-search-box : true !default;
 $use-expanding-search-box-modal : true !default;
 @import	"_expanding-search-box-modal";
 
-// Featured Device hero
-$use-featured-device-hero : true !default;
-@import	"_featured-device-hero";
-
 // Flexbox Cards
 $use-flexbox-cards : true !default;
 @import	"_flexbox-cards";
@@ -44,6 +40,10 @@ $use-flexbox-nav-dropdown : true !default;
 // Flexbox Navigation with Dropdown
 $use-form-generic : true !default;
 @import	"_form-generic";
+
+// Hero - Featured Device
+$use-hero-featured-device : true !default;
+@import	"_hero-featured-device";
 
 // Hover tile animation
 $use-hover-tile-animation : true !default;

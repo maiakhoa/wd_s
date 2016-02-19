@@ -1,6 +1,6 @@
-@if $use-featured-device-hero == true {
+@if $use-hero-featured-device == true {
 
-	.featured-device-hero {
+	.hero-featured-device {
 		$featured-device-padding-vertical: rem(80);
 		$featured-device-padding-horizontal: rem(6);
 		$featured-device-screen-width: rem(224); // width of the featured device
@@ -89,5 +89,5 @@
 				} // @media
 			} // .hero-device
 		} // .hero-background
-	} // .featured-device-hero
+	} // .hero-featured-device
 }
