@@ -1,0 +1,93 @@
+@if $use-view-switcher == true {
+
+	// Basic styles for our grid (default view)
+	.block-item {
+		@include fill-parent;
+		
+		color: $color-black;
+		float: none;
+		margin-bottom: rem(35);
+		text-align: center;
+		
+		@include media($phone-landscape) {
+			@include span-columns(6);
+			@include omega(2n);
+		}
+		
+		@include media($tablet-landscape) {
+			@include span-columns(4);
+			@include omega-reset(2n);
+			@include omega(3n);
+		}
+		
+		h1 {
+			margin: 0;
+		}
+		
+		img {
+			border-radius: 100%;
+		}
+	} // .block-item
+
+	// Set styles for a checked radio/option
+	.view-radio {
+		display: none;
+		
+		+ label {
+			color: $color-black;
+			cursor: pointer;
+			display: inline-block;
+			font-size: rem(24);
+			font-weight: 600;
+			margin: 0 rem(35) rem(35) 0;
+			
+			&:hover {
+				color: $color-blue;
+			}
+		}
+	} // .view-radio
+
+	// Set the checked styles for our labels
+	.view-radio:checked {
+		
+		+ label {
+			color: $color-blue;
+		}
+	} // .view-radio:checked
+
+	// Styles for our List radio being checked
+	.list-view-radio:checked {
+
+		// Find the sibling content container div
+		~ .content-container {
+			
+			// Adjust styles for the individual block items
+			.block-item {
+				@include fill-parent;
+				@include omega;
+
+				text-align: left;
+				
+				@include media($tablet-portrait) {
+					min-height: rem(300);
+				}				
+				
+				img {
+					@include size(rem(64));
+					
+					float: left;
+					margin-right: rem(15);
+					
+					@include media($tablet-portrait) {
+						@include size(rem(300));
+					}
+				}
+				
+				.entry-content {
+					overflow: hidden;
+				}
+			}
+		}	
+	} // .list-view-radio:checked
+	
+} // end if check

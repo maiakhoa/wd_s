@@ -76,3 +76,7 @@ $use-parallax-simple : true !default;
 // Vertical Bar Chart - Animated
 $use-vertical-bar-chart : true !default;
 @import	"_vertical-bar-chart";
+
+// Vertical Bar Chart - Animated
+$use-view-switcher : true !default;
+@import	"_view-switcher";
