@@ -9,6 +9,10 @@
 $use-accordion-single : true !default;
 @import	"_accordion-single";
 
+// Chosen.js <select> standard
+$use-chosen-select-standard : true !default;
+@import	"_chosen-select-standard";
+
 // Expanding Search Box (CSS only)
 $use-expanding-search-box : true !default;
 @import	"_expanding-search-box";

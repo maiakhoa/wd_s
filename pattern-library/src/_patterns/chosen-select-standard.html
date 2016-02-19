@@ -1,0 +1,29 @@
+---
+author: Greg Rickaby
+category: forms / fields / inputs
+date: 2016-02-19 12:05:25 -0500
+description: "A simple dropdown using [Chosen.js](https://harvesthq.github.io/chosen/). Find out more, by reading the Chosen [options API](https://harvesthq.github.io/chosen/options.html)."
+layout: pattern
+tags: dropdown, chosen
+title:  "Chosen.js &lt;select&gt; standard"
+---
+<!-- enqueue jQuery in the theme -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js" type="text/javascript"></script>
+
+<!-- Grab Chosen.js from Bower -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.min.css">
+
+<!-- Begin pattern's js -->
+<script src="{{ site.url }}{{ site.wp_theme_dir }}/assets/js/patterns/chosen-select-standard.js" type="text/javascript"></script>
+
+<form class="foo-form" id="foo_form">
+	<label for="foo_select" class="screen-reader-text">Click to select an option</label>
+	<select id="foo_select" class="dropdown" form="foo_form" data-placeholder="Click to select an option...">
+		<option value="null">First option</option>
+		<option value="null">Second option</option>
+		<option value="null">Third option</option>
+		<option value="null">Fourth option</option>
+		<option value="null">Fifth option</option>
+	</select>
+</form>

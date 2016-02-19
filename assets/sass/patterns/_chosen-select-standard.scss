@@ -1,0 +1,39 @@
+@if $use-chosen-select-standard == true {
+
+	.foo-form {
+
+		// Reset default Chosen.js styles
+		.chosen-container {
+			font-size: rem(16);
+
+			// Remove borders and box-shadows
+			.chosen-single,
+			.chosen-drop {
+				border: none;
+				border-radius: 0;
+				box-shadow: none;
+			}
+		} // .foo-form .chosen-container
+
+		// Reset active styles
+		.chosen-container-active {
+
+			// Remove borders and box-shadows
+			&.chosen-with-drop .chosen-single,
+			.chosen-choices {
+				border: none;
+				border-radius: 0;
+				box-shadow: none;		
+			}
+
+			.chosen-results {
+
+				// Remove gradient and set the highlight color
+				.highlighted {
+					background: $color-blue;
+				}
+			}
+		} // .foo-form .chosen-container-active
+	} // .foo-form
+	
+} // end if check
