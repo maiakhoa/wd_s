@@ -68,3 +68,7 @@ $use-pagination : true !default;
 // Parallax (CSS only)
 $use-parallax-simple : true !default;
 @import	"_parallax-simple";
+
+// Vertical Bar Chart - Animated
+$use-vertical-bar-chart : true !default;
+@import	"_vertical-bar-chart";

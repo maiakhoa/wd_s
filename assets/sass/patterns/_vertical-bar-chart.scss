@@ -1,0 +1,93 @@
+@if $use-vertical-bar-chart == true {
+
+	// Mixin that allows staggering of animation
+	@mixin stagger-anim-delay($i, $stagger-delay) {
+		@while $i > 0 {
+			&:nth-of-type(#{$i}) {
+				animation-delay: $stagger-delay * $i;
+			}
+			
+			$i: $i - 1;
+		}
+	}
+
+	// Animation that moves in bars
+	@keyframes animation-lightspeed-in {
+	 	0% { 
+			opacity: 0;
+			transform: translateY(-200%);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	// Wrapper around chart
+	.chart-wrapper {
+		margin: 0 auto;
+		max-width: rem(600);
+	} // .chart-wrapper
+
+	// Vertical Chart + Bars + Labels
+	.chart-vertical {
+		@include list-reset;
+
+		display: flex;
+		height: 300px;
+		justify-content: space-between;
+		overflow: hidden;
+
+		.chart-bar {
+			@include stagger-anim-delay(10, 0.3s);
+			
+			animation: 1s animation-lightspeed-in ease forwards;
+			background: $color-blue;
+			list-style: none;
+			margin-right: rem(4);
+			opacity: 0;
+			width: 100%;
+			
+			&[data-skill="10"] {
+				height: 10%;
+			}
+
+			&[data-skill="20"] {
+				height: 20%;
+			}
+
+			&[data-skill="30"] {
+				height: 30%;
+			}
+
+			&[data-skill="40"] {
+				height: 40%;
+			}
+
+			&[data-skill="50"] {
+				height: 50%;
+			}
+
+			&[data-skill="60"] {
+				height: 60%;
+			}
+
+			&[data-skill="70"] {
+				height: 70%;
+			}
+
+			&[data-skill="80"] {
+				height: 80%;
+			}
+
+			&[data-skill="90"] {
+				height: 90%;
+			}
+
+			&[data-skill="100"] {
+				height: 100%;
+			}
+		} // .chart-bar
+	} // .chart-vertical
+	
+} // end if check
