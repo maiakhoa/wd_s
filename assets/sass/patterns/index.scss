@@ -45,6 +45,10 @@ $use-form-generic : true !default;
 $use-hero-featured-device : true !default;
 @import	"_hero-featured-device";
 
+// Hero - Slanted Clip-path
+$use-hero-slanted-clip-path : true !default;
+@import	"_hero-slanted-clip-path";
+
 // Hover tile animation
 $use-hover-tile-animation : true !default;
 @import	"_hover-tile-animation";

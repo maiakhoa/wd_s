@@ -1,0 +1,17 @@
+@if $use-hero-slanted-clip-path == true {
+
+	.hero-slanted-clip-path {
+		background: url(http://lorempixel.com/800/350/nature);
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		clip-path: polygon(0 0, 1600px 0, 1600px 50%, 0 100%); // slanted edge here
+		padding: rem(100) rem(20);
+		text-align: center;
+	  
+		h1 {
+			font-size: rem(32);
+		}
+	} // .hero-slanted-clip-path
+	
+} // end if check
