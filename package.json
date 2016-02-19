@@ -31,7 +31,7 @@
     "gulp-util": "^3.0.7",
     "gulp-wp-pot": "^1.1.1",
     "gulp.spritesmith": "^6.2.0",
-    "node-neat": "^1.7.2",
+    "node-neat": "^1.7.2"
   },
   "description": "A theme boilerplate for WebDevStudios.",
   "devDependencies": {
