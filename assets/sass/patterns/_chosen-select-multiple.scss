@@ -1,6 +1,6 @@
-@if $use-chosen-select-standard == true {
+@if $use-chosen-select-multiple == true {
 
-	.chosen-form-standard {
+	.chosen-form-multiple {
 
 		// Reset default Chosen.js styles
 		.chosen-container {
@@ -13,7 +13,7 @@
 				border-radius: 0;
 				box-shadow: none;
 			}
-		} // .chosen-form-standard .chosen-container
+		} // .chosen-form-multiple .chosen-container
 
 		// Reset active styles
 		.chosen-container-active {
@@ -33,7 +33,7 @@
 					background: $color-blue;
 				}
 			}
-		} // .chosen-form-standard .chosen-container-active
-	} // ..chosen-form-standard
+		} // .chosen-form-multiple .chosen-container-active
+	} // .chosen-form-multiple
 	
 } // end if check

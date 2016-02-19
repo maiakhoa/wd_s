@@ -13,6 +13,10 @@ $use-accordion-single : true !default;
 $use-chosen-select-standard : true !default;
 @import	"_chosen-select-standard";
 
+// Chosen.js <select> multiple
+$use-chosen-select-multiple : true !default;
+@import	"_chosen-select-multiple";
+
 // Expanding Search Box (CSS only)
 $use-expanding-search-box : true !default;
 @import	"_expanding-search-box";
