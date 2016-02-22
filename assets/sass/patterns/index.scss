@@ -57,13 +57,13 @@ $use-hero-slanted-clip-path : true !default;
 $use-hover-tile-animation : true !default;
 @import	"_hover-tile-animation";
 
-// Mobile Navigation
-$use-mobile-navigation : true !default;
-@import	"_mobile-navigation";
-
 // Evenly-Sized Navigation
 $use-nav-evenly-spaced : true !default;
 @import	"_nav-evenly-spaced";
+
+// Mobile Navigation
+$use-nav-mobile : true !default;
+@import	"_nav-mobile";
 
 // Navigation w/ Sub-menus
 $use-nav-with-submenus : true !default;

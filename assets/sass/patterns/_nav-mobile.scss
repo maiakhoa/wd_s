@@ -1,4 +1,4 @@
-@if $use-mobile-navigation == true {
+@if $use-nav-mobile == true {
 
 	/** Mobile Navigation **/
 
@@ -9,7 +9,7 @@
 	}
 
 	// Fix the menu to the bottom of the window
-	.mobile-nav-menu {
+	.nav-mobile-menu {
 		display: block;
 		height: 100%;
 		left: 0;
@@ -66,7 +66,7 @@
 	}
 
 	// Remove margins from all menu items
-	.mobile-nav-menu {
+	.nav-mobile-menu {
 
 		// Only target the parent menu
 		.mobile-nav {
@@ -83,7 +83,7 @@
 	}
 
 	// Make sure the first four items are equal widths
-	.mobile-nav-menu {
+	.nav-mobile-menu {
 
 		// Only target the parent menu
 		.mobile-nav {
@@ -132,7 +132,7 @@
 	}
 
 	// Hide anything more than the first four items
-	.mobile-nav-menu {
+	.nav-mobile-menu {
 
 		// Only target the parent menu
 		.mobile-nav {
@@ -145,7 +145,7 @@
 	}
 
 	// Show the remaining menu items when the ".more" class is active
-	.mobile-nav-menu.more {
+	.nav-mobile-menu.more {
 
 		// Only target the parent menu
 		.mobile-nav {
@@ -176,8 +176,8 @@
 	}
 
 	// Style the more/fly-in menu
-	.mobile-nav-menu .mobile-nav ul.mobile-nav-menu-more,
-	.mobile-nav-menu .mobile-nav > .sub-menu {
+	.nav-mobile-menu .mobile-nav ul.nav-mobile-menu-more,
+	.nav-mobile-menu .mobile-nav > .sub-menu {
 		background-color: $color-gray;
 		left: 0;
 		height: 100vh;
@@ -185,7 +185,7 @@
 		top: 0;
 	}
 
-	.mobile-nav-menu .mobile-nav {
+	.nav-mobile-menu .mobile-nav {
 
 		ul {
 			box-shadow: none;
@@ -357,12 +357,12 @@
 
 		&.admin-bar {
 
-			.mobile-nav-menu {
+			.nav-mobile-menu {
 				padding-top: 0;
 			}
 		}
 
-		.mobile-nav-menu {
+		.nav-mobile-menu {
 			bottom: 0;
 			font-size: 0;
 			height: rem(64);
@@ -490,7 +490,7 @@
 			}
 		}
 
-		.mobile-nav-menu {
+		.nav-mobile-menu {
 
 			.menu.dropdown ul a {
 				width: auto;

@@ -17,8 +17,8 @@ window.MobileNavMenu = {};
     that.cache = function() {
         that.$c = {
             window: $(window),
-            mobileNavMenuContainer: $( '.mobile-nav-menu' ),
-            menuItemCount: $( '.mobile-nav-menu .mobile-nav > li' ).length
+            mobileNavMenuContainer: $( '.nav-mobile-menu' ),
+            menuItemCount: $( '.nav-mobile-menu .mobile-nav > li' ).length
         };
     };
 
@@ -37,7 +37,7 @@ window.MobileNavMenu = {};
         $( 'body' ).on( 'click', '.mobile-menu-more-link', that.displayMoreItems );
 
         // Add the more classes when hovering a parent menu item
-        $( 'body' ).on( 'click', '.mobile-nav-menu .menu-item-has-children a', that.setSecondClick );
+        $( 'body' ).on( 'click', '.nav-mobile-menu .menu-item-has-children a', that.setSecondClick );
 
         // Hide the menu when the close button is clicked
         $( 'body' ).on( 'click', '.close-mobile-menu', that.hideMoreItems );
@@ -53,7 +53,7 @@ window.MobileNavMenu = {};
 
     	// By this point, we know we have at least 5 items
     	// Add our "more" link
-		$( '.mobile-nav-menu .mobile-nav > li:nth-child(4)' ).after( '<li class="mobile-menu-more-link"><a href="#"><span><i class="more-icon"></i>More</span></a></li>' );
+		$( '.nav-mobile-menu .mobile-nav > li:nth-child(4)' ).after( '<li class="mobile-menu-more-link"><a href="#"><span><i class="more-icon"></i>More</span></a></li>' );
     }
 
     // Toggle the menu items on a click of the "more" link
