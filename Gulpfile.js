@@ -22,6 +22,7 @@ var reload = browserSync.reload;
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var sassJson = require('gulp-sass-json');
+var sassLint = require('gulp-sass-lint');
 var sort = require('gulp-sort');
 var sourcemaps = require('gulp-sourcemaps');
 var spritesmith = require('gulp.spritesmith');
@@ -38,7 +39,6 @@ var paths = {
 	jekyll_src: ['pattern-library/src/*.{html,md}', 'pattern-library/src/_layouts/*.html', 'pattern-library/src/_posts/*.{html,md}', 'pattern-library/src/_patterns/*.{html,md}'],
 	jekyll_assets: 'pattern-library/assets/scss/**/*.scss',
 	pattern_scripts: 'assets/js/patterns/*.js',
-	php: './*.php',
 	php: ['./*.php', './**/*.php'],
 	sass: 'assets/sass/**/*.scss',
 	sass_colors: 'assets/sass/utilities/variables/_colors.scss',
@@ -320,6 +320,21 @@ gulp.task('wp-pot', function () {
 });
 
 /**
+ * Sass linting
+ */
+gulp.task('sass:lint', function () {
+	gulp.src([
+		'assets/sass/**/*.scss',
+		'!assets/sass/base/_normalize.scss',
+		'!assets/sass/utilities/animate/**/*.*',
+		'!assets/sass/base/_sprites.scss'
+	])
+		.pipe(sassLint())
+		.pipe(sassLint.format())
+		.pipe(sassLint.failOnError())
+});
+
+/**
  * Process tasks and reload browsers on file changes.
  *
  * https://www.npmjs.com/package/browser-sync
@@ -338,7 +353,7 @@ gulp.task('watch', function() {
 	// Kick off BrowserSync.
 	browserSync.init( files, {
 		open: false,
-		proxy: "_s.dev",
+		proxy: "_s.com",
 		watchOptions: {
 			debounceDelay: 1000
 		}
@@ -377,7 +392,7 @@ gulp.task('clean:pot', function() {
 gulp.task('i18n', ['clean:pot','wp-pot']);
 gulp.task('icons', ['clean:icons', 'svg']);
 gulp.task('jekyll', ['jekyll-watch']);
-gulp.task('styles', ['clean:styles', 'postcss', 'cssnano']);
+gulp.task('styles', ['clean:styles', 'postcss', 'cssnano', 'sass:lint']);
 gulp.task('scripts', ['uglify']);
 gulp.task('sprites', ['imagemin', 'spritesmith']);
 gulp.task('default', ['i18n','icons', 'styles', 'scripts', 'sprites']);
