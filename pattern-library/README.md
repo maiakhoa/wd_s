@@ -24,7 +24,9 @@ Some features:
 ## Installation
 1. Make sure you have Gulp and Jekyll installed (see 'Requirements' above). 
 2. Then run `npm install` to install all the required node modules.
-3. Run `gulp jekyll` - site will build to `pattern-library/dist/` and watch for changes on `pattern-library/src/` (.md, .html), as well as any Sass changes to WP theme `/assets/sass/`.
+3. Change the [proxy for BrowserSync host in the Gulpfile.js](../Gulpfile.js#L114) to your local dev URL.
+4. Change the [site url in Jekyll's _config.yml](../_config.yml#L19) to your local dev URL too.
+5. Run `gulp jekyll` - site will build to `pattern-library/dist/` and watch for changes on `pattern-library/src/` (.md, .html), as well as any Sass changes to WP theme `/assets/sass/`.
 
 ## Adding a Pattern
 The following instructions are also on the: [How-to](src/how-to.md) page, which is also inside of Pattern Library static site, once generated.
