@@ -165,6 +165,13 @@ gulp.task('sass-json', function () {
 });
 
 /**
+ * Delete style.css and style.min.css before we minify and optimize
+ */
+gulp.task('clean:styles', function() {
+	return del(['style.css', 'style.min.css'])
+});
+
+/**
  * Compile Sass and run stylesheet through PostCSS.
  *
  * https://www.npmjs.com/package/gulp-sass
@@ -172,7 +179,7 @@ gulp.task('sass-json', function () {
  * https://www.npmjs.com/package/gulp-autoprefixer
  * https://www.npmjs.com/package/css-mqpacker
  */
-gulp.task('postcss', function() {
+gulp.task('postcss', ['clean:styles'], function() {
 	return gulp.src('assets/sass/*.scss', paths.css)
 
 	// Deal with errors.
@@ -203,7 +210,7 @@ gulp.task('postcss', function() {
 
 	// Create style.css.
 	.pipe(gulp.dest('./'))
-	.pipe(browserSync.stream())
+	.pipe(browserSync.stream());
 });
 
 /**
@@ -211,7 +218,7 @@ gulp.task('postcss', function() {
  *
  * https://www.npmjs.com/package/gulp-cssnano
  */
-gulp.task('cssnano', function() {
+gulp.task('cssnano', ['postcss'], function() {
 	return gulp.src('style.css')
 	.pipe(plumber({ errorHandler: handleErrors }))
 	.pipe(cssnano({
@@ -223,13 +230,35 @@ gulp.task('cssnano', function() {
 });
 
 /**
+ * Sass linting
+ */
+gulp.task('sass:lint', ['cssnano'], function () {
+	gulp.src([
+		'assets/sass/**/*.scss',
+		'!assets/sass/base/_normalize.scss',
+		'!assets/sass/utilities/animate/**/*.*',
+		'!assets/sass/base/_sprites.scss'
+	])
+	.pipe(sassLint())
+	.pipe(sassLint.format())
+	.pipe(sassLint.failOnError());
+});
+
+/**
+ * Delete the svg-icons.svg before we minify, concat
+ */
+gulp.task('clean:icons', function() {
+	return del(['assets/images/svg-icons.svg']);
+});
+
+/**
  * Minify, concatenate, and clean SVG icons.
  *
  * https://www.npmjs.com/package/gulp-svgmin
  * https://www.npmjs.com/package/gulp-svgstore
  * https://www.npmjs.com/package/gulp-cheerio
  */
-gulp.task('svg', function() {
+gulp.task('svg', ['clean:icons'], function() {
 	return gulp.src(paths.icons)
 	.pipe(plumber({ errorHandler: handleErrors }))
 	.pipe(svgmin())
@@ -281,6 +310,13 @@ gulp.task('spritesmith', function() {
 });
 
 /**
+ * Delete scripts before we concat and minify
+ */
+gulp.task('clean:scripts', function() {
+	return del(['assets/js/project.js']);
+});
+
+/**
  * Concatenate and minify javascripts.
  *
  * https://www.npmjs.com/package/gulp-uglify
@@ -300,11 +336,18 @@ gulp.task('uglify', ['clean:scripts'], function() {
 });
 
 /**
+ * Delete the theme's .pot before we create a new one
+ */
+gulp.task('clean:pot', function() {
+	return del(['languages/_s.pot']);
+});
+
+/**
  * Scan the theme and create a POT file.
  *
  * https://www.npmjs.com/package/gulp-wp-pot
  */
-gulp.task('wp-pot', function () {
+gulp.task('wp-pot', ['clean:pot'], function () {
 	return gulp.src(paths.php)
 	.pipe(plumber({ errorHandler: handleErrors }))
 	.pipe(sort())
@@ -317,21 +360,6 @@ gulp.task('wp-pot', function () {
 		team: 'Team <mail@_s.com>'
 	}))
 	.pipe(gulp.dest('languages/'));
-});
-
-/**
- * Sass linting
- */
-gulp.task('sass:lint', function () {
-	gulp.src([
-		'assets/sass/**/*.scss',
-		'!assets/sass/base/_normalize.scss',
-		'!assets/sass/utilities/animate/**/*.*',
-		'!assets/sass/base/_sprites.scss'
-	])
-		.pipe(sassLint())
-		.pipe(sassLint.format())
-		.pipe(sassLint.failOnError())
 });
 
 /**
@@ -368,31 +396,12 @@ gulp.task('watch', function() {
 });
 
 /**
- * Delete compiled files.
- */
-gulp.task('clean:icons', function() {
-	return del(['assets/images/svg-icons.svg']);
-});
-
-gulp.task('clean:styles', function() {
-	return del(['style.css', 'style.min.css']);
-});
-
-gulp.task('clean:scripts', function() {
-	return del(['assets/js/project.js']);
-});
-
-gulp.task('clean:pot', function() {
-	return del(['languages/_s.pot']);
-});
-
-/**
  * Create indivdual tasks.
  */
-gulp.task('i18n', ['clean:pot','wp-pot']);
-gulp.task('icons', ['clean:icons', 'svg']);
+gulp.task('i18n', ['wp-pot']);
+gulp.task('icons', ['svg']);
 gulp.task('jekyll', ['jekyll-watch']);
-gulp.task('styles', ['clean:styles', 'postcss', 'cssnano', 'sass:lint']);
 gulp.task('scripts', ['uglify']);
+gulp.task('styles', ['sass:lint']);
 gulp.task('sprites', ['imagemin', 'spritesmith']);
 gulp.task('default', ['i18n','icons', 'styles', 'scripts', 'sprites']);
