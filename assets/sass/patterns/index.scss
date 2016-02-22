@@ -6,85 +6,89 @@
 //--------------------------------------------------------------
 
 // Accordion - Multiple
-$use-accordion-multiple : true !default;
+$use-accordion-multiple: true !default;
 @import	"_accordion-multiple";
 
 // Accordion - Simple
-$use-accordion-single : true !default;
+$use-accordion-single: true !default;
 @import	"_accordion-single";
 
 // Chosen.js <select> standard
-$use-chosen-select-standard : true !default;
+$use-chosen-select-standard: true !default;
 @import	"_chosen-select-standard";
 
 // Chosen.js <select> multiple
-$use-chosen-select-multiple : true !default;
+$use-chosen-select-multiple: true !default;
 @import	"_chosen-select-multiple";
 
 // Expanding Search Box (CSS only)
-$use-expanding-search-box : true !default;
+$use-expanding-search-box: true !default;
 @import	"_expanding-search-box";
 
 // Expanding Search Box Modal (CSS only)
-$use-expanding-search-box-modal : true !default;
+$use-expanding-search-box-modal: true !default;
 @import	"_expanding-search-box-modal";
 
 // Flexbox Cards
-$use-flexbox-cards : true !default;
+$use-flexbox-cards: true !default;
 @import	"_flexbox-cards";
 
 // Flexbox Grid
-$use-flexbox-grid : true !default;
+$use-flexbox-grid: true !default;
 @import	"_flexbox-grid";
 
 // Flexbox Navigation with Dropdown
-$use-flexbox-nav-dropdown : true !default;
+$use-flexbox-nav-dropdown: true !default;
 @import	"_flexbox-nav-dropdown";
 
 // Flexbox Navigation with Dropdown
-$use-form-generic : true !default;
+$use-form-generic: true !default;
 @import	"_form-generic";
 
 // Hero - Featured Device
-$use-hero-featured-device : true !default;
+$use-hero-featured-device: true !default;
 @import	"_hero-featured-device";
 
 // Hero - Slanted Clip-path
-$use-hero-slanted-clip-path : true !default;
+$use-hero-slanted-clip-path: true !default;
 @import	"_hero-slanted-clip-path";
 
 // Hover tile animation
-$use-hover-tile-animation : true !default;
+$use-hover-tile-animation: true !default;
 @import	"_hover-tile-animation";
 
 // Evenly-Sized Navigation
-$use-nav-evenly-spaced : true !default;
+$use-nav-evenly-spaced: true !default;
 @import	"_nav-evenly-spaced";
 
 // Mobile Navigation
-$use-nav-mobile : true !default;
+$use-nav-mobile: true !default;
 @import	"_nav-mobile";
 
 // Navigation w/ Sub-menus
-$use-nav-with-submenus : true !default;
+$use-nav-with-submenus: true !default;
 @import	"_nav-with-submenus";
 
 // Non-flexbox grid
-$use-non-flexbox-grid : true !default;
+$use-non-flexbox-grid: true !default;
 @import	"_non-flexbox-grid";
 
 // Pagination
-$use-pagination : true !default;
+$use-pagination: true !default;
 @import	"_pagination";
 
 // Parallax (CSS only)
-$use-parallax-simple : true !default;
+$use-parallax-simple: true !default;
 @import	"_parallax-simple";
 
+// Radial Animations
+$use-radial-animations: true !default;
+@import	"_radial-animations";
+
 // Vertical Bar Chart - Animated
-$use-vertical-bar-chart : true !default;
+$use-vertical-bar-chart: true !default;
 @import	"_vertical-bar-chart";
 
 // Vertical Bar Chart - Animated
-$use-view-switcher : true !default;
+$use-view-switcher: true !default;
 @import	"_view-switcher";

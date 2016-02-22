@@ -1,0 +1,106 @@
+@if $use-radial-animations == true {
+
+	// Local variables
+	$radial-size: rem(184);
+	
+	.chart-container {
+		text-align: center;
+	}
+
+	.chart {
+		display: inline-block;
+		position: relative;
+		text-align: center;
+
+		// Sizing important here to create underlayer
+		// of grey circle with border-radius
+		h2 {
+			border: 14px solid $color-whitesmoke;
+			border-radius: rem(100);
+			color: $color-black;
+			font-size: rem(18);
+			height: $radial-size;
+			line-height: 1.25;
+			margin: rem(3);
+			padding: rem(20);
+			width: $radial-size;
+		}
+		
+		// Stroke color
+		svg {
+			@include position(absolute, 0 null null 0); //makes sure purple stroke positioning right over underlayer
+			
+			.outer {
+				-webkit-animation-play-state: running;
+				fill: transparent;
+				stroke: $color-blue;
+				stroke-dasharray: 534; //creates a long dash
+				stroke-width: 15; //width of dash to match grey circle underneath
+				transition: stroke-dashoffset 1s;
+			}
+		}
+		
+		.number {
+			display: block;
+			font-size: rem(44);
+		}
+		
+		&:hover {
+			
+			.outer {
+				-webkit-animation-play-state: paused;
+				animation-play-state: paused; //stops animation state on hover
+				stroke-dashoffset: 534 !important; //without this nothing will happen on hover
+			}
+		}
+		
+		// 25%
+		&[data-percent='75'] .outer {
+			animation: show75 2s;
+			stroke-dashoffset: 124;
+		}
+		
+		// 75%
+		&[data-percent='25'] .outer {
+			animation: show25 2s;
+			stroke-dashoffset: 400;
+		}
+	} // .chart
+
+	@keyframes show75 {
+		from {
+			stroke-dashoffset: 537; // the distance into pattern to start dash - matching values from stroke-dashoffset above
+		}
+		to {
+			stroke-dashoffset: 124; // the distance into pattern to end dash.
+		}
+	}
+
+	@-webkit-keyframes show75 {
+		from {
+			-webkit-stroke-dashoffset: 537; // the distance into pattern to start dash.
+		}
+		to {
+			-webkit-stroke-dashoffset: 124; // the distance into pattern to end dash.
+		}
+	} /* End animation */
+
+	@keyframes show25 {
+		from {
+			stroke-dashoffset: 537; // the distance into pattern to start dash - - matching values from stroke-dashoffset above
+		}
+		to {
+			stroke-dashoffset: 400; // the distance into pattern to end dash.
+		}
+	}
+
+	@-webkit-keyframes show25 {
+		from {
+			-webkit-stroke-dashoffset: 537; // the distance into pattern to start dash.
+		}
+		to {
+			-webkit-stroke-dashoffset: 400; // the distance into pattern to end dash.
+		}
+  	}
+	
+} // end if check
