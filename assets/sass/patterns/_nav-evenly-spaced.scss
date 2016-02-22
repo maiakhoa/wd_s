@@ -1,0 +1,35 @@
+@if $use-nav-evenly-spaced == true {
+	
+	// <ul class="nav-evenly-spaced">
+	.nav-evenly-spaced {
+		background-color: $color-gallery;
+		display: table;
+		margin: 0;
+		padding: 0;
+		table-layout: fixed;
+		text-align: center;
+		width: 100%;
+		
+		li {
+			display: table-cell;
+			float: none;
+			margin: 0;
+		} // .nav-evenly-spaced li
+		
+		a {
+			@include transition (background-color 0.25s, color 0.25s ease-in-out);
+			
+			color: $color-blue;
+			display: block;
+			padding: rem(15);
+			
+			&:hover {
+				background-color: $color-blue;
+				color: $color-white;
+				text-decoration: none;
+			}
+		} // .nav-evenly-spaced a
+		
+	} // .nav-evenly-spaced
+	
+} // end if check

@@ -61,6 +61,10 @@ $use-hover-tile-animation : true !default;
 $use-mobile-navigation : true !default;
 @import	"_mobile-navigation";
 
+// Evenly-Sized Navigation
+$use-nav-evenly-spaced : true !default;
+@import	"_nav-evenly-spaced";
+
 // Navigation w/ Sub-menus
 $use-nav-with-submenus : true !default;
 @import	"_nav-with-submenus";
