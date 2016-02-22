@@ -44,6 +44,7 @@
 			// Add our active classes
 			// Set border to transparent rather than removing it so that it does not create any jumpiness when the border is removed. Keep in mind - the border adds 1px all around. If we straight up remove it, we get a jumpy response when showing/hiding. Making it transparent "removes" the border but not the pixel space.
 			&.active {
+				background-color: $color-mineshaft;
 				border-color: transparent;
 				color: $color-white;
 

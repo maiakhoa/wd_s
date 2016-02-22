@@ -5,6 +5,10 @@
 // Patterns - import everything to generate your patterns sass
 //--------------------------------------------------------------
 
+// Accordion - Multiple
+$use-accordion-multiple : true !default;
+@import	"_accordion-multiple";
+
 // Accordion - Simple
 $use-accordion-single : true !default;
 @import	"_accordion-single";
