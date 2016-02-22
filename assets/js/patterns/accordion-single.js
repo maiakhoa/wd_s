@@ -7,7 +7,6 @@ window.SupportAccordionContent = {};
 
 		if ( that.meetsRequirements ) {
 			that.bindEvents();
-			that.toggleSections();
 		}
 	};
 
