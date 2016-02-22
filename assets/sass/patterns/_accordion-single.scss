@@ -1,61 +1,86 @@
 @if $use-accordion-single == true {
 
-	// Style the main accordion trigger button
-	.accordion-trigger {
-		@include transition (all 0.2s ease-in-out);
+	.accordion {
 		
-		background-color: $color-whitesmoke;
-		border: 1px solid $color-silver-chalice;
-		border-radius: rem(5);
-		display: block;
-		padding: rem(9) rem(8);
-		position: relative;
-		text-align: left;
-		width: 100%;
-		
-		// Add a pseudo element +. This can be updated to use an SVG background image as well.
-		&:after {
+		// Style the main accordion trigger button
+		.accordion-trigger {
+			@include transition (all 0.2s ease-in-out);
+			
+			background-color: $color-gallery;
+			border: 1px solid $color-alto;
+			border-radius: rem(5);
 			color: $color-mineshaft;
-			content: '+';
 			display: block;
-			font-size: rem(24);
-			height: rem(24);
-			margin-top: rem(-18);
-			position: absolute;
-			right: rem(25);
-			top: 50%;
-			width: rem(24);
-		}
-		
-		// Adjust the button on hover
-		&:hover {
-			background-color: $color-gray;
-			border-color: $color-mineshaft;
+			padding: rem(9) rem(8);
+			position: relative;
+			text-align: left;
+			width: 100%;
+			
+			// Add a pseudo element +. This can be updated to use an SVG background image as well.
+			&:after {
+				color: $color-mineshaft;
+				content: '+';
+				display: block;
+				font-size: rem(24);
+				height: rem(24);
+				margin-top: rem(-18);
+				position: absolute;
+				right: rem(25);
+				top: 50%;
+				width: rem(24);
+			}
+			
+			// Adjust the button on hover
+			&:hover {
+				background-color: $color-dove-gray;
+				border-color: $color-dove-gray;
+				color: $color-white;
 
+				&:after {
+					color: $color-white;
+				}
+			}
+
+			// Add our active classes
+			// Set border to transparent rather than removing it so that it does not create any jumpiness when the border is removed. Keep in mind - the border adds 1px all around. If we straight up remove it, we get a jumpy response when showing/hiding. Making it transparent "removes" the border but not the pixel space.
+			&.active {
+				border-color: transparent;
+				color: $color-white;
+
+				&:after {
+					color: $color-white;
+					content: '-';
+				}
+			}
+		} // .accordion .accordion-trigger
+
+		// Hide our accordion content by default
+		.accordion-content {
+			display: none;
+			overflow: hidden;
+			padding: 0 rem(10);
+		} // .accordion .accordion-content
+
+		// Adjust the article containing each accordion's content
+		.accordion-container {
+			
+			// Add some H1 styles for the accordion section title/butotn
 			h1 {
 				color: $color-mineshaft;
+				font-size: rem(16);
 			}
-
-			h1:after {
-				opacity: 1;
+			
+			article {
+				color: $color-black;
+				margin-bottom: rem(35);
 			}
-		}
-
-		// Add our active classes
-		// Set border to transparent rather than removing it so that it does not create any jumpiness when the border is removed. Keep in mind - the border adds 1px all around. If we straight up remove it, we get a jumpy response when showing/hiding. Making it transparent "removes" the border but not the pixel space.
-		&.active {
-			border-color: $color-mineshaft;
-
-			&:after {
-				content: '-';
-			}
-		}
+		} // .accordion .accordion-container
 		
 		// Add some styles for JS disabled
 		.no-js & {
 
 			.accordion-trigger {
-				border-color: $color-mineshaft;
+				border-color: $color-white;
 
 				h1:after {
 					display: none;
@@ -65,29 +90,7 @@
 			.accordion-content {
 				display: block;
 			}
-		}
-	}
-
-	// Hide our accordion content by default
-	.accordion-content {
-		display: none;
-		overflow: hidden;
-		padding: 0 rem(10);
-	}
-
-	// Adjust the article containing each accordion's content
-	.accordion-content-container {
-		
-		// Add some H1 styles for the accordion section title/butotn
-		h1 {
-			color: $color-black;
-			font-size: rem(16);
-		}
-		
-		article {
-			color: $color-black;
-			margin-bottom: rem(35);
-		}
-	}
+		} // .no-js .accordion
+	} // .accordion
 	
 } // end if check
