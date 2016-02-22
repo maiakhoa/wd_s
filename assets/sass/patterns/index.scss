@@ -49,6 +49,10 @@ $use-form-generic : true !default;
 $use-hero-featured-device : true !default;
 @import	"_hero-featured-device";
 
+// Hero - Flexbox
+$use-hero-flexbox : true !default;
+@import	"_hero-flexbox";
+
 // Hero - Slanted Clip-path
 $use-hero-slanted-clip-path : true !default;
 @import	"_hero-slanted-clip-path";
