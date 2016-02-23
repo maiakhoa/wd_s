@@ -108,7 +108,7 @@ gulp.task('jekyll-watch', ['jekyll-build'], function() {
 		proxy: 'http://wd-s.dev',
 		startPath: 'wp-content/themes/wd_s/pattern-library/dist/index.html',
 		watchOptions: {
-			debounceDelay: 1000
+			reloadDelay: 1000
 		}
     });
 });
