@@ -89,6 +89,10 @@ $use-nav-evenly-spaced: false !default;
 $use-nav-mobile: false !default;
 @import	"_nav-mobile";
 
+// Off-canvas "open door" Navigation
+$use-nav-off-canvas: false !default;
+@import	"_nav-off-canvas";
+
 // Navigation - sticky
 $use-nav-sticky: false !default;
 @import	"_nav-sticky";

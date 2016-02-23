@@ -1,0 +1,229 @@
+@if $use-nav-off-canvas == true {
+
+	.pattern-off-canvas {
+		
+		// Primary site container.
+		.site { 
+			@include perspective(rem(1500));
+			@include transform-origin(50% 100%);
+			
+			max-width: 100%;
+			
+			// Create a transparent screen.
+			&::after {
+				@include position(absolute, 0 0 null null);
+				@include size(0 0);
+				@include transition(opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s);
+
+				background: rgba(0,0,0,0.4);
+				content: '';
+				opacity: 0;
+				visbility: hidden;
+			}
+
+			// Display the transparent screen.
+			body.open-door &::after {
+				@include size(100% 100%);
+				@include transition(opacity 0.5s);
+
+				opacity: 1;	
+				visibility: visible;
+			}	
+		}
+
+		// Container which will be rotated.
+		.rotator {
+			@include transition(transform 0.5s);
+			@include perspective(rem(1000));
+			@include position(relative, null null null null);
+			@include transform-origin(0 50%);
+			@include transform-style(preserve-3d);
+			
+			// Rotate the container.
+			body.open-door & {
+				@include transform(rotateY(7deg));
+			}	
+		}
+
+		// Menu defaults.
+		.menu {
+			@include list-reset;
+			
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-end;
+			
+			// <li> Each menu item.
+			.menu-item {
+				position: relative;
+				
+				// Menu hover.
+				&:hover > a,
+				&.focus > a {
+				}
+			}
+			
+			// <ul> The sub-menu default functionality without JS.
+			.sub-menu {
+				@include position(absolute, null null null rem(-9999));
+				@include size(rem(320) auto);
+				@include list-reset;
+				
+				background: $color-black;
+				padding: rem(40);
+				
+				// <li> Sub-menu items
+				.menu-item {
+					
+					a {
+						@include margin-padding-reset;
+						
+						line-height: 2;
+					}
+
+					// Display sub sub-menu.
+					&:hover > ul,
+					&.focus > ul {
+						left: auto;
+					}
+				}
+
+				// Sub-menu links.
+				a {
+				}
+
+				:hover > a,
+				.focus > a {
+				}
+
+				a:hover,
+				a.focus {
+				}
+			}
+
+			// Menu hyperlinks
+			a {
+				align-items: flex-start;
+				color: $color-white;
+				display: flex;
+				padding: rem(12) rem(24);
+				text-decoration: none;
+			}
+
+			// Current items
+			.current_page_item a,
+			.current-menu-item a {
+				background-color: $color-black;
+			}
+			
+			// The "more" menu item.
+			.menu-more {
+				@include size(rem(45) rem(45));
+				
+				background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/476573/more-white.svg) $color-black;
+				background-position: rem(3.1) rem(2.1);
+				background-repeat: no-repeat;
+				background-size: rem(40);
+				border-radius: rem(50);
+					
+				// Hide the "more" text...
+				a {
+					text-indent: -9999px;
+				}
+
+				// ...But always display sub-menu text.
+				ul > li > a {
+					text-indent: 0;
+				}
+			}
+
+			// A fallback for no JS.
+			html.no-js & {
+				
+				// Display sub-menu on hover.
+				li:hover > ul,
+				li.focus > ul {
+					left: auto;
+					width: rem(320);
+				}
+			}
+		}
+
+		// Off canvas container.
+		.off-canvas-drawer {
+			@include position(fixed, 0 rem(-9999) null null);
+			@include transform(translate3d(200%, 0, 0));
+			@include transition(all 1s);
+			@include size(rem(320) auto);
+
+			background: $color-black;
+			height: 100%;
+			opacity: 0;
+			overflow-y: auto;
+			padding: rem(40);
+			visibility: hidden; // hidden by default
+			z-index: 999999;
+
+				// Show the drawer.
+				body.open-door & {
+					@include transform(translate3d(0, 0, 0));
+					@include transition(transform 0.5s);
+					
+					opacity: 1;
+					visibility: visible; // display when body class is applied
+					right: 0;
+				}	
+			
+			// <ul> Hide the sub-menu by default.
+			ul {
+				@include list-reset;
+				
+				a {
+					color: $color-white;
+				}
+			}
+			
+			// Extra text before nav links.
+			.menu-intro {
+				color: $color-white;
+				display: flex;
+				justify-content: space-between;
+				text-transform: uppercase;
+				padding-bottom: rem(45);
+
+				// The close button
+				.menu-close {
+
+					.svg {
+						@include size(rem(16) rem(16));
+
+						cursor: pointer;
+					}
+				}
+			}	
+		}
+
+		// For this pen only!
+		.site-header {
+			background: url('https://dl.dropboxusercontent.com/s/xiechbrlokl87ad/home-office-336378_1920.jpg');
+			background-size: cover;
+			background-repeat: no-repeat;
+			min-height: rem(500);
+			padding: rem(20);
+
+			.hero-area {
+				@include padding(rem(100));
+				@include size(100% rem(400));
+				
+				align-items: center;
+				display: flex;
+				justify-content: center;
+				text-align: center;
+				color: $color-white;
+			}
+		}
+		.site .wrap { background-color: $color-white; max-width: 100%; }
+		.site-content { color: $color-black; padding: rem(24); a { color: $color-black; text-decoration: underline } }
+	}
+	
+} // end if check

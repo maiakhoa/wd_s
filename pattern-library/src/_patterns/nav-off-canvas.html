@@ -1,0 +1,71 @@
+---
+author: Greg Rickaby
+category: navigation
+date: 2016-02-23 14:05:25 -0500
+description: "When the menu drawer opens, the content opens like a door."
+layout: pattern
+tags: navigation, off-canvas, flexbox
+title:  "Navigation - Off-canvas 'Open Door'"
+---
+<!-- enqueue jQuery in the theme -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js" type="text/javascript"></script>
+
+<!-- Begin pattern's js -->
+<script src="{{ site.url }}{{ site.wp_theme_dir }}/assets/js/patterns/nav-off-canvas.js" type="text/javascript"></script>
+
+<div class="pattern-off-canvas">
+	<div class="site">
+		<div class="rotator">
+			<header class="site-header">
+				<nav class="main-navigation">
+					<ul class="menu dropdown">
+						<li class="menu-item"><a href="#">Menu Item</a></li>
+						<li class="menu-item"><a href="#">Menu Item</a></li>
+						<li class="menu-item"><a href="#">Menu Item</a></li>
+						<li class="menu-item"><a href="#">Menu Item</a></li>
+						<li class="menu-item menu-more"><a href="#">More</a>
+							<ul class="sub-menu">
+								<li class="menu-intro">
+									<span class="menu-intro-text">Explore</span>
+									<span class="menu-close"><img class="svg" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/476573/close-white.svg" alt="Close sub-menu" /></span>
+								</li>
+								<li class="menu-item"><a href="#">Sub-Menu Item</a></li>
+								<li class="menu-item"><a href="#">Sub-Menu Item</a></li>
+								<li class="menu-item"><a href="#">Sub-Menu Item</a></li>
+								<li class="menu-item"><a href="#">Sub-Menu Item</a></li>
+							</ul><!-- .sub-menu -->
+						</li>
+					</ul><!-- .menu .dropdown -->
+					<div class="hero-area">
+						<div class="hero-content">
+						<h1>Hero Area Title</h1>
+						<h2>Some sort of description explaining this!</h2>
+						</div><!-- .hero-content -->
+					</div><!-- .hero-area -->
+				</nav><!-- .main-navigation -->
+			</header><!-- .site-header -->
+			<div class="wrap">
+				<div class="site-content">
+					<main class="site-main">
+						<h2>Off-Canvas Navigation: Open Door</h2>
+						<p>This effect is based on this Codrops article, <a href="http://tympanus.net/codrops/2013/08/28/transitions-for-off-canvas-navigations/">"Transitions for off-canvas navigations"</a>. Except it was reversed and built to be used in a WordPress theme. You can find the orginal article code on the demo, or on <a href="https://github.com/codrops/SidebarTransitions">Github</a>.</p> 
+						<p>It is responsive, accessible, cross-browser tested, works with WordPress menu manager, and has a "no-javascript" fallback.</p>
+						<p>Usage:</p>
+						<p>
+							<ul>
+								<li>Wrap all of your content after <code>.site</code> in a <code>.rotate</code> container</li>
+								<li>Create a menu item in the WordPress menu manager named "More". Assign it a class: <code>menu-more</code></li>
+								<li>Create a sub-menu in the WordPress menu manager, drag it under "More"</li>
+								<li>jQuery and Flexbox do the rest!</li>
+							</ul>			
+						</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Respondent extrema primis, media utrisque, omnia omnibus. Et quod est munus, quod opus sapientiae? Incommoda autem et commoda-ita enim estmata et dustmata appello-communia esse voluerunt, paria noluerunt. Quis negat? Duo Reges: constructio interrete. </p>
+						<p>Quis enim redargueret? Habes, inquam, Cato, formam eorum, de quibus loquor, philosophorum. Est enim effectrix multarum et magnarum voluptatum. Restinguet citius, si ardentem acceperit. Eam tum adesse, cum dolor omnis absit; Bonum incolumis acies: misera caecitas. </p>
+						<p>Sed haec quidem liberius ab eo dicuntur et saepius. Universa enim illorum ratione cum tota vestra confligendum puto. Certe, nisi voluptatem tanti aestimaretis. Et quod est munus, quod opus sapientiae? At enim, qua in vita est aliquid mali, ea beata esse non potest. Aliter homines, aliter philosophos loqui putas oportere? </p>
+						<p>Quid sequatur, quid repugnet, vident. Itaque fecimus. Non modo carum sibi quemque, verum etiam vehementer carum esse? Prodest, inquit, mihi eo esse animo. Duarum enim vitarum nobis erunt instituta capienda. Illud dico, ea, quae dicat, praeclare inter se cohaerere. Quamquam te quidem video minime esse deterritum. Quae cum praeponunt, ut sit aliqua rerum selectio, naturam videntur sequi; Hos contra singulos dici est melius. </p>
+					</main><!-- .site-main -->
+				</div><!-- .site-content -->
+			</div><!-- .wrap -->
+		</div><!-- .rotater -->
+	</div><!-- .site -->
+</div><!-- .pattern-off-canvas -->
