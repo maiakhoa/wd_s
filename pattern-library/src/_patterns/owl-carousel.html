@@ -1,0 +1,38 @@
+---
+author: Damon Cook
+category: carousels / sliders
+date: 2016-02-23 09:26:25 -0500
+description: "Using [OwlCarousel.js](http://owlgraphic.com/owlcarousel/) to display single-image (at a time) in carousel with caption overlay, and SVG navigation."
+layout: pattern
+tags: owl-carousel, carousel
+title:  "Owl Carousel - Caption Overlay"
+---
+<!-- enqueue jQuery in the theme -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js" type="text/javascript"></script>
+
+<!-- load OwlCarousel with Bower -->
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/476573/owl.carousel.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/476573/owl.carousel.css">
+
+<!-- Begin pattern's js -->
+<script src="{{ site.url }}{{ site.wp_theme_dir }}/assets/js/patterns/owl-carousel.js" type="text/javascript"></script>
+
+<div class="carousel-wrapper">
+	
+	<section class="owl-carousel owl-theme">
+		<figure class="owl-item">
+			<img src="http://lorempixel.com/800/450/nature/1" alt="">
+			<figcaption>Integer efficitur odio risus, ut posuere metus luctus sed. Pellentesque eleifend dolor non lacus fringilla pellentesque. In hac habitasse platea dictumst.</figcaption>
+		</figure>
+		<figure class="owl-item">
+			<img src="http://lorempixel.com/800/450/nature/2" alt="">
+		</figure>
+		<figure class="owl-item">
+			<img src="http://lorempixel.com/800/450/nature/3" alt="">
+			<figcaption>Nulla aliquam augue ligula, convallis sollicitudin elit gravida ac. Morbi dapibus ligula eget lobortis condimentum. Aenean euismod euismod augue, a tempus nulla rutrum a. Sed cursus vehicula porta.</figcaption>
+		</figure>
+		<figure class="owl-item">
+			<img src="http://lorempixel.com/800/450/nature/4" alt=""></figure>
+	</section><!-- .owl-carousel .owl-theme -->
+	
+</div><!-- .just centering things up -->
