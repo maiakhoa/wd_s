@@ -177,7 +177,7 @@
 	h2 {
 		display: inline-block;
 		line-height: 1;
-		margin-bottom: rem(8);
+		margin-bottom: 0.8em;
 		vertical-align: top;
 		
 		span {
@@ -195,6 +195,11 @@
 			text-align: center;
 			width: rem(22);
 		}
+	} // h2
+	
+	li {
+		line-height: 1.33;
+		margin-bottom: 0.7em;
 	}
 }
 
