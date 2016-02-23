@@ -105,6 +105,10 @@ $use-pagination: false !default;
 $use-parallax-simple: false !default;
 @import	"_parallax-simple";
 
+// Pricing table
+$use-pricing-table: false !default;
+@import	"_pricing-table";
+
 // Radial Animations
 $use-radial-animations: false !default;
 @import	"_radial-animations";
