@@ -85,6 +85,10 @@ $use-nav-evenly-spaced: false !default;
 $use-nav-mobile: false !default;
 @import	"_nav-mobile";
 
+// Navigation - sticky
+$use-nav-sticky: false !default;
+@import	"_nav-sticky";
+
 // Navigation w/ Sub-menus
 $use-nav-with-submenus: false !default;
 @import	"_nav-with-submenus";

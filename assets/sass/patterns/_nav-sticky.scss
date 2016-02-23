@@ -1,0 +1,23 @@
+@if $use-nav-sticky == true {
+
+	// Setup our nav menu styles
+	.sticky-menu {
+		max-width: rem(1080);
+		width: 100%;
+		
+		// We add a sticky-nav class to the body, so adjust styles based on that class
+		.sticky-nav & {
+			position: fixed;
+			top: 0;
+		}
+	}
+
+	// Add padding to the top of site content so nothing jumps when the bar becomes sticky. Height is equal to the nav bar height.
+	.site-content {
+		
+		.sticky-nav & {
+			padding-top: rem(52);
+		}
+	}
+	
+} // end if check

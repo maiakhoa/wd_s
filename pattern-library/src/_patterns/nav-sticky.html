@@ -1,0 +1,81 @@
+---
+author: Corey Collins
+category: navigation
+date: 2016-02-23 12:07:25 -0500
+description: "A navigation bar that sticks to the top of the screen when scrolling."
+layout: pattern
+tags: header, sticky header, sticky
+title:  "Navigation - Sticky"
+---
+<!-- enqueue jQuery in the theme -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js" type="text/javascript"></script>
+
+<!-- Begin pattern's js -->
+<script src="{{ site.url }}{{ site.wp_theme_dir }}/assets/js/patterns/nav-sticky.js" type="text/javascript"></script>
+
+<nav class="navigation-menu sticky-menu">
+	<ul class="nav-with-submenus">
+		<li><a href="http://www.webdevstudios.com">WebDevStudios</a></li>
+		<li class="menu-item-has-children"><a href="https://apppresser.com/">AppPresser</a>
+			<ul class="menu sub-menu">
+				<li><a href="#">Submenu Item 1</a></li>
+				<li class="menu-item-has-children"><a href="#">Submenu Item 3</a>
+					<ul class="menu sub-menu">
+						<li><a href="#">Submenu Item 1</a></li>
+						<li class="menu-item-has-children"><a href="#">Submenu Item 3</a>
+							<ul class="menu sub-menu">
+								<li><a href="#">Submenu Item 1</a></li>
+								<li><a href="#">Submenu Item 3</a></li>
+								<li><a href="#">Submenu Item 3</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Submenu Item 3</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Submenu Item 3</a></li>
+			</ul>
+		</li>
+		<li><a href="https://maintainn.com/">Maintainn</a></li>
+		<li class="menu-item-has-children"><a href="http://tinyurl.com/gtg98bs">Who is the best?</a>
+			<ul class="menu sub-menu">
+				<li><a href="#">Submenu Item 1</a></li>
+				<li class="menu-item-has-children"><a href="#">Submenu Item 3</a>
+					<ul class="menu sub-menu">
+						<li><a href="#">Submenu Item 1</a></li>
+						<li class="menu-item-has-children"><a href="#">Submenu Item 3</a>
+							<ul class="menu sub-menu">
+								<li><a href="#">Submenu Item 1</a></li>
+								<li><a href="#">Submenu Item 3</a></li>
+								<li><a href="#">Submenu Item 3</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Submenu Item 3</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Submenu Item 3</a></li>
+			</ul>
+		</li>
+	</ul>
+</nav>		
+
+<div id="content" class="site-content">
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vestibulum ligula est, non tempor lectus dapibus non. Proin nec eleifend sapien. Fusce diam urna, ultrices vitae imperdiet at, varius sit amet metus. Integer eu risus ullamcorper, porta augue vitae, sollicitudin tellus. Vestibulum nec metus ultricies, hendrerit metus in, fringilla justo. Vestibulum consequat purus ut libero fringilla accumsan. Sed mattis pharetra metus faucibus pharetra.</p>
+
+<p>Aliquam sit amet felis in magna interdum auctor. Donec eros augue, semper at sapien non, facilisis congue odio. Nunc ac elit aliquam, convallis leo in, finibus ipsum. Aenean neque metus, aliquam eget finibus a, tristique sed tellus. Sed elementum mattis justo, ac condimentum lacus condimentum lobortis. Sed venenatis eros venenatis risus maximus, ut porta quam semper. Aenean ex turpis, interdum vitae ornare nec, congue ut sem. Proin nec sem tortor. Praesent eu varius magna.</p>
+
+<p>Vivamus tempor tortor ac nibh rhoncus sollicitudin. Aliquam id nibh mattis, rhoncus libero sit amet, viverra nisl. Cras eu cursus enim. Aliquam congue ex non pellentesque auctor. Sed tincidunt ullamcorper nisi, vel scelerisque lorem efficitur at. Nam cursus magna ac arcu porttitor tristique. Fusce molestie, neque a laoreet pellentesque, augue erat suscipit felis, sit amet varius dui enim a dui. Donec cursus libero et nisi ultricies lacinia. Curabitur elementum condimentum sem, in tempus neque aliquet ac. Morbi finibus finibus nisi eget auctor. Nam vulputate vestibulum elit quis consectetur.</p>
+
+<p>Donec rutrum dolor at quam commodo, at vestibulum libero porttitor. Curabitur justo diam, malesuada a elementum vel, rhoncus sed lorem. In mauris sem, aliquet sit amet finibus at, egestas id enim. Fusce ex elit, vehicula nec nulla a, mollis auctor risus. Integer tristique tellus eu metus commodo, sed convallis ipsum mollis. In augue lectus, semper non leo sit amet, fringilla auctor elit. Aenean at dui sapien. Quisque aliquam nulla eget lacus consectetur, non ullamcorper ex aliquam. Aenean dictum elit eu turpis ornare, in mattis tortor feugiat. Duis pellentesque ipsum quis interdum rutrum. Sed at sem ut magna tristique pharetra. Praesent scelerisque malesuada massa eu cursus.</p>
+
+<p>Mauris bibendum tortor et porttitor tincidunt. Mauris aliquet, ex quis cursus semper, nunc elit imperdiet ante, et condimentum ex est nec nunc. In eu velit ligula. Aliquam sed dapibus nibh. Proin vitae sapien in dui vestibulum fringilla. Vestibulum commodo tortor nulla. Sed cursus urna vitae lacus placerat, et vulputate sapien maximus. Nullam et leo non lorem sagittis ornare a ac nisi.</p>
+
+<p>Sed eget lorem eget lorem pellentesque scelerisque porta quis justo. Mauris et nunc ac eros laoreet varius ut non urna. Mauris vitae dignissim nibh, sit amet feugiat lacus. In vitae elementum risus, nec condimentum felis. Sed porttitor, elit et vulputate consequat, leo augue pellentesque libero, eu auctor nisi nulla at leo. Phasellus diam felis, malesuada rutrum malesuada vitae, tempor non magna. Maecenas mollis nisl at pharetra sagittis. Aliquam erat volutpat. Fusce mi tortor, ullamcorper nec libero pretium, commodo consequat eros. Sed pellentesque eleifend auctor. Donec vel lobortis enim. Integer ut ullamcorper mauris. Fusce mi mauris, laoreet ut auctor at, placerat sit amet turpis. Cras tempus magna at est ultrices dignissim. Sed a ullamcorper erat.</p>
+
+<p>Pellentesque nec mauris a turpis cursus scelerisque. Pellentesque lectus erat, luctus quis sapien ac, pulvinar lacinia eros. Pellentesque elementum massa id sem mattis, ac pharetra urna ultricies. Vestibulum sagittis, lacus at viverra tincidunt, tellus velit porttitor dolor, scelerisque viverra felis dolor sit amet neque. Donec sit amet nisi id libero suscipit varius nec et lacus. Aenean hendrerit sit amet arcu fringilla egestas. Etiam lobortis justo odio, non gravida ligula consectetur vel. In ac enim eu ante efficitur vulputate. Mauris pharetra venenatis vestibulum. Mauris imperdiet ac leo sit amet auctor. Nulla in sem lacus. Sed volutpat, lectus sed scelerisque efficitur, erat massa lacinia nulla, ac tincidunt nunc mauris ut tellus. In at blandit dolor.</p>
+
+<p>Quisque massa diam, scelerisque in scelerisque et, pellentesque ac risus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis commodo quis nisi commodo pharetra. In mollis nec tortor in congue. Aenean lobortis porta odio, vitae pretium felis. Sed efficitur lorem at felis pulvinar vehicula. Quisque imperdiet massa a tellus aliquet, quis viverra turpis dignissim. Curabitur facilisis semper aliquet. Donec tempus, ex sit amet tincidunt pretium, nibh lectus auctor lorem, a fringilla libero enim vel neque. Pellentesque vel mi a odio tincidunt finibus.</p>
+
+<p>Sed scelerisque risus quam, sit amet malesuada odio dignissim nec. Phasellus dolor odio, imperdiet sed lectus vel, sagittis ornare mauris. Praesent maximus est mollis imperdiet pulvinar. Ut tempus ex vel scelerisque venenatis. Etiam in urna porta, varius risus sed, ornare diam. Duis aliquam molestie augue, a consectetur mi. Etiam et iaculis purus, dapibus volutpat metus. Nam lacus magna, vehicula vitae molestie sed, iaculis eget elit. Ut mi enim, mollis at sagittis vitae, semper sed odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu iaculis augue.</p>
+
+<p>Integer tincidunt orci vitae arcu ornare, sit amet lobortis lectus consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc tincidunt odio eu neque imperdiet lobortis. Etiam blandit scelerisque diam vitae vehicula. Ut accumsan risus ut condimentum iaculis. Integer at auctor erat. Nullam urna augue, interdum eu augue rhoncus, lobortis pulvinar mi. Sed venenatis dui at ipsum consequat auctor. Nunc ligula nulla, rhoncus ac massa in, finibus rutrum libero. Vivamus a cursus enim.</p>
+</div>
