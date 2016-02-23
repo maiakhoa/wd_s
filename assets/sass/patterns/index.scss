@@ -61,6 +61,10 @@ $use-hero-slanted-clip-path: false !default;
 $use-hover-tile-animation: false !default;
 @import	"_hover-tile-animation";
 
+// Hover tile animation
+$use-modal: true !default;
+@import	"_modal";
+
 // Evenly-Sized Navigation
 $use-nav-evenly-spaced: false !default;
 @import	"_nav-evenly-spaced";

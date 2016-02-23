@@ -1,0 +1,136 @@
+@if $use-modal == true {
+
+	// Local variables
+	$modal-background: $color-white;
+	$modal-border-radius: 3px;
+	$modal-close-color: $color-silver;
+	$modal-padding: rem(48);
+
+	.modal {
+		// Center the trigger button
+		text-align: center;
+
+		// Label surrounding trigger
+		label {
+			cursor: pointer;
+			margin-bottom: 0;
+		}
+
+		// Hidden checkbox used for triggering modal
+		.modal-state {
+			display: none;
+		} // .modal .modal-state
+
+		// Sits inside the label and contains text for trigger
+		.modal-trigger {
+			background: $color-black;
+			color: $color-white;
+			padding: rem(13) rem(16);
+			text-decoration: none;
+		} // .modal .modal-trigger
+
+		// Overlay
+		.modal-fade-screen {
+			@include transition(opacity 0.25s ease);
+			@include position(fixed, 0);
+
+			background-color: rgba($color-black, 0.85);
+			opacity: 0;
+			padding-top: 0.6em;
+			text-align: left;
+			visibility: hidden;
+			z-index: 99999999999; // just to be sure
+
+			@include media($tablet-landscape) {
+				padding-top: 15%;
+			}
+		} // .modal .modal-fade-screen
+
+		// Modal close button. Currently and X that sits on the top right of the modal
+		.modal-close {
+			@include position(absolute, ($modal-padding / 2) ($modal-padding / 2) null null);
+			@include size(rem(24));
+
+			background: $modal-background; // Add a background if you want it to look like a button
+			cursor: pointer;
+
+			&:after,
+			&:before {
+				@include position(absolute, 3px 3px 0 50%);
+				@include transform(rotate(45deg));
+				@include size(rem(2) rem(24));
+
+				background: $modal-close-color;
+				content: '';
+				display: block;
+				margin: rem(-3) 0 0 rem(-1);
+			}
+
+			&:hover:after,
+			&:hover:before {
+				background: darken($modal-close-color, 10%);
+			}
+
+			&:before {
+				@include transform(rotate(-45deg));
+			}
+		} // .modal .modal-close
+
+		// Contains all of the modal content
+		.modal-inner {
+			@include transition(opacity 0.25s ease);
+
+			background: $modal-background;
+			border-radius: $modal-border-radius;
+			margin: auto;
+			max-height: 95%;
+			overflow: auto;
+			padding: $modal-padding / 2;
+			position: relative;
+			width: 95%;
+
+			@include media($phone-landscape) {
+				max-height: 70%;
+				padding: $modal-padding;
+				width: 60%;
+			}
+
+			@include media($tablet-landscape) {
+				width: 50%;
+			}
+
+			// Title
+			h1 {
+				text-align: left;
+				text-transform: capitalize;
+			}
+
+			// Modal intro
+			.modal-intro {
+				margin-bottom: rem(16);
+			}
+
+			// Place styles here for modal content
+			.modal-content {
+
+			}
+		} // .modal .modal-inner
+
+		// If the modal-state input is checked
+		// then show the modal overlay background
+		.modal-state:checked + .modal-fade-screen {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.modal-state:checked + .modal-fade-screen .modal-inner {
+			top: rem(8);
+		}
+	} // .modal
+
+	// This class is added to <body> when modal is active
+	.modal-open {
+		overflow: hidden;
+	} // .modal-open
+	
+} // end if check
