@@ -46,11 +46,6 @@ var paths = {
 	sprites: 'assets/images/sprites/*.png'
 };
 
-// Custom CLI messages
-var messages = {
-    jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
-};
-
 /**
  * Handle errors and alert the user.
  */
@@ -73,7 +68,6 @@ function handleErrors () {
  * Build the Jekyll Site
  */
 gulp.task('jekyll-build', ['sass-json'], function (done, code) {
-    browserSync.notify(messages.jekyllBuild);
     return cp.spawn('jekyll', ['build'], {stdio: 'inherit'}).on('close', done);
 });
 
