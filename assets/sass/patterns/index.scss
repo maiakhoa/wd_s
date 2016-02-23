@@ -57,6 +57,10 @@ $use-hero-flexbox : false !default;
 $use-hero-slanted-clip-path: false !default;
 @import	"_hero-slanted-clip-path";
 
+// Horizontal Bar Chart - Animated
+$use-horizontal-bar-chart: false !default;
+@import	"_horizontal-bar-chart";
+
 // Hover tile animation
 $use-hover-tile-animation: false !default;
 @import	"_hover-tile-animation";
