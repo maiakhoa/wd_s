@@ -19,7 +19,7 @@
 			// Add a pseudo element +. This can be updated to use an SVG background image as well.
 			&:after {
 				color: $color-mineshaft;
-				content: '+';
+				content: "+";
 				display: block;
 				font-size: rem(24);
 				height: rem(24);
@@ -50,7 +50,7 @@
 
 				&:after {
 					color: $color-white;
-					content: '-';
+					content: "-";
 				}
 			}
 		} // .accordion .accordion-trigger
