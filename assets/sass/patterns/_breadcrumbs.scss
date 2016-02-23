@@ -47,11 +47,11 @@
 				@include position(absolute, 0 null 0 100%);
 				@include size(0 0);
 				
-				border-top: rem(18) solid transparent;
 				border-bottom: rem(18) solid transparent;
 				// make left half the height
 				border-left: rem(12) solid transparent;
-				content: ''; 
+				border-top: rem(18) solid transparent;
+				content: ""; 
 				display: block; 
 				margin: auto;			
 				position: absolute;

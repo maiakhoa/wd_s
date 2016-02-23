@@ -30,8 +30,8 @@
 				font-size: rem(16);
 				left: 0;
 				padding: rem(20) rem(40);
-				right: 0;
 				position: absolute;
+				right: 0;
 			}
 		} // figcaption
 	} // .owl-theme
@@ -58,7 +58,7 @@
 					@include size(rem(48) rem(48));
 			
 					background-size: cover;
-					content: '';
+					content: "";
 					display: inline-block;
 					margin-top: rem(8);
 				}
@@ -72,7 +72,7 @@
 				left: 0;
 				
 				&:after {
-					background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/476573/keyboard_arrow_left.svg') center center no-repeat;
+					background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/476573/keyboard_arrow_left.svg") center center no-repeat;
 				}
 			} // .owl-prev
 			
@@ -80,7 +80,7 @@
 				right: 0;
 				
 				&:after {
-					background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/476573/keyboard_arrow_right.svg') center center no-repeat;
+					background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/476573/keyboard_arrow_right.svg") center center no-repeat;
 				}
 			} // .owl-next
 		} // .owl-buttons
@@ -88,7 +88,6 @@
 		// Styling Pagination
 		.owl-page {
 			display: inline-block;
-			*display: inline; /*IE7 life-saver */
 			zoom: 1;
 			
 			span {
@@ -97,7 +96,6 @@
 				background: $color-blue;
 				border-radius: 50%;
 				display: block;
-				filter: Alpha(Opacity=70); /*IE7 fix*/
 				margin: rem(5) rem(7);
 				opacity: 0.7;
 				
@@ -113,7 +111,6 @@
 			} // span
 			
 			&.active span {
-				filter: Alpha(Opacity=100); /*IE7 fix*/
 				opacity: 1;
 			}
 		} // .owl-page
@@ -125,14 +122,12 @@
 			.owl-buttons {
 				
 				div:hover {
-					filter: Alpha(Opacity=100); /*IE7 fix*/
 					opacity: 1;
 					text-decoration: none;
 				}
 			} // .owl-buttons
 			
 			.owl-page:hover span {
-				filter: Alpha(Opacity=100); /*IE7 fix*/
 				opacity: 1;
 			}
 		} // .owl-controls.clickable

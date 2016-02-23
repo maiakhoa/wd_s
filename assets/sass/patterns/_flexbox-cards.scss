@@ -19,8 +19,8 @@
 		@include transition (all 0.2s ease-in-out);
 
 		background-color: $card-background;
-		border-radius: $card-border-radius;
 		border: $card-border;
+		border-radius: $card-border-radius;
 		cursor: pointer;
 		flex: 1 1 rem(240);
 		margin: 0 $card-margin $card-padding $card-margin;

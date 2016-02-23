@@ -30,7 +30,6 @@
 	.pricing-action {
 		background: none;
 		border: none;
-		color: inherit;
 		
 		&:focus {
 			outline: none;
@@ -54,8 +53,8 @@
 			}
 			
 			&:hover {
-				border: rem(1) solid rgba($color-blue, 1);
 				background: rgba($color-blue, 0.18);
+				border: rem(1) solid rgba($color-blue, 1);
 			}
 		} // .pricing-item
 		
@@ -72,7 +71,7 @@
 				@include size(30% rem(1));
 				
 				background: $color-blue;
-				content: '';
+				content: "";
 			}
 		} // .pricing-title
 		
@@ -90,9 +89,9 @@
 		} // .pricing-currency
 		
 		.pricing-sentence {
+			font-size: rem(16);
 			margin: 0 auto;
 			padding: rem(14) rem(20);
-			font-size: rem(16);
 		} // .pricing-sentence
 		
 		.pricing-feature-list {

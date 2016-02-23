@@ -9,8 +9,8 @@
 		@include list-reset;
 
 		display: flex;
-		justify-content: center;
 		flex-wrap: wrap;
+		justify-content: center;
 		
 		// <li> Each menu item
 		.menu-item {
@@ -27,8 +27,8 @@
 			@include list-reset;
 			
 			display: flex;
-			flex-direction: column;
 			flex-basis: content;
+			flex-direction: column;
 
 			// Hide by default
 			left: rem(9999);

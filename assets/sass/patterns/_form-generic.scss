@@ -1,5 +1,7 @@
 @if $use-form-generic == true {
 	
+	$color-required: #ff0000;
+	
 	.generic-form {
 		
 		.col {
@@ -33,7 +35,7 @@
 		}
 		
 		.required {
-			color: #ff0000;
+			color: $color-required;
 		}
 		
 		button,

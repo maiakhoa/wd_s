@@ -58,7 +58,7 @@
 				&:after {
 					@include triangle(14px, $color-white, down);
 					
-					content: '';
+					content: "";
 					height: rem(12);
 					margin: rem(-2) 0 0 rem(6);
 					position: absolute;

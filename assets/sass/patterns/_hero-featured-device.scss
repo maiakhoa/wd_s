@@ -51,10 +51,10 @@
 
 				@include media($tablet-portrait) {
 					@include transform(
-						perspective(800px) 
-						translateX(0px) 
-						translateY(-100px) 
-						translateZ(50px) 
+						perspective(rem(800)) 
+						translateX(0) 
+						translateY(rem(-100)) 
+						translateZ(rem(50)) 
 						rotateX(0deg) 
 						rotateY(-20deg) 
 						rotateZ(-0deg)
@@ -62,11 +62,11 @@
 
 					background: $color-cod-gray;
 					border-radius: rem(32);
-					box-shadow: 1px 0px lighten($color-black, 20%),
-						4px 0px lighten($color-cod-gray, 2%),
-						7px 0px $color-black,
-						10px 0px $color-black,
-						13px 0px $color-black;
+					box-shadow: rem(1) rem(0) lighten($color-black, 20%),
+						rem(4) rem(0) lighten($color-cod-gray, 2%),
+						rem(7) rem(0) $color-black,
+						rem(10) rem(0) $color-black,
+						rem(13) rem(0) $color-black;
 					display: block;
 					float: right;
 					margin-bottom: rem(-192);
@@ -78,11 +78,11 @@
 					.screen {
 						@include size($featured-device-screen-width $featured-device-screen-height);
 
-						background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/476573/wds.png');
+						background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/476573/wds.png");
 						background-position-x: rem(-16);
 						background-size: cover;
 						border-radius: rem(3);
-						box-shadow: inset 0 1px 8px transparentize(black, 0.5);
+						box-shadow: inset 0 rem(1) rem(8) transparentize($color-black, 0.5);
 						margin: auto;
 					}
 

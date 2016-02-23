@@ -15,10 +15,10 @@
 				@include size(0 0);
 				@include transition(opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s);
 
-				background: rgba(0,0,0,0.4);
-				content: '';
+				background: rgba($color-black, 0.4);
+				content: "";
 				opacity: 0;
-				visbility: hidden;
+				visibility: hidden;
 			}
 
 			// Display the transparent screen.
@@ -170,8 +170,8 @@
 					@include transition(transform 0.5s);
 					
 					opacity: 1;
-					visibility: visible; // display when body class is applied
 					right: 0;
+					visibility: visible; // display when body class is applied
 				}	
 			
 			// <ul> Hide the sub-menu by default.
@@ -188,8 +188,8 @@
 				color: $color-white;
 				display: flex;
 				justify-content: space-between;
-				text-transform: uppercase;
 				padding-bottom: rem(45);
+				text-transform: uppercase;
 
 				// The close button
 				.menu-close {
@@ -205,9 +205,9 @@
 
 		// For this pen only!
 		.site-header {
-			background: url('https://dl.dropboxusercontent.com/s/xiechbrlokl87ad/home-office-336378_1920.jpg');
-			background-size: cover;
+			background: url("https://dl.dropboxusercontent.com/s/xiechbrlokl87ad/home-office-336378_1920.jpg");
 			background-repeat: no-repeat;
+			background-size: cover;
 			min-height: rem(500);
 			padding: rem(20);
 
@@ -216,14 +216,27 @@
 				@include size(100% rem(400));
 				
 				align-items: center;
+				color: $color-white;
 				display: flex;
 				justify-content: center;
 				text-align: center;
-				color: $color-white;
 			}
 		}
-		.site .wrap { background-color: $color-white; max-width: 100%; }
-		.site-content { color: $color-black; padding: rem(24); a { color: $color-black; text-decoration: underline } }
+		
+		.site .wrap { 
+			background-color: $color-white; 
+			max-width: 100%; 
+		}
+		
+		.site-content { 
+			color: $color-black; 
+			padding: rem(24); 
+			
+			a { 
+				color: $color-black; 
+				text-decoration: underline;
+			}
+		}
 	}
 	
 } // end if check

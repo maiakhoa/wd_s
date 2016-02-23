@@ -1,7 +1,5 @@
 @if $use-nav-mobile == true {
 
-	/** Mobile Navigation **/
-
 	// Fix scrolling on the entire body
 	// when the more menu is visible
 	.mobile-menu-more {
@@ -31,7 +29,7 @@
 		}
 
 		&.more {
-			background-color: rgba($color-black, .7);
+			background-color: rgba($color-black, 0.7);
 			padding-top: rem(25);
 		}
 
@@ -124,7 +122,7 @@
 			// 20% left positioning for each incremental LI
 			@for $item from 2 through 5 {
 
-				> li:nth-child(#{$item}){
+				> li:nth-child( #{$item} ){
 					left: 20% * ( $item - 1 );
 				}
 			}
@@ -179,8 +177,8 @@
 	.nav-mobile-menu .mobile-nav ul.nav-mobile-menu-more,
 	.nav-mobile-menu .mobile-nav > .sub-menu {
 		background-color: $color-gray;
-		left: 0;
 		height: 100vh;
+		left: 0;
 		position: absolute;
 		top: 0;
 	}
@@ -213,7 +211,7 @@
 			@include vertical-align(middle);
 			
 			color: $color-white;
-			content: 'x';
+			content: "x";
 			display: block;
 			font-size: rem(24);
 			line-height: 1.75;
@@ -234,7 +232,7 @@
 			background-color: transparent;
 
 			svg {
-				opacity: .6;
+				opacity: 0.6;
 				transition: all 0.5s ease;
 			}
 		}
@@ -314,8 +312,8 @@
 		.sub-menu {
 			left: 0;
 			opacity: 0;
-			z-index: -1;
 			width: 50vw;
+			z-index: -1;
 
 			@include media($tablet-portrait) {
 				left: auto;
@@ -363,13 +361,13 @@
 		}
 
 		.nav-mobile-menu {
+			-ms-overflow-style: -ms-autohiding-scrollbar;
+			-webkit-overflow-scrolling: touch;
 			bottom: 0;
 			font-size: 0;
 			height: rem(64);
 			overflow-x: auto;
 			top: auto;
-			-webkit-overflow-scrolling: touch;
-			-ms-overflow-style: -ms-autohiding-scrollbar;
 			white-space: nowrap;
 			width: 100%;
 
@@ -377,29 +375,29 @@
 
 				&:before,
 				&:after {
-					position: fixed;
 					bottom: 0;
-					height: 100%;
-					width: 25%;
 					content: "";
-					pointer-events: none; /* so the text is still selectable */
+					height: 100%;
+					pointer-events: none; // so the text is still selectable
+					position: fixed;
+					width: 25%;
 					z-index: 20;
 				}
 
 				&:after {
-					right: 0;
 					background: linear-gradient(to left,
-					rgba(255,255,255, 1) 0%,
-					rgba(255,255,255, 0) 100%
+					rgba($color-white, 1) 0%,
+					rgba($color-white, 0) 100%
 					);
+					right: 0;
 				}
 
 				&:before {
-					left: 0;
 					background: linear-gradient(to left,
-					rgba(255,255,255, 0) 0%,
-					rgba(255,255,255, 1) 100%
+					rgba($color-white, 0) 0%,
+					rgba($color-white, 1) 100%
 					);
+					left: 0;
 				}
 			}
 
@@ -433,7 +431,7 @@
 
 				li {
 					background-color: $color-white;
-					border-top: 1px solid rgba($color-black, .1);
+					border-top: 1px solid rgba($color-black, 0.1);
 					display: inline-block;
 					float: none;
 					font-size: rem(12);
