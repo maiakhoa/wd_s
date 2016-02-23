@@ -130,10 +130,7 @@ rules:
         - 2
 
   url-quotes: 0
-  variable-for-property:
-    - 1
-    -
-      properties: ['color']
+  variable-for-property: 1
 
   zero-unit: 1
 
