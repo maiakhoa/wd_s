@@ -1,0 +1,59 @@
+---
+author: Corey Collins
+category: navigation
+date: 2016-02-23 12:58:25 -0500
+description: "Disable the first tap on a parent menu item so a user can tap a parent menu item to view its children but not be taken to the parent menu page.<br>A second tap will take the user to the parent page's linked page.<br>__Relies on the [Navigation with Sub-menus pattern](../nav-with-submenus/)__"
+layout: pattern
+tags: navigation, double tap, mobile navigation
+title:  "Navigation - Double-tap"
+---
+<!-- enqueue jQuery in the theme -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js" type="text/javascript"></script>
+
+<!-- Begin pattern's js -->
+<script src="{{ site.url }}{{ site.wp_theme_dir }}/assets/js/patterns/nav-double-tap.js" type="text/javascript"></script>
+
+<nav class="navigation-menu double-tap-menu">
+	<ul class="nav-with-submenus">
+		<li><a href="#">Vestibulum Massa</a></li>
+		<li class="menu-item-has-children"><a href="#">Sed Magna Nisi</a>
+			<ul class="sub-menu">
+				<li><a href="#">Submenu Item 1</a></li>
+				<li class="menu-item-has-children"><a href="#">Submenu Item 3</a>
+					<ul class="sub-menu">
+						<li><a href="#">Submenu Item 1</a></li>
+						<li class="menu-item-has-children"><a href="#">Submenu Item 3</a>
+							<ul class="sub-menu">
+								<li><a href="#">Submenu Item 1</a></li>
+								<li><a href="#">Submenu Item 3</a></li>
+								<li><a href="#">Submenu Item 3</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Submenu Item 3</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Submenu Item 3</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Nunc Vehicula</a></li>
+		<li class="menu-item-has-children"><a href="#">Vestibulum Dictum</a>
+			<ul class="sub-menu">
+				<li><a href="#">Submenu Item 1</a></li>
+				<li class="menu-item-has-children"><a href="#">Submenu Item 3</a>
+					<ul class="sub-menu">
+						<li><a href="#">Submenu Item 1</a></li>
+						<li class="menu-item-has-children"><a href="#">Submenu Item 3</a>
+							<ul class="sub-menu">
+								<li><a href="#">Submenu Item 1</a></li>
+								<li><a href="#">Submenu Item 3</a></li>
+								<li><a href="#">Submenu Item 3</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Submenu Item 3</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Submenu Item 3</a></li>
+			</ul>
+		</li>
+	</ul><!-- .nav-with-submenus-->
+</nav><!-- .navigation-menu .double-tap-menu -->

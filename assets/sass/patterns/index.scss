@@ -77,6 +77,10 @@ $use-hover-tile-animation: false !default;
 $use-modal: false !default;
 @import	"_modal";
 
+// Double-Tap Navigation Menu
+$use-nav-double-tap: false !default;
+@import	"_nav-double-tap";
+
 // Evenly-Sized Navigation
 $use-nav-evenly-spaced: false !default;
 @import	"_nav-evenly-spaced";

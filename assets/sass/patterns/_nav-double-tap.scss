@@ -1,0 +1,32 @@
+@if $use-nav-double-tap == true {
+
+	.double-tap-menu {
+	
+		// Tweak our inherited menu CSS so submenus are not shown on hover
+		.menu-item-has-children {
+			
+			&:hover {
+			
+				> .sub-menu {
+					display: none;
+				}
+			}
+			
+			&.tapped-once:hover {
+				
+				> .sub-menu {
+					display: block;
+				}
+			}
+		} // .double-tap-menu .menu-item-has-children
+
+		// Make sure our submenus are visible once the parent item is clicked
+		.tapped-once {
+			
+			> .sub-menu {
+				display: block;
+			}
+		} // .double-tap-menu .tapped-once
+	} // .double-tap-menu
+	
+} // end if check
