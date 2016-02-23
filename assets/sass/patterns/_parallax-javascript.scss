@@ -1,0 +1,27 @@
+@if $use-parallax-javascript == true {
+
+	.parallax-window {
+	    max-height: rem(480);
+	    overflow: hidden;
+	    position: relative;
+	    text-align: center;
+	    width: 100%;
+	} // .parallax-window
+
+	.parallax-content {
+	    color: $color-white;
+	    padding: rem(160) 0;
+	    position: relative;
+	    z-index: 1;
+	} // .parallax-content
+
+	.parallax-background {
+	    background: url("http://lorempixel.com/1200/480/nature") 50% 50% no-repeat;
+	    background-size: cover;
+	    height: rem(960);
+	    left: 0;
+	    position: absolute;
+	    width: 100%;
+	} // .parallax-background
+	
+} // end if check

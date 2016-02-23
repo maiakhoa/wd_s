@@ -109,6 +109,10 @@ $use-pagination: false !default;
 $use-parallax-simple: false !default;
 @import	"_parallax-simple";
 
+// Parallax - javascript
+$use-parallax-javascript: false !default;
+@import	"_parallax-javascript";
+
 // Pricing table (flexbox)
 $use-pricing-table: false !default;
 @import	"_pricing-table";
