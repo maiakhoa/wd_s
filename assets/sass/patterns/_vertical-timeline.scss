@@ -1,0 +1,171 @@
+@if $use-vertical-timeline == true {
+
+	.timeline {
+		list-style: none;
+		margin: rem(30) rem(20) 0 rem(20);
+		padding: 0;
+		position: relative;
+		
+		// The line
+		&:before {
+
+			@include media($tablet-landscape) {
+				@include position(absolute, 0 null 0 20%);
+				
+				background: $color-alto;
+				content: "";
+				margin-left: rem(-10);
+				width: rem(10);
+			}
+		}
+		
+		& > li {
+			position: relative;
+			
+			// The date/time
+			.timeline-time {
+				display: block;
+				padding: 0 0 rem(20) 0;
+				position: relative;
+				width: 100%;
+				
+				@include media($tablet-landscape) {
+					padding-right: rem(120);
+					position: absolute;
+					width: 25%;
+				}
+			} // .timeline-time
+			
+			span {
+				display: block;
+				text-align: left;
+				
+				@include media($tablet-landscape) {
+					text-align: right;
+				}
+				
+				&:first-child {
+					color: $color-silver-chalice;
+					font-size: rem(15);
+				}
+				
+				&:last-child {
+					color: $color-gray-alt;
+					font-size: rem(20);
+					
+					@include media($tablet-landscape) {
+						font-size: rem(46);
+					}
+				}
+			} // span
+			
+			&:nth-child(odd) {
+				
+				.timeline-time span:last-child {
+					color: $color-gray;
+				}
+				
+				.timeline-label {
+					background: $color-gray;
+					
+					&:after {
+						border-bottom-color: $color-gray;
+						border-right-color: transparent;
+						
+						@include media($tablet-landscape) {
+							border-bottom-color: transparent;
+							border-right-color: $color-gray;
+						}
+					}
+				}
+			} // :nth-child(odd)
+			
+			// Right content
+			.timeline-label {
+				background: $color-dove-gray;
+				border-radius: rem(5);
+				color: $color-white;
+				font-size: 95%;
+				font-weight: 400;
+				line-height: 1.4;
+				margin: 0 0 rem(30) 0;
+				padding: rem(20);
+				position: relative;
+				
+				@include media($tablet-landscape) {
+					font-size: rem(18);
+					font-weight: 300;
+					margin: 0 0 rem(15) 25%;
+					padding: rem(40);
+				}
+				
+				h2 {
+					border-bottom: rem(1) solid rgba($color-white, 0.1);
+					margin-top: 0;
+					padding: 0 0 rem(10) 0;
+				}
+				
+				// The triangle
+				&:after {
+					@include position(absolute, rem(-20) auto null rem(20));
+					@include size(0 0);
+					
+					border: solid transparent;
+					border-bottom-color: $color-dove-gray;
+					border-right-color: transparent;
+					border-width: rem(10);
+					content: " ";
+					pointer-events: none;
+					
+					@include media($tablet-landscape) {
+						border-bottom-color: transparent;
+						border-right-color: $color-dove-gray;
+						left: auto;
+						right: 100%;
+						top: rem(10);
+					}
+				}
+			} // .timeline-label
+		} // > li 
+		
+		// The icons
+		.timeline-icon {
+			@include position(relative, 0 null null auto);
+			@include size(rem(40) rem(40));
+			
+			background: $color-dove-gray;
+			border-radius: 50%;
+			box-shadow: 0 0 0 rem(8) $color-silver-chalice;
+			color: $color-white;
+			float: right;
+			font-size: rem(20);
+			line-height: rem(40);
+			margin: rem(-55) rem(5) 0 0;
+			speak: none;
+			text-align: center;
+			
+			@include media($tablet-landscape) {
+				@include position(absolute, null null null 20%);
+
+				margin: 0 0 0 rem(-25);
+			}
+		} // .timeline-icon
+		
+		.timeline-icon-phone:before {
+			content: "\2713";
+		}
+
+		.timeline-icon-screen:before {
+			content: "\2713";
+		}
+
+		.timeline-icon-mail:before {
+			content: "\2713";
+		}
+
+		.timeline-icon-earth:before {
+			content: "\2713";
+		}
+	} // .timeline
+	
+} // end if check

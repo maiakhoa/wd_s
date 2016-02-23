@@ -121,6 +121,10 @@ $use-radial-animations: false !default;
 $use-vertical-bar-chart: false !default;
 @import	"_vertical-bar-chart";
 
+// Vertical Timeline
+$use-vertical-timeline: false !default;
+@import	"_vertical-timeline";
+
 // Vertical Bar Chart - Animated
 $use-view-switcher: false !default;
 @import	"_view-switcher";
