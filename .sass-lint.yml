@@ -114,7 +114,7 @@ rules:
   property-units:
     - 1
     -
-      per-property: { width: ['rem'], height: ['rem'], margin: ['rem'], padding: ['rem'] }
+      per-property: { width: ['rem', 'vw'], height: ['rem', 'vh'], margin: ['rem'], padding: ['rem'] }
 
   property-sort-order: 1
   quotes:
