@@ -13,6 +13,10 @@ $use-accordion-multiple: false !default;
 $use-accordion-single: false !default;
 @import	"_accordion-single";
 
+// Breadcrumbs
+$use-breadcrumbs: false !default;
+@import	"_breadcrumbs";
+
 // Chosen.js <select> standard
 $use-chosen-select-standard: false !default;
 @import	"_chosen-select-standard";

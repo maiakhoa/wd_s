@@ -1,0 +1,81 @@
+@if $use-breadcrumbs == true {
+
+	.breadcrumb,
+	.breadcrumb a {
+		display: inline-block;
+		height: rem(36);
+	}
+
+	.breadcrumb { 
+		border: rem(1) solid $color-dove-gray;
+		border-radius: rem(3);
+		margin: 0;
+		overflow: hidden;
+		padding: 0;
+		
+		a {
+	    	background-color: $color-alto;
+			color: $color-mineshaft;
+			font-size: rem(12);
+			font-weight: 300;
+			line-height: rem(36);
+			margin-left: rem(-4);
+			margin-top: rem(-1);
+			padding: 0 rem(18) 0 rem(26);
+			position: relative;
+			text-decoration: none;
+			
+			&:first-child {
+				padding-left: rem(26);
+			}
+			
+			&:last-child {
+				background-color: $color-dove-gray;
+				color: $color-white;
+				cursor: default;
+				padding-right: rem(26);
+				pointer-events: none;
+				
+				&:after,
+				&:before {
+					border: none;
+				}
+			}
+			
+			&:after,
+			&:before {
+				@include position(absolute, 0 null 0 100%);
+				@include size(0 0);
+				
+				border-top: rem(18) solid transparent;
+				border-bottom: rem(18) solid transparent;
+				// make left half the height
+				border-left: rem(12) solid transparent;
+				content: ''; 
+				display: block; 
+				margin: auto;			
+				position: absolute;
+				z-index: 2;
+			}
+			
+			&:after {
+				border-left-color: $color-alto;
+			}
+			
+			&:before {
+				border-left-color: $color-dove-gray;
+				margin-left: rem(1);
+				z-index: 1;
+			}
+			
+			&:hover {
+				background: $color-gallery;
+				
+				&:after {
+					border-left-color: $color-gallery;
+				}
+			}
+		} // <a>
+	} // .breadcrumb
+	
+} // end if check
