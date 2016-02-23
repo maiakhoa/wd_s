@@ -1,19 +1,28 @@
 @if $use-nav-with-submenus == true {
 
-	.menu.nav-with-submenus {
-		background-color: $color-black;
+	.nav-with-submenus {
+		background-color: $color-dove-gray;
 		display: table;
+		margin: 0;
+		padding: 0;
+		table-layout: fixed;
 		width: 100%;
+		
+		ul {
+			margin: 0;
+			padding: 0;
+		}
 		
 		> li {
 			display: table-cell;
+			margin: 0;
 			text-align: center;
 			
 			&:hover,
 			&:focus {
 				
 				> a {
-					background-color: $color-blue;
+					background-color: $color-mineshaft;
 				}
 			}
 		} // .menu.nav-with-submenus > li
@@ -27,6 +36,7 @@
 			word-wrap: break-word;
 			
 			&:hover {
+				background-color: $color-mineshaft;
 				color: darken($color-white, 10%);
 				text-decoration: none;
 			}
@@ -59,7 +69,7 @@
 		
 		// Hidden submenus
 		.sub-menu {
-			background-color: $color-black;
+			background-color: $color-dove-gray;
 			display: none;
 			position: absolute;
 			width: 100%;
