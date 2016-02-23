@@ -1,0 +1,46 @@
+@if $use-custom-select-css-only == true {
+
+	// mostly just giving some basic containment (i.e. layout)
+	.select-box-wrapper {
+		margin: 0 auto;
+		max-width: rem(300);
+
+		label {
+			@extend .screen-reader-text !optional;
+			
+			color: $color-white;
+			float: left;
+			line-height: 2;
+			margin-right: 2%;
+			text-align: right;
+			width: 48%;
+		} // <label>
+	} // .select-box-wrapper
+
+	.select-box {
+	    background-color: $color-alto;
+	    background: $color-white url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/476573/keyboard_arrow_down.svg") no-repeat 98% 50%;
+		background-size: rem(28) rem(28);
+		border: rem(1) solid $color-silver;
+		border-radius: rem(3);
+		margin: 0 auto;
+		overflow: hidden;
+		padding: 0;
+	    width: 50%;
+		
+		select {
+			appearance: none;
+			background-color: transparent;
+			background-image: none;
+			border: none;
+			box-shadow: none;
+			padding: rem(5) rem(8);
+			width: 130%;
+			
+			&:focus {
+				outline: none;
+			} // &:focus
+		} // <select>
+	} // .select-box
+	
+} // end if check

@@ -21,6 +21,10 @@ $use-chosen-select-standard: false !default;
 $use-chosen-select-multiple: false !default;
 @import	"_chosen-select-multiple";
 
+// custom <select> (CSS only)
+$use-custom-select-css-only: false !default;
+@import	"_custom-select-css-only";
+
 // Expanding Search Box (CSS only)
 $use-expanding-search-box: false !default;
 @import	"_expanding-search-box";
