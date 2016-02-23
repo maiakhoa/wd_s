@@ -1,0 +1,70 @@
+@if $use-quote-rotator-carousel == true {
+
+	.quote-rotator {
+		color: $color-mineshaft;
+		margin: rem(20) auto 0;
+		max-width: rem(800);
+		min-height: rem(300);
+		position: relative;
+		width: 100%;
+		
+		.quote-rotator-content {
+			@include clearfix;
+			@include position(absolute, 0 null null null);
+			
+			border-bottom: rem(1) solid $color-silver;
+			border-top: rem(1) solid $color-silver;
+			min-height: rem(200);
+			padding: rem(40) 0;
+			width: 100%;
+			z-index: 1;
+			
+			.no-js & {
+				border-bottom: none;
+				opacity: 1;
+				pointer-events: auto;
+				position: relative; 
+				z-index: 100;
+			}
+			
+			&.quote-rotator-current {
+				opacity: 1;
+				pointer-events: auto;
+				position: relative; 
+				z-index: 100;
+			}
+			
+			img {
+				float: right;
+				margin-left: rem(40);
+			}
+		} // .quote-rotator-content
+		
+		.quote-rotator-progress {
+			@include position(absolute, 0 null null null);
+			@include size(0 rem(1));
+			
+			background: $color-blue;
+			z-index: 1000;
+		} // .quote-rotator-progress
+		
+		blockquote {
+			@include margin-padding-reset;
+			
+			p {
+				font-size: rem(18);
+				font-weight: 300;
+				margin: rem(10) 0 rem(20);
+			}
+			
+			footer {
+				font-size: rem(16);
+				
+				&:before {
+					content: "― ";
+				}
+			}
+		}
+	} // .quote-rotator
+	
+} // end if check

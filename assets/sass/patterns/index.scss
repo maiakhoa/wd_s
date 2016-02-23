@@ -105,9 +105,13 @@ $use-pagination: false !default;
 $use-parallax-simple: false !default;
 @import	"_parallax-simple";
 
-// Pricing table
+// Pricing table (flexbox)
 $use-pricing-table: false !default;
 @import	"_pricing-table";
+
+// Quote rotator carousel
+$use-quote-rotator-carousel: false !default;
+@import	"_quote-rotator-carousel";
 
 // Radial Animations
 $use-radial-animations: false !default;
