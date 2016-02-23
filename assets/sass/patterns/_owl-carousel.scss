@@ -65,7 +65,7 @@
 			} // div
 			
 			span {
-				@extend .screen-reader-text !optional;
+				@extend .screen-reader-text;
 			} // span
 			
 			.owl-prev {

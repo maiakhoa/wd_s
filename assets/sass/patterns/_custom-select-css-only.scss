@@ -6,7 +6,7 @@
 		max-width: rem(300);
 
 		label {
-			@extend .screen-reader-text !optional;
+			@extend .screen-reader-text;
 			
 			color: $color-white;
 			float: left;
