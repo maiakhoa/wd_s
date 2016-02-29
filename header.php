@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package _s
+ * @package <%= appString %>
  */
 
 ?><!DOCTYPE html>
@@ -24,9 +24,9 @@
 </head>
 
 <body <?php body_class(); ?>>
-<span class="svg-defs"><?php _s_include_svg_icons(); ?></span>
+<span class="svg-defs"><?php <%= appString %>_include_svg_icons(); ?></span>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', '<%= appString %>' ); ?></a>
 
 	<?php wds_page_builder_area( 'hero' ); ?>
 
@@ -47,7 +47,7 @@
 			</div><!-- .site-branding -->
 
 			<nav class="site-navigation main-navigation">
-				<button class="menu-toggle" aria-controls="primary-menu"><?php _s_do_svg( array( 'icon' => 'bars', 'title' => 'Display Menu' ) ); ?><span class="menu-toggle-text"><?php esc_html_e( 'Menu', '_s' ); ?></span></button>
+				<button class="menu-toggle" aria-controls="primary-menu"><?php <%= appString %>_do_svg( array( 'icon' => 'bars', 'title' => 'Display Menu' ) ); ?><span class="menu-toggle-text"><?php esc_html_e( 'Menu', '<%= appString %>' ); ?></span></button>
 				<?php
 					wp_nav_menu( array(
 						'theme_location' => 'primary',

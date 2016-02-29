@@ -4,11 +4,15 @@ var bourbon = require('bourbon').includePaths;
 var browserSync = require('browser-sync');
 var cheerio = require('gulp-cheerio');
 var concat = require('gulp-concat');
+var conflict = require('gulp-conflict');
 var cssnano = require('gulp-cssnano');
 var del = require('del');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var imagemin = require('gulp-imagemin');
+var include = require('gulp-file-include');
+var install = require('gulp-install');
+var inquirer = require('inquirer');
 var mqpacker = require('css-mqpacker');
 var neat = require('bourbon-neat').includePaths;
 var notify = require('gulp-notify');
@@ -16,6 +20,7 @@ var plumber = require('gulp-plumber');
 var postcss = require('gulp-postcss');
 var reload = browserSync.reload;
 var rename = require('gulp-rename');
+var replace = require('gulp-replace');
 var sass = require('gulp-sass');
 var sassLint = require('gulp-sass-lint');
 var sort = require('gulp-sort');
@@ -23,6 +28,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var spritesmith = require('gulp.spritesmith');
 var svgmin = require('gulp-svgmin');
 var svgstore = require('gulp-svgstore');
+var template = require('gulp-template');
 var uglify = require('gulp-uglify');
 var wpPot = require('gulp-wp-pot');
 
@@ -36,24 +42,6 @@ var paths = {
 	scripts: 'assets/js/concat/*.js',
 	sprites: 'assets/images/sprites/*.png'
 };
-
-/**
- * Handle errors and alert the user.
- */
-function handleErrors () {
-	var args = Array.prototype.slice.call(arguments);
-
-	notify.onError({
-		title: 'Task Failed [<%= error.message %>',
-		message: 'See console.',
-		sound: 'Sosumi' // See: https://github.com/mikaelbr/node-notifier#all-notification-options-with-their-defaults
-	}).apply(this, args);
-
-	gutil.beep(); // Beep 'sosumi' again
-
-	// Prevent the 'watch' task from stopping
-	this.emit('end');
-}
 
 /**
  * Delete style.css and style.min.css before we minify and optimize
@@ -283,6 +271,125 @@ gulp.task('watch', function() {
 	gulp.watch(paths.scripts, ['scripts']);
 	gulp.watch(paths.sprites, ['sprites']);
 });
+
+/**
+ * Handle errors and alert the user.
+ */
+function handleErrors () {
+	var args = Array.prototype.slice.call(arguments);
+
+	notify.onError({
+		title: 'Task Failed [<%= error.message %>',
+		message: 'See console.',
+		sound: 'Sosumi' // See: https://github.com/mikaelbr/node-notifier#all-notification-options-with-their-defaults
+	}).apply(this, args);
+
+	gutil.beep(); // Beep 'sosumi' again
+
+	// Prevent the 'watch' task from stopping
+	this.emit('end');
+}
+
+/**
+ * Scaffold our theme - set up text domains, project info in style.css, grid widths
+ */
+
+var format = function(string) {
+    var username = string.toLowerCase();
+    return username.replace(/\s/g, '');
+};
+
+var defaults = (function () {
+    var homeDir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE,
+        workingDirName = process.cwd().split('/').pop().split('\\').pop(),
+        osUserName = homeDir && homeDir.split('/').pop() || 'root',
+        configFile = homeDir + '/.gitconfig',
+        user = {};
+
+    return {
+        appString: workingDirName,
+        userName: osUserName || format(user.name || ''),
+        authorName: user.name || '',
+        authorEmail: user.email || ''
+    };
+})();
+
+gulp.task('wd_s', function (done) {
+    var prompts = [{
+        name: 'appName',
+        message: 'What is the name of your theme?',
+    },{
+        name: 'appString',
+        message: 'PHP function prefix (alpha and underscore characters only)',
+        default: defaults.appString
+    },{
+        name: 'appURI',
+        message: 'What is the theme URI?',
+        default: 'http://webdevstudios.com'
+    }, {
+        name: 'appDescription',
+        message: 'What is the theme description?'
+    }, {
+        name: 'appVersion',
+        message: 'What is the version of your theme?',
+        default: '0.1.0'
+    }, {
+        name: 'authorName',
+        message: 'What is the theme author name?',
+        default: defaults.authorName
+    }, {
+        name: 'authorEmail',
+        message: 'What is the theme author email?',
+        default: defaults.authorEmail
+    }, {
+        name: 'authorURI',
+        message: 'What is the theme author URI?',
+        default: 'http://underscores.me'
+    }, {
+        type: 'confirm',
+        name: 'moveon',
+        message: 'Continue?'
+    }];
+    //Ask
+    inquirer.prompt(prompts,
+        function (answers) {
+
+            if (!answers.moveon) {
+                return done();
+            }
+
+            answers.appStringSlug = _.slugify(answers.appString);
+			answers.appStringVar = answers.appStringSlug.replace(/-/g, 'wd_s');
+
+            gulp.src(__dirname + '/**')
+                .pipe(template(answers))
+                .pipe(include({
+                    prefix: '@@',
+                    basepath: __dirname + '',
+                    context: {
+						themeType: answers.themeType
+                    }
+                }))
+                .pipe(rename(function (file) {
+                    if (file.basename[0] === '_' && file.extname !== '.scss') {
+                        file.basename = '.' + file.basename.slice(1);
+                    }
+                }))
+                .pipe(conflict('./'))
+                .pipe(gulp.dest('./'))
+                .pipe(install())
+                .on('finish', function () {
+                    done();
+                });
+
+			process.on('exit', function() {
+				gutil.log('Installation complete!');
+			});
+        }
+	);
+});
+
+
 
 /**
  * Create indivdual tasks.

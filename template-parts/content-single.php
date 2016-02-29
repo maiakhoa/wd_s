@@ -1,6 +1,6 @@
 <?php
 /**
- * @package _s
+ * @package <%= appString %>
  */
 ?>
 
@@ -9,7 +9,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 		<div class="entry-meta">
-			<?php _s_posted_on(); ?>
+			<?php <%= appString %>_posted_on(); ?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
@@ -17,7 +17,7 @@
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', '_s' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', '<%= appString %>' ),
 				'after'  => '</div>',
 			) );
 		?>

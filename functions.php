@@ -1,13 +1,13 @@
 <?php
 /**
- * _s functions and definitions.
+ * <%= appString %> functions and definitions.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package _s
+ * @package <%= appString %>
  */
 
-if ( ! function_exists( '_s_setup' ) ) :
+if ( ! function_exists( '<%= appString %>_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -15,7 +15,7 @@ if ( ! function_exists( '_s_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function _s_setup() {
+function <%= appString %>_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
@@ -24,7 +24,7 @@ function _s_setup() {
 	 * You will also need to update the Gulpfile with the new text domain
 	 * and matching destination POT file.
 	 */
-	load_theme_textdomain( '_s', get_template_directory() . '/languages' );
+	load_theme_textdomain( '<%= appString %>', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -46,7 +46,7 @@ function _s_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', '_s' ),
+		'primary' => esc_html__( 'Primary Menu', '<%= appString %>' ),
 	) );
 
 	/*
@@ -62,13 +62,13 @@ function _s_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( '_s_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( '<%= appString %>_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 
 	// Add styles to the post editor
-	add_editor_style( array( 'editor-style.css', _s_font_url() ) );
+	add_editor_style( array( 'editor-style.css', <%= appString %>_font_url() ) );
 
 	/**
 	 * Enable support and set configuration options for
@@ -92,9 +92,9 @@ function _s_setup() {
 
 		// Define areas
 		$page_builder_areas = array(
-			'hero'           => array( 'name' => esc_html__( 'Hero Area', '_s' ), ),
-			'before_content' => array( 'name' => esc_html__( 'Before Content Area', '_s' ), ),
-			'after_content'  => array( 'name' => esc_html__( 'After Content Area', '_s' ), ),
+			'hero'           => array( 'name' => esc_html__( 'Hero Area', '<%= appString %>' ), ),
+			'before_content' => array( 'name' => esc_html__( 'Before Content Area', '<%= appString %>' ), ),
+			'after_content'  => array( 'name' => esc_html__( 'After Content Area', '<%= appString %>' ), ),
 		);
 
 		// Loop through and register each area
@@ -103,8 +103,8 @@ function _s_setup() {
 		}
 	}
 }
-endif; // _s_setup
-add_action( 'after_setup_theme', '_s_setup' );
+endif; // <%= appString %>_setup
+add_action( 'after_setup_theme', '<%= appString %>_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -113,23 +113,23 @@ add_action( 'after_setup_theme', '_s_setup' );
  *
  * @global int $content_width
  */
-function _s_content_width() {
-	$GLOBALS['content_width'] = apply_filters( '_s_content_width', 640 );
+function <%= appString %>_content_width() {
+	$GLOBALS['content_width'] = apply_filters( '<%= appString %>_content_width', 640 );
 }
-add_action( 'after_setup_theme', '_s_content_width', 0 );
+add_action( 'after_setup_theme', '<%= appString %>_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function _s_widgets_init() {
+function <%= appString %>_widgets_init() {
 
 	// Define sidebars
 	$sidebars = array(
-		'sidebar-1'  => esc_html__( 'Sidebar 1', '_s' ),
-	//	'sidebar-2'  => esc_html__( 'Sidebar 2', '_s' ),
-	//	'sidebar-3'  => esc_html__( 'Sidebar 3', '_s' ),
+		'sidebar-1'  => esc_html__( 'Sidebar 1', '<%= appString %>' ),
+	//	'sidebar-2'  => esc_html__( 'Sidebar 2', '<%= appString %>' ),
+	//	'sidebar-3'  => esc_html__( 'Sidebar 3', '<%= appString %>' ),
 	);
 
 	// Loop through each sidebar and register
@@ -137,7 +137,7 @@ function _s_widgets_init() {
 		register_sidebar( array(
 			'name'          => $sidebar_name,
 			'id'            => $sidebar_id,
-			'description'   => sprintf ( esc_html__( 'Widget area for %s', '_s' ), $sidebar_name ),
+			'description'   => sprintf ( esc_html__( 'Widget area for %s', '<%= appString %>' ), $sidebar_name ),
 			'before_widget' => '<aside class="widget %2$s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h3 class="widget-title">',
@@ -146,7 +146,7 @@ function _s_widgets_init() {
 	}
 
 }
-add_action( 'widgets_init', '_s_widgets_init' );
+add_action( 'widgets_init', '<%= appString %>_widgets_init' );
 
 /**
  * Implement the Custom Header feature.

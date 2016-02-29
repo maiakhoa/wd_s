@@ -30,25 +30,25 @@ Basic knowledge of the command line and the following dependencies are required 
 cd /your-project/wordpress/wp-content/themes/your-theme
 ```
 
-3) Find & Replace
-
-You'll need to change all instances of the names: `_s`. While this can be a tedious chore, editors like SublimeText can do a global "find & replace" allowing you to do this in under 60 seconds.
-
-* Search for: `'_s'` and replace with: `'project-name'` (inside single quotations) to capture the text domain
-* Search for: `_s_` and replace with: `project-name_` to capture all the function names
-* Search for: `Text Domain: _s` and replace with: `Text Domain: project-name` in style.css
-* Search for (and include the leading space): <code>&nbsp;_s</code> and replace with: <code>&nbsp;Project Name</code> (with a space before it) to capture DocBlocks
-* Search for: `_s-` and replace with: `project-name-` to capture prefixed handles
-* Search for `_s.pot` and replace with: `project-name.pot` to capture translation files
-* Search for `_s.com` and replace with: `project-name.dev` to match your local development URL
-* Edit the theme information in the header of style.scss to meet your needs
-
-4) Install Node dependencies
+3) Install Node dependencies
 
 ```bash
 npm install
 ```
 ![Install and Gulp](https://dl.dropbox.com/s/cj1p6xjz51cpckq/wd_s-install.gif?dl=0)
+
+4) Theme Generation
+
+wd_s can automatically change all instances of the names: `_s` using Gulp. 
+
+* From the command line, within your theme directory, type 
+
+```bash
+gulp wd_s
+```
+
+* Answer each question to give your new theme a name and name your functions.
+
 
 You are now ready to use wd_s!
 
