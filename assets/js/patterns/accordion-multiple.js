@@ -1,4 +1,4 @@
-window.SupportAccordionContent = {};
+window.MultipleAccordionContent = {};
 ( function( window, $, that ) {
 
 	// Constructor.
@@ -36,11 +36,21 @@ window.SupportAccordionContent = {};
 
 	// Show/hide the corresponding trigger's content
 	that.showHideContent = function() {
-		$( this ).toggleClass( 'active' );
-		$( this ).parents( 'article' ).find( '.accordion-content' ).slideToggle();
+
+		// If this accordion is already displaying its content, remove the class, hide the content, and return
+		if ( $( this ).parents( '.section' ).hasClass( 'active' ) ) {
+			$( this ).parents( '.section' ).removeClass( 'active' ).find( '.accordion-content' ).slideUp();
+			return;
+		}
+
+		// Add active class to THIS trigger
+		$( this ).parents( '.section' ).addClass( 'active' );
+
+		// Slide THIS accordion content down
+		$( this ).parents( '.section' ).find( '.accordion-content' ).slideToggle();
 	}
 
 	// Engage!
 	$( that.init );
 
-})( window, jQuery, window.SupportAccordionContent );
+})( window, jQuery, window.MultipleAccordionContent );

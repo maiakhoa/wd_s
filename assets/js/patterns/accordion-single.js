@@ -1,4 +1,4 @@
-window.SupportAccordionContent = {};
+window.SingleAccordionContent = {};
 ( function( window, $, that ) {
 
 	// Constructor.
@@ -60,4 +60,4 @@ window.SupportAccordionContent = {};
 	// Engage!
 	$( that.init );
 
-})( window, jQuery, window.SupportAccordionContent );
+})( window, jQuery, window.SingleAccordionContent );
