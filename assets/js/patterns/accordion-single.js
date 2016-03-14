@@ -38,23 +38,23 @@ window.SupportAccordionContent = {};
 	that.showHideContent = function() {
 
 		// If this accordion is already displaying its content, remove the class, hide the content, and return
-		if ( $( this ).hasClass( 'active' ) ) {
-			$( '.accordion-trigger' ).removeClass( 'active' );
+		if ( $( this ).parents( '.section' ).hasClass( 'active' ) ) {
+			$( '.section' ).removeClass( 'active' );
 			$( this ).parents( 'article' ).find( '.accordion-content' ).slideUp();
 			return;
 		}
-		
-		// Remove activec alss from all triggers
-		$( '.accordion-trigger' ).removeClass( 'active' );
-		
+
+		// Remove activec alss from all sections
+		$( '.section' ).removeClass( 'active' );
+
 		// Add active class to THIS trigger
-		$( this ).addClass( 'active' );
-		
-		// Slide all accordion content up
+		$( this ).parents( '.section' ).addClass( 'active' );
+
+		// // Slide all accordion content up
 		$( '.accordion-content' ).slideUp();
-		
+
 		// Slide THIS accordion content down
-		$( this ).parents( 'article' ).find( '.accordion-content' ).slideToggle();
+		$( this ).parents( '.section' ).find( '.accordion-content' ).slideToggle();
 	}
 
 	// Engage!
